@@ -1,4 +1,4 @@
-# WPBuilderKit - WordPress Theme & Plugin Development
+# UXMastery - WordPress Theme & Plugin Development
 
 ## Mô tả
 Dự án này bao gồm một theme WordPress cơ bản và một plugin mở rộng các thành phần cho theme (addons thêm cho elementor,...). Bạn có thể phát triển song song cả theme và plugin, quản lý SCSS và JS chung thông qua Gulp.
