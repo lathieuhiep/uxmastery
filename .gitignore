@@ -1,0 +1,24 @@
+# Bỏ qua tất cả các tệp trong wp-content
+*
+
+# Bỏ qua các tệp không cần thiết khác
+/node_modules
+package-lock.json
+.env
+
+# Loại trừ phần phát triển
+!plugins/
+!plugins/essential-features-addon/
+!plugins/essential-features-addon/**
+
+!themes/
+!themes/uxmastery/
+!themes/uxmastery/**
+
+!src/
+!src/**
+
+!.gitignore
+!gulpfile.js
+!package.json
+!README.md
