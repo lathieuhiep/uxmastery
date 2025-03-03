@@ -31,14 +31,16 @@ function uxmastery_front_end_libs(): void {
 	wp_dequeue_style('storefront-gutenberg-blocks');
 
 	// font google
-	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto+Slab:wght@400;500;700&display=swap', array(), null );
+	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Roboto:400,500&amp;display=swap%7CMontserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap', array(), null );
+
+	wp_enqueue_style( 'uxmastery-vendor', get_theme_file_uri( '/assets/css/vendor.min.css' ), array(), uxmastery_get_version_theme() );
 
 	// bootstrap css
-	wp_enqueue_style( 'bootstrap', get_theme_file_uri( '/assets/libs/bootstrap/bootstrap.min.css' ), array(), null );
-	wp_enqueue_script( 'bootstrap', get_theme_file_uri( '/assets/libs/bootstrap/bootstrap.bundle.min.js' ), array('jquery'), null, true );
+//	wp_enqueue_style( 'bootstrap', get_theme_file_uri( '/assets/libs/bootstrap/bootstrap.min.css' ), array(), null );
+//	wp_enqueue_script( 'bootstrap', get_theme_file_uri( '/assets/libs/bootstrap/bootstrap.bundle.min.js' ), array('jquery'), null, true );
 
 	// fontawesome
-	wp_enqueue_style( 'fontawesome', get_theme_file_uri( '/assets/libs/fontawesome/css/fontawesome.min.css' ), array(), '6.7.2' );
+//	wp_enqueue_style( 'fontawesome', get_theme_file_uri( '/assets/libs/fontawesome/css/fontawesome.min.css' ), array(), '6.7.2' );
 }
 
 // load front-end styles
@@ -69,6 +71,8 @@ function uxmastery_front_end_scripts (): void {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	// custom js
-	wp_enqueue_script( 'uxmastery-custom', get_theme_file_uri( '/assets/js/custom.min.js' ), array('jquery'), uxmastery_get_version_theme(), true );
+	// functions js
+	wp_enqueue_script( 'uxmastery-vendor', get_theme_file_uri( '/assets/js/vendor.min.js' ), array('jquery'), uxmastery_get_version_theme(), true );
+
+	wp_enqueue_script( 'uxmastery-functions', get_theme_file_uri( '/assets/js/functions.js' ), array('jquery'), uxmastery_get_version_theme(), true );
 }

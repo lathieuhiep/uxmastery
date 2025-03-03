@@ -67,6 +67,13 @@ function disable_gutenberg_editor(): bool {
 // disable gutenberg widgets
 add_filter('use_widgets_block_editor', '__return_false');
 
+function uxmastery_add_custom_class_to_menu_item( $classes, $item, $args ) {
+	// Thêm class tùy chỉnh vào tất cả các mục
+	$classes[] = 'nav-item';
+	return $classes;
+}
+add_filter( 'nav_menu_css_class', 'uxmastery_add_custom_class_to_menu_item', 10, 3 );
+
 // Walker for the main menu
 add_filter( 'walker_nav_menu_start_el', 'uxmastery_add_arrow',10,4);
 function uxmastery_add_arrow( $output, $item, $depth, $args ){

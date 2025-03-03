@@ -206,6 +206,7 @@ function buildStyleTheme() {
         .pipe(dest(`${paths.output.theme.css}`))
         .pipe(browserSync.stream())
 }
+exports.buildStyleTheme = buildStyleTheme
 
 function buildJSTheme() {
     return src(`${paths.theme.js}*.js`, {allowEmpty: true})
