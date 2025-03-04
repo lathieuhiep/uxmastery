@@ -1,6 +1,6 @@
 //Base rules
-@import "base/vars";
-@import "base/mixins";
+@import "../../shared/scss/abstracts/vars";
+@import "../../shared/scss/abstracts/mixins";
 @import "base/base";
 @import "base/wp-core";
 
@@ -30,7 +30,6 @@
 @import "module/services";
 @import "module/thank-you";
 @import "module/testimonial";
-@import "module/feature";
 @import "module/action";
 @import "module/pricing";
 @import "module/footer";

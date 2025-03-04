@@ -291,6 +291,7 @@ function buildStyleElementor() {
         .pipe(dest(`${paths.output.plugins.efa.css}`))
         .pipe(browserSync.stream())
 }
+exports.buildStyleElementor = buildStyleElementor
 
 // Task build style custom login
 function buildStyleCustomLogin() {

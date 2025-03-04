@@ -1,11 +1,14 @@
 // base
+@import "../../../shared/scss/abstracts/abstracts";
 @import "base/base";
 
 // components
-@import "components/grid";
+//@import "components/grid";
 
 // addons
-@import "addons/slides";
-@import "addons/post-grid";
-@import "addons/post-carousel";
-@import "addons/testimonial-slider";
+@import "addons/image-text-block";
+
+//@import "addons/slides";
+//@import "addons/post-grid";
+//@import "addons/post-carousel";
+//@import "addons/testimonial-slider";
