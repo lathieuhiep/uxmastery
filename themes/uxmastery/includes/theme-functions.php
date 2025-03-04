@@ -228,19 +228,22 @@ function uxmastery_get_social_url(): void {
 	$opt_social_networks = uxmastery_get_option( 'opt_social_networks' );
 
 	if ( ! empty( $opt_social_networks ) ) :
-		foreach ( $opt_social_networks as $item ) :
-			if ( empty( $item['item'] ) ) {
-				continue;
-			}
-			?>
-            <div class="social-network-item">
-                <a href="<?php echo esc_url( $item['url'] ); ?>" target="_blank">
-                    <i class="fab fa-<?php echo esc_attr( $item['item'] ); ?>"></i>
-                </a>
-            </div>
-		<?php
-
-		endforeach;
+    ?>
+    <ul class="list-unstyled">
+        <?php
+            foreach ( $opt_social_networks as $item ) :
+                if ( empty( $item['item'] ) ) {
+                    continue;
+                }
+            ?>
+                <li class="social-network-item">
+                    <a href="<?php echo esc_url( $item['url'] ); ?>" target="_blank">
+                        <i class="fab fa-<?php echo esc_attr( $item['item'] ); ?>"></i>
+                    </a>
+                </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php
 	endif;
 }
 

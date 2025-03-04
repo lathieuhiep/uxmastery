@@ -24,7 +24,9 @@ if( is_active_sidebar( 'sidebar-footer-column-1' ) || is_active_sidebar( 'sideba
 		            if( is_active_sidebar( 'sidebar-footer-column-'.$j ) ):
 			            ?>
                         <div class="col-12 col-sm-<?php echo esc_attr( $cols['sm'] ); ?> col-md-<?php echo esc_attr( $cols['md'] ); ?> col-lg-<?php echo esc_attr( $cols['lg'] ); ?> col-xl-<?php echo esc_attr( $cols['xl'] ); ?>">
-				            <?php dynamic_sidebar( 'sidebar-footer-column-'.$j ); ?>
+                            <div class="footer-widget">
+	                            <?php dynamic_sidebar( 'sidebar-footer-column-'.$j ); ?>
+                            </div>
                         </div>
 		            <?php
 		            endif;

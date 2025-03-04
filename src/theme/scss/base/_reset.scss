@@ -17,46 +17,46 @@ dd,
 ol,
 ul,
 li {
-    margin : 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 *,
 :active,
 :focus {
-    outline: none !important;
+  outline: none !important;
 }
 
 ul,
 ol {
-    list-style: none;
+  list-style: none;
 }
 
 textarea {
-    resize: none;
+  resize: none;
 }
 
 ::selection {
-    text-shadow: none;
+  text-shadow: none;
 }
 
 ::-moz-selection {
-    text-shadow: none;
+  text-shadow: none;
 }
 
 ::-webkit-selection {
-    text-shadow: none;
+  text-shadow: none;
 }
 
 .form-control {
-    box-shadow: none;
+  box-shadow: none;
 
-    &:focus {
-        box-shadow: none;
-    }
+  &:focus {
+    box-shadow: none;
+  }
 }
 
 hr {
-    margin      : 0;
-    border-color: #FBEBEB;
+  margin: 0;
+  border-color: #FBEBEB;
 }

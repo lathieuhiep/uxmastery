@@ -16,9 +16,9 @@ ul {
 }
 
 section {
-  padding-top   : 100px;
+  padding-top: 100px;
   padding-bottom: 100px;
-  overflow      : hidden;
+  overflow: hidden;
 }
 
 /* All margin */
@@ -447,9 +447,9 @@ section {
   display: flex;
 }
 
-@media only screen and (max-width : 767px) {
+@media only screen and (max-width: 767px) {
   section {
-    padding-top   : 60px;
+    padding-top: 60px;
     padding-bottom: 60px;
   }
 
@@ -458,7 +458,7 @@ section {
   }
 
   .pull-none-xs {
-    float     : none !important;
+    float: none !important;
     text-align: center !important;
   }
 
@@ -480,11 +480,11 @@ section {
 
   .p-none-xs {
     padding-right: 0;
-    padding-left : 0;
+    padding-left: 0;
   }
 }
 
-@media only screen and (min-width : 768px) and (max-width : 991px) {
+@media only screen and (min-width: 768px) and (max-width: 991px) {
   .text-center-sm {
     text-align: center !important;
   }
@@ -527,18 +527,18 @@ section {
 
   .p-none-sm {
     padding-right: 0;
-    padding-left : 0;
+    padding-left: 0;
   }
 
   .pull-none-sm {
-    float     : none !important;
+    float: none !important;
     text-align: center !important;
   }
 }
 
-@media screen and (min-width:992px) {
+@media screen and (min-width: 992px) {
   .p-lg-60 {
     padding-right: 60px;
-    padding-left : 60px;
+    padding-left: 60px;
   }
 }
