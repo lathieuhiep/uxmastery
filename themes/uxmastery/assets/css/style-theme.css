@@ -1509,11 +1509,6 @@ a.back span {
 .heading {
   margin-bottom: 38px;
 }
-@media screen and (max-width:767px) {
-  .heading {
-    text-align: center;
-  }
-}
 .heading .heading-title {
   font-family: "Montserrat", sans-serif;
   color: #212529;

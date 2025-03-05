@@ -152,6 +152,31 @@ class EFA_Widget_Image_And_Text_Block extends Widget_Base {
 
 		$this->end_controls_section();
 
+        // Style Icon
+		$this->start_controls_section(
+			'style_icon',
+			[
+				'label' => esc_html__( 'Icon', 'essential-features-addon' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+                'condition' => [
+                    'icon_or_image' => 'icon',
+                ],
+			]
+		);
+
+		$this->add_control(
+			'icon_color',
+			[
+				'label'     => esc_html__( 'Màu', 'essential-features-addon' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .efa-addon-image-text-block .select-box.icon-box' => '--efa-icon-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
 		// Style Heading
 		$this->start_controls_section(
 			'style_heading',
@@ -161,45 +186,13 @@ class EFA_Widget_Image_And_Text_Block extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
-			'heading_align',
-			[
-				'label'     => esc_html__( 'Căn chỉnh', 'essential-features-addon' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
-					'left' => [
-						'title' => esc_html__( 'Trái', 'essential-features-addon' ),
-						'icon'  => 'eicon-text-align-left',
-					],
-
-					'center' => [
-						'title' => esc_html__( 'Giữa', 'essential-features-addon' ),
-						'icon'  => 'eicon-text-align-center',
-					],
-
-					'right' => [
-						'title' => esc_html__( 'Phải', 'essential-features-addon' ),
-						'icon'  => 'eicon-text-align-right',
-					],
-
-					'justify' => [
-						'title' => esc_html__( 'Căn đều hai lề', 'essential-features-addon' ),
-						'icon'  => 'eicon-text-align-justify',
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .element-heading-with-editor .heading' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-
 		$this->add_control(
 			'heading_color',
 			[
 				'label'     => esc_html__( 'Màu', 'essential-features-addon' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .element-heading-with-editor .heading' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .efa-addon-image-text-block .content-box .heading' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -209,7 +202,7 @@ class EFA_Widget_Image_And_Text_Block extends Widget_Base {
 			[
 				'name'     => 'heading_typography',
 				'label'    => esc_html__( 'Kiểu chữ', 'essential-features-addon' ),
-				'selector' => '{{WRAPPER}} .element-heading-with-editor .heading',
+				'selector' => '{{WRAPPER}} .efa-addon-image-text-block .content-box .heading',
 			]
 		);
 
@@ -224,45 +217,13 @@ class EFA_Widget_Image_And_Text_Block extends Widget_Base {
 			]
 		);
 
-		$this->add_responsive_control(
-			'desc_align',
-			[
-				'label'     => esc_html__( 'Căn chỉnh', 'essential-features-addon' ),
-				'type'      => Controls_Manager::CHOOSE,
-				'options'   => [
-					'left' => [
-						'title' => esc_html__( 'Trái', 'essential-features-addon' ),
-						'icon'  => 'eicon-text-align-left',
-					],
-
-					'center' => [
-						'title' => esc_html__( 'Giữa', 'essential-features-addon' ),
-						'icon'  => 'eicon-text-align-center',
-					],
-
-					'right' => [
-						'title' => esc_html__( 'Phải', 'essential-features-addon' ),
-						'icon'  => 'eicon-text-align-right',
-					],
-
-					'justify' => [
-						'title' => esc_html__( 'Căn đều hai lề', 'essential-features-addon' ),
-						'icon'  => 'eicon-text-align-justify',
-					],
-				],
-				'selectors' => [
-					'{{WRAPPER}} .element-heading-with-editor .desc' => 'text-align: {{VALUE}};',
-				],
-			]
-		);
-
 		$this->add_control(
 			'desc_color',
 			[
 				'label'     => esc_html__( 'Color', 'essential-features-addon' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .element-heading-with-editor .desc' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .efa-addon-image-text-block .content-box .desc' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -272,7 +233,7 @@ class EFA_Widget_Image_And_Text_Block extends Widget_Base {
 			[
 				'name'     => 'desc_typography',
 				'label'    => esc_html__( 'Kiểu chữ', 'essential-features-addon' ),
-				'selector' => '{{WRAPPER}} .element-heading-with-editor .desc',
+				'selector' => '{{WRAPPER}} .efa-addon-image-text-block .content-box .desc',
 			]
 		);
 
@@ -289,14 +250,14 @@ class EFA_Widget_Image_And_Text_Block extends Widget_Base {
 		$image_size    = $settings['image_size'];
 		?>
         <div class="efa-addon-image-text-block">
-            <?php if ( $icon || ( $image && $image['id'] ) ) : ?>
+            <?php if ( ($icon_or_image == 'icon' && $icon) || ( $icon_or_image == 'image' && $image && $image['id'] ) ) : ?>
                 <div class="select-box <?php echo esc_attr( $icon_or_image ); ?>-box">
                     <?php if ( $icon_or_image == 'icon' && $icon ) : ?>
-                        <i class="<?php echo esc_attr( $icon ); ?>"></i>
+                        <i class="icon <?php echo esc_attr( $icon ); ?>"></i>
                     <?php endif; ?>
 
 	                <?php if ( $icon_or_image == 'image' && $image['id'] ) : ?>
-		                <?php echo wp_get_attachment_image( $image['id'], $image_size ); ?>
+		                <?php echo wp_get_attachment_image( $image['id'], $image_size, false, array('class' => 'icon') ); ?>
 	                <?php endif; ?>
                 </div>
             <?php endif; ?>
@@ -330,14 +291,14 @@ class EFA_Widget_Image_And_Text_Block extends Widget_Base {
         var tag = settings.html_tag || 'h2'; // Nếu không có tag, mặc định là h2
         #>
         <div class="efa-addon-image-text-block">
-            <# if ( icon || ( image && image.id ) ) { #>
-            <div class="image-box">
+            <# if ( ( iconOrImage == 'icon' && icon ) || ( iconOrImage == 'image' && image && image.id ) ) { #>
+            <div class="select-box {{ iconOrImage }}-box">
                 <# if ( iconOrImage == 'icon' && icon ) { #>
-                <i class="{{ icon }}"></i>
+                <i class="icon {{ icon }}"></i>
                 <# } #>
 
                 <# if ( iconOrImage == 'image' && image.id ) { #>
-                <img src="{{ image.url }}" alt="{{ image.alt }}" class="attachment-{{ imageSize }}" />
+                <img src="{{ image.url }}" alt="{{ image.alt }}" class="icon attachment-{{ imageSize }}" />
                 <# } #>
             </div>
             <# } #>
