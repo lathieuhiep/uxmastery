@@ -108,4 +108,22 @@ class EFA_Widget_Video_Popup extends Widget_Base {
 		</div>
 	<?php
 	}
+
+	protected function content_template() {
+    ?>
+        <#
+        var image = settings.image;
+        var imageSize = settings.image_size;
+        #>
+        <div class="efa-addon-video-popup">
+            <div class="bg-video">
+                <img src="{{ image.url }}" alt="{{ image.alt }}" class="{{ imageSize }}">
+            </div>
+
+            <a class="btn-video-popup" href="{{ settings.video_url }}" data-lity>
+                <i class="fas fa-play"></i>
+            </a>
+        </div>
+		<?php
+	}
 }

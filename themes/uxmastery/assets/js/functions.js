@@ -159,13 +159,6 @@
         });
     }
 
-    /* ------------------  COUNTER UP ------------------ */
-
-    $(".counting").counterUp({
-        delay: 10,
-        time: 1000
-    });
-
     /* ------------------ OWL CAROUSEL ------------------ */
 
     $(".owl-carousel").each(function () {

@@ -16,14 +16,26 @@
     }
 
     /* Start Carousel slider */
-    let ElementCarouselSlider = function ($scope, $) {
-        let slider = $scope.find('.custom-owl-carousel');
+    const ElementCarouselSlider = function ($scope, $) {
+        const slider = $scope.find('.custom-owl-carousel');
 
         if ( slider.length ) {
             const options = slider.data('settings-owl');
             slider.owlCarousel(owlCarouselOptions(options))
         }
     };
+
+    /* counter up */
+    const ElementCounterUp = function ($scope, $) {
+        const counting = $scope.find('.counting');
+
+        if ( counting.length ) {
+            counting.counterUp({
+                delay: 10,
+                time: 1000
+            });
+        }
+    }
 
     $(window).on('elementor/frontend/init', function () {
         /* Element slider */
@@ -37,6 +49,9 @@
 
         /* Element carousel images */
         elementorFrontend.hooks.addAction('frontend/element_ready/efa-carousel-images.default', ElementCarouselSlider);
+
+        /* Element counter up */
+        elementorFrontend.hooks.addAction('frontend/element_ready/efa-service-card.default', ElementCounterUp);
     });
 
 })(jQuery);

@@ -328,6 +328,7 @@ function buildJPluginEFA() {
         .pipe(dest(`${paths.output.plugins.efa.js}`))
         .pipe(browserSync.stream())
 }
+exports.buildJPluginEFA = buildJPluginEFA
 
 /*
 Task build project

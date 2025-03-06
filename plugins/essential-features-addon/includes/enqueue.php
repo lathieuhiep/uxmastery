@@ -13,6 +13,9 @@ function efa_elementor_script_libs (): void {
 		wp_register_style( 'owl.carousel', EFA_PLUGIN_URL . 'assets/libs/owl.carousel/owl.carousel.min.css' );
 		wp_register_script('owl.carousel', EFA_PLUGIN_URL . 'assets/libs/owl.carousel/owl.carousel.min.js', array('jquery'), '2.3.4', true);
 
+		// counterup
+		wp_register_script( 'counterup', EFA_PLUGIN_URL . 'assets/libs/jquery.counterup.min.js', array( 'jquery' ), '1.0', true );
+
 		// js plugin
 		wp_register_script( 'efa-elementor-script', EFA_PLUGIN_URL . 'assets/js/efa-elementor.min.js', array( 'jquery' ), EFA_PLUGIN_VERSION, true );
 	}
