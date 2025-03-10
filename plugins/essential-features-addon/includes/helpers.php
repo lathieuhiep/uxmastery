@@ -384,6 +384,19 @@ function efa_flaticon_icons(): array {
 		'flaticon-zoom-out' => 'Icon Zoom Out'
 	);
 }
+
+// html tag heading
+function efa_html_tag_heading(): array {
+	return [
+		'h1' => 'H1',
+		'h2' => 'H2',
+		'h3' => 'H3',
+		'h4' => 'H4',
+		'h5' => 'H5',
+		'h6' => 'H6'
+	];
+}
+
 // Get Category Check Box
 function efa_check_get_cat( $type_taxonomy ): array {
 	$cat_check = array();

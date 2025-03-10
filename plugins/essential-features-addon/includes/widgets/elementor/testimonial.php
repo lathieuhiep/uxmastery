@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class EFA_Widget_Testimonial_Slider extends Widget_Base {
+class EFA_Widget_Testimonial extends Widget_Base {
 
 	// widget name
 	public function get_name(): string {
@@ -184,46 +184,62 @@ class EFA_Widget_Testimonial_Slider extends Widget_Base {
 		$settings = $this->get_settings_for_display();
 
 		$data_settings_owl = [
-			'items'    => 1,
-			'loop'     => ( 'yes' === $settings['loop'] ),
-			'nav'      => $settings['navigation'] == 'both' || $settings['navigation'] == 'arrows',
-			'dots'     => $settings['navigation'] == 'both' || $settings['navigation'] == 'dots',
-			'autoplay' => ( 'yes' === $settings['autoplay'] )
+			'items'      => 3,
+			'loop'       => ( 'yes' === $settings['loop'] ),
+			'nav'        => $settings['navigation'] == 'both' || $settings['navigation'] == 'arrows',
+			'dots'       => $settings['navigation'] == 'both' || $settings['navigation'] == 'dots',
+			'autoplay'   => ( 'yes' === $settings['autoplay'] ),
+			'margin'     => 30,
+			'center'     => true,
+			'navText'    => [ '', '' ],
+			'responsive' => [
+				0    => [
+					'items' => 1,
+				],
+				600  => [
+					'items' => 2,
+				],
+				1000 => [
+					'items' => 3,
+				],
+			],
 		];
 		?>
 
-        <div class="efa-addon-testimonial-slider">
-            <div class="custom-owl-carousel owl-carousel owl-theme"
+        <div class="efa-addon-testimonial">
+            <div class="custom-owl-carousel carousel-dots carousel-navs owl-carousel owl-theme"
                  data-settings-owl='<?php echo wp_json_encode( $data_settings_owl ); ?>'>
 				<?php
 				foreach ( $settings['list'] as $item ) :
 					$imageId = $item['list_image']['id'];
 					?>
 
-                    <div class="item text-center elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
-                        <div class="item__image">
-							<?php
-							if ( $imageId ) :
-								echo wp_get_attachment_image( $item['list_image']['id'], $settings['image_size'] );
-							else:
-								?>
-                                <img src="<?php echo esc_url( EFA_PLUGIN_URL . 'assets/images/user-avatar.png' ); ?>"
-                                     alt="<?php echo esc_attr( $item['list_title'] ); ?>"/>
-							<?php endif; ?>
-                        </div>
-
-                        <div class="item__content">
-                            <div class="desc">
-								<?php echo wp_kses_post( $item['list_description'] ) ?>
+                    <div class="testimonial-panel elementor-repeater-item-<?php echo esc_attr( $item['_id'] ); ?>">
+                        <div class="testimonial-body">
+                            <div class="testimonial-icon">
+                                <span class="icon-left-quotes-sign"></span>
                             </div>
 
-                            <div class="name">
-								<?php echo esc_html( $item['list_title'] ); ?>
+                            <div class="testimonial-author">
+                                <div class="testimonial-img">
+	                                <?php
+	                                if ( $imageId ) :
+		                                echo wp_get_attachment_image( $item['list_image']['id'], $settings['image_size'] );
+	                                else:
+		                                ?>
+                                        <img src="<?php echo esc_url( EFA_PLUGIN_URL . 'assets/images/user-avatar.png' ); ?>"
+                                             alt="<?php echo esc_attr( $item['list_title'] ); ?>"/>
+	                                <?php endif; ?>
+                                </div>
+
+                                <p>
+                                    <span><?php echo esc_html( $item['list_title'] ); ?></span> <?php echo esc_html( $item['list_position'] ); ?>
+                                </p>
                             </div>
 
-                            <div class="position">
-								<?php echo esc_html( $item['list_position'] ); ?>
-                            </div>
+                            <p class="desc">
+		                        <?php echo wp_kses_post( $item['list_description'] ) ?>
+                            </p>
                         </div>
                     </div>
 

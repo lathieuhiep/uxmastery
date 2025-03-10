@@ -1,3 +1,12 @@
+body .wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+:root {
+  --line-height-menu-item: 139px;
+}
+
 body,
 html {
   overflow-x: hidden;
@@ -8,6 +17,7 @@ html {
 }
 
 body {
+  min-height: 100vh;
   background-color: #ffffff;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -15,6 +25,12 @@ body {
   color: #868E96;
   line-height: 1.5;
   margin: 0;
+}
+body .wrapper {
+  min-height: inherit;
+}
+body .wrapper .site-container {
+  flex: 1;
 }
 
 .wrapper {
@@ -1567,84 +1583,6 @@ a.back span {
 }
 
 /*------------------------------------*\
-    #Contact Form
-\*------------------------------------*/
-@media screen and (max-width:767px) {
-  .modal-dialog {
-    max-width: 310px;
-    border-radius: 4px;
-    margin-right: auto;
-    margin-left: auto;
-  }
-}
-@media screen and (min-width:768px) {
-  .modal-dialog {
-    max-width: 470px;
-    border-radius: 4px;
-  }
-}
-.popup-contact-form {
-  background-color: #ffffff;
-  text-align: center;
-  padding: 40px;
-  border-radius: 4px;
-  box-shadow: 0 3px 6px rgba(233, 120, 74, 0.16);
-}
-@media screen and (max-width:767px) {
-  .popup-contact-form {
-    padding: 10px;
-  }
-}
-.popup-contact-form .form-group {
-  position: relative;
-  height: 57px;
-  text-align: left;
-  margin-bottom: 30px;
-  padding-top: 7px;
-}
-.popup-contact-form .form-group label {
-  position: absolute;
-  left: 10px;
-  top: 0;
-  padding: 0 8px;
-  background-color: #ffffff;
-  font-size: 12px;
-  text-transform: capitalize;
-  margin-bottom: 0;
-  z-index: 1;
-}
-.popup-contact-form .form-group .form-control {
-  border: 1px solid #DEE2E6;
-  border-radius: 4px;
-  line-height: 50px;
-  height: 50px;
-  margin-bottom: 0;
-  padding-left: 17px;
-}
-.popup-contact-form .heading .heading-title {
-  font-size: 30px;
-  margin-bottom: 4px;
-  text-transform: capitalize;
-}
-@media screen and (max-width:767px) {
-  .popup-contact-form .heading .heading-title {
-    font-size: 26px;
-  }
-}
-.popup-contact-form .heading .heading-desc {
-  line-height: 1.31;
-}
-.popup-contact-form p.notice {
-  font-size: 12px;
-  line-height: 1.5;
-}
-@media screen and (min-width:768px) {
-  .popup-contact-form p.notice {
-    padding: 0 45px;
-  }
-}
-
-/*------------------------------------*\
     #HEADER
 \*------------------------------------*/
 .header.header-transparent {
@@ -1694,7 +1632,7 @@ a.back span {
   font-size: 16px;
   text-transform: capitalize;
   font-weight: 400;
-  line-height: 139px;
+  line-height: var(--line-height-menu-item);
   color: #ffffff;
   padding: 0;
   position: relative;
@@ -1749,6 +1687,12 @@ a.back span {
   }
   .header .navbar.navbar-fixed .navbar-nav > li.active a {
     color: #ffffff;
+  }
+}
+
+@media (min-width: 992px) {
+  .admin-bar .header .navbar.navbar-fixed {
+    top: 3.2rem;
   }
 }
 
@@ -1942,257 +1886,6 @@ a.back span {
 }
 
 /*------------------------------------*\
-    #Hero
-\*------------------------------------*/
-.hero {
-  padding-top: 280px;
-  padding-bottom: 0;
-  background-color: #ffffff;
-  overflow: visible;
-  background-size: cover;
-  background-position: center bottom;
-  position: relative;
-}
-@media screen and (max-width:767px) {
-  .hero {
-    padding-top: 130px;
-  }
-}
-@media screen and (min-width: 768px) and (max-width: 991px) {
-  .hero {
-    padding-top: 190px;
-  }
-}
-.hero .hero-cotainer .hero-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-.hero .hero-cotainer .hero-content .hero-headline {
-  color: #ffffff;
-  font-family: "Montserrat", sans-serif;
-  font-size: 45px;
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 20px;
-  text-transform: none;
-}
-@media screen and (max-width:991px) {
-  .hero .hero-cotainer .hero-content .hero-headline {
-    font-size: 45px;
-  }
-}
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-  .hero .hero-cotainer .hero-content .hero-headline {
-    font-size: 60px;
-  }
-}
-.hero .hero-cotainer .hero-content .hero-bio {
-  color: #ffffff;
-  font-family: "Roboto", sans-serif;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 27px;
-  margin-bottom: 42px;
-}
-@media screen and (max-width: 991px) {
-  .hero .hero-cotainer .hero-content .hero-bio br {
-    display: none;
-  }
-}
-.hero .hero-cotainer .hero-content .hero-action .contact-body .contactForm {
-  position: relative;
-}
-.hero .hero-cotainer .hero-content .hero-action .contact-body .contactForm .form-control {
-  margin-bottom: 0;
-  background-color: #ffffff;
-  border-radius: 4px;
-  padding-left: 40px;
-  padding-right: 250px;
-  border-bottom: 0;
-}
-@media screen and (max-width:767px) {
-  .hero .hero-cotainer .hero-content .hero-action .contact-body .contactForm .form-control {
-    padding-left: 25px;
-    padding-right: 200px;
-  }
-}
-.hero .hero-cotainer .hero-content .hero-action .contact-body .contactForm .btn {
-  position: absolute;
-  top: 3px;
-  right: 3px;
-}
-@media screen and (max-width:767px) {
-  .hero .hero-cotainer .hero-content .hero-action .contact-body .contactForm .btn {
-    width: 170px;
-  }
-}
-.hero .hero-cotainer .hero-content .hero-action .form-action {
-  position: relative;
-  max-width: 600px;
-  margin-right: auto;
-  margin-left: auto;
-}
-.hero .hero-cotainer .hero-content .hero-action .form-action .input-group {
-  border: none;
-  padding: 0;
-}
-.hero .hero-cotainer .hero-content .hero-action .form-action .input-group .btn {
-  width: 220px;
-}
-.hero .hero-cotainer .hero-content .hero-action .form-action .form-control {
-  margin-bottom: 0;
-  background-color: #ffffff;
-  border-radius: 4px;
-  padding-left: 40px;
-  padding-right: 250px;
-  border-bottom: 0;
-  width: calc(100% - 230px);
-}
-@media screen and (max-width:767px) {
-  .hero .hero-cotainer .hero-content .hero-action .form-action .form-control {
-    padding-left: 25px;
-    padding-right: 200px;
-  }
-}
-.hero .hero-cotainer .hero-content .hero-action .form-action .btn {
-  position: absolute;
-  top: 3px;
-  right: 3px;
-  z-index: 60;
-}
-@media screen and (max-width:767px) {
-  .hero .hero-cotainer .hero-content .hero-action .form-action .btn {
-    width: 170px;
-  }
-}
-.hero .scroll-to {
-  margin-top: 10px;
-}
-.hero .scroll-to svg {
-  display: inline-block;
-  color: #ffffff;
-  font-size: 42px;
-  cursor: pointer;
-  animation: 1s Up-Down ease-in-out infinite;
-}
-.hero.hero-mailchimp {
-  padding: 330px 0 420px 0;
-  position: relative;
-}
-.hero.hero-mailchimp .scroll-to {
-  position: absolute;
-  bottom: 139px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.hero.hero-click {
-  padding: 330px 0 420px 0;
-  position: relative;
-}
-@media screen and (max-width:991px) {
-  .hero.hero-click {
-    padding: 230px 0;
-  }
-}
-.hero.hero-click .hero-cotainer .hero-content {
-  margin-bottom: 0;
-}
-.hero.hero-click .hero-cotainer .hero-content .hero-headline {
-  font-size: 65px;
-  font-weight: 700;
-  line-height: 1.15;
-  margin-bottom: 20px;
-  text-transform: none;
-}
-@media screen and (max-width:991px) {
-  .hero.hero-click .hero-cotainer .hero-content .hero-headline {
-    font-size: 40px;
-  }
-}
-@media screen and (min-width: 992px) and (max-width: 1200px) {
-  .hero.hero-click .hero-cotainer .hero-content .hero-headline {
-    font-size: 60px;
-  }
-}
-.hero.hero-click .scroll-to {
-  position: absolute;
-  bottom: 139px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.hero.hero-lead {
-  padding-top: 254px;
-  padding-bottom: 155px;
-  background-position: center bottom;
-}
-@media screen and (max-width:767px) {
-  .hero.hero-lead {
-    padding-top: 133px;
-    padding-bottom: 133px;
-  }
-}
-@media screen and (max-width:991px) {
-  .hero.hero-lead {
-    text-align: center;
-  }
-  .hero.hero-lead .popup-contact-form {
-    max-width: 500px;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 20px;
-  }
-}
-.hero.hero-lead .hero-cotainer {
-  padding-bottom: 78px;
-}
-.hero.hero-lead .hero-cotainer .hero-content {
-  padding-top: 140px;
-}
-.hero.hero-lead .form-group {
-  position: relative;
-  height: 57px;
-  text-align: left;
-  margin-bottom: 30px;
-  padding-top: 7px;
-}
-.hero.hero-lead .form-group label {
-  position: absolute;
-  left: 10px;
-  top: 0;
-  padding: 0 8px;
-  background-color: #ffffff;
-  font-size: 12px;
-  text-transform: capitalize;
-  margin-bottom: 0;
-  z-index: 1;
-}
-.hero.hero-lead .form-group .form-control {
-  border: 1px solid #DEE2E6;
-  border-radius: 4px;
-  line-height: 50px;
-  height: 50px;
-  margin-bottom: 0;
-  padding-left: 17px;
-}
-
-.divider-shape {
-  position: absolute;
-  top: auto;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-.divider-shape-top {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: auto;
-  left: 0;
-}
-
-/*------------------------------------*\
     #Thanks
 \*------------------------------------*/
 .thank-you {
@@ -2206,108 +1899,6 @@ a.back span {
 .thank-you .slogan img {
   width: 100%;
   height: 100%;
-}
-
-/*------------------------------------*\
-    #Testimonial
-\*------------------------------------*/
-.testimonials {
-  padding-top: 120px;
-  padding-bottom: 120px;
-}
-.testimonials .testimonial-panel {
-  padding: 40px 30px;
-  transition: all 0.3s linear;
-  position: relative;
-}
-@media screen and (max-width:991px) {
-  .testimonials .testimonial-panel {
-    max-width: 400px;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 20px;
-  }
-}
-.testimonials .testimonial-panel:hover {
-  background-color: #ffffff;
-  box-shadow: 0 0 50px rgba(80, 166, 232, 0.1);
-}
-.testimonials .testimonial-panel .testimonial-body {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  position: relative;
-}
-.testimonials .testimonial-panel .testimonial-body .testimonial-icon {
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-.testimonials .testimonial-panel .testimonial-body .testimonial-icon span {
-  transform: rotate(180deg);
-  display: inline-block;
-  font-size: 32px;
-  color: #50A6E8;
-}
-.testimonials .testimonial-panel .testimonial-body p {
-  font-size: 16px;
-  font-style: italic;
-  line-height: 1.5;
-  margin-bottom: 0;
-}
-@media screen and (max-width:991px) {
-  .testimonials .testimonial-panel .testimonial-body p {
-    font-size: 20px;
-  }
-}
-.testimonials .testimonial-panel .testimonial-body .testimonial-author {
-  display: flex;
-  align-items: right;
-  justify-content: right;
-  margin-bottom: 25px;
-}
-.testimonials .testimonial-panel .testimonial-body .testimonial-author .testimonial-img {
-  width: 70px;
-  height: 70px;
-  background-color: #fef6f6;
-  border-radius: 50%;
-  margin-right: 25px;
-  display: flex;
-  justify-content: right;
-  align-items: right;
-}
-.testimonials .testimonial-panel .testimonial-body .testimonial-author .testimonial-img img {
-  width: auto;
-  max-width: 100%;
-  display: inline-block;
-}
-.testimonials .testimonial-panel .testimonial-body .testimonial-author p {
-  padding-top: 10px;
-  text-align: left;
-  font-size: 14px;
-  line-height: 21px;
-  font-weight: 400;
-  margin-bottom: 0;
-  color: #868E96;
-  text-transform: capitalize;
-  font-style: normal;
-}
-.testimonials .testimonial-panel .testimonial-body .testimonial-author p span {
-  display: block;
-  font-size: 16px;
-  line-height: 24px;
-  font-weight: 400;
-  color: #50A6E8;
-  margin-bottom: 0;
-}
-.testimonials .testimonial-panel .testimonial-body .testimonial-author p span::before {
-  content: "-";
-  font-size: 12px;
-  margin-right: 5px;
-}
-.testimonials .owl-item.active.center .testimonial-panel {
-  background-color: #ffffff;
-  box-shadow: 0 0 50px rgba(80, 166, 232, 0.1);
 }
 
 /*------------------------------------*\
@@ -2701,6 +2292,9 @@ a.back span {
   border-radius: 50%;
   margin-right: 13px;
 }
+.carousel-dots .owl-dots .owl-dot span {
+  display: none;
+}
 .carousel-dots .owl-dots .owl-dot.active {
   background-color: #ffffff;
   border: 2px solid #50A6E8;
@@ -2903,38 +2497,5 @@ a.back span {
   .landing-hero h1 {
     font-size: 50px;
     line-height: 55px;
-  }
-}
-@-webkit-keyframes Up-Down {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(20px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-@-moz-keyframes Up-Down {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(20px);
-  }
-  100% {
-    transform: translateY(0);
-  }
-}
-@keyframes Up-Down {
-  0% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(20px);
-  }
-  100% {
-    transform: translateY(0);
   }
 }

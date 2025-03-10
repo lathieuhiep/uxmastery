@@ -1,10 +1,4 @@
-/*------------------------------------*\
-    #Testimonial
-\*------------------------------------*/
-.testimonials {
-  padding-top: 120px;
-  padding-bottom: 120px;
-
+.efa-addon-testimonial {
   .testimonial-panel {
     padding: 40px 30px;
     transition: all 0.3s linear;
@@ -54,8 +48,8 @@
 
       .testimonial-author {
         display: flex;
-        align-items: right;
-        justify-content: right;
+        align-items: flex-end;
+        justify-content: flex-end;
         margin-bottom: 25px;
 
         .testimonial-img {
@@ -65,8 +59,8 @@
           border-radius: 50%;
           margin-right: 25px;
           display: flex;
-          justify-content: right;
-          align-items: right;
+          justify-content: flex-end;
+          align-items: flex-end;
 
           img {
             width: auto;

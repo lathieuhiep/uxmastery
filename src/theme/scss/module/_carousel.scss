@@ -3,7 +3,6 @@
 \*------------------------------------*/
 .carousel-dots {
   .owl-dots {
-
     &.disabled {
       display: flex;
     }
@@ -20,6 +19,10 @@
       border-radius: 50%;
       margin-right: 13px;
 
+      span {
+        display: none;
+      }
+
       &.active {
         background-color: $color-white;
         border: 2px solid $color-theme;
@@ -31,12 +34,10 @@
       }
     }
   }
-
 }
 
 .carousel-navs {
   .owl-nav {
-
     &.disabled {
       display: flex;
     }

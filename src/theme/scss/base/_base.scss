@@ -1,3 +1,7 @@
+:root {
+  --line-height-menu-item: 139px;
+}
+
 body,
 html {
   overflow-x: hidden;
@@ -8,6 +12,7 @@ html {
 }
 
 body {
+  min-height: 100vh;
   background-color: $color-white;
   font-family: $font-body;
   font-size: $font-size-base;
@@ -15,6 +20,15 @@ body {
   color: $color-body;
   line-height: $line-height-base;
   margin: 0;
+
+  .wrapper {
+    min-height: inherit;
+    @extend %flex-column;
+
+    .site-container {
+      flex: 1;
+    }
+  }
 }
 
 .wrapper {

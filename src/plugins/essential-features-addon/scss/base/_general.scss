@@ -1,0 +1,21 @@
+.heading-title {
+  --#{$prefix-plugin-essentials}heading-color: #{$color-heading};
+
+  color: var(--#{$prefix-plugin-essentials}heading-color);
+  font-weight: 700;
+}
+
+// animation for up-down
+@include keyFrame(efa-up-down) {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(20px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

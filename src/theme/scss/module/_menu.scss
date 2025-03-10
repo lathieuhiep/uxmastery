@@ -2,7 +2,6 @@
     #Menu
 \*------------------------------------*/
 .header {
-
   .navbar {
     margin-bottom: 0;
     border-radius: 0;
@@ -35,7 +34,7 @@
           font-size: 16px;
           text-transform: capitalize;
           font-weight: 400;
-          line-height: 139px;
+          line-height: var(--line-height-menu-item);
           color: $color-white;
           padding: 0;
           position: relative;
@@ -118,6 +117,18 @@
         }
       }
 
+    }
+  }
+}
+
+.admin-bar {
+  .header {
+    .navbar {
+      &.navbar-fixed {
+        @media (min-width: 992px) {
+          top: 3.2rem;
+        }
+      }
     }
   }
 }

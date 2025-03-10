@@ -21,6 +21,7 @@
 
         if ( slider.length ) {
             const options = slider.data('settings-owl');
+            console.log(owlCarouselOptions(options))
             slider.owlCarousel(owlCarouselOptions(options))
         }
     };

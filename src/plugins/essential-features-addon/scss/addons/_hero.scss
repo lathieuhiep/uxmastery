@@ -1,0 +1,147 @@
+/*------------------------------------*\
+    #Hero
+\*------------------------------------*/
+
+.efa-addon-hero {
+  display: grid;
+  row-gap: 2.4px;
+
+  @media (min-width: 1024px) {
+    column-gap: 9.5rem;
+  }
+
+  @media (max-width: 1023px) {
+    column-gap: 2.4rem;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: 50% 1fr;
+  }
+
+
+  .box-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .box-content {
+    .headline {
+      color: $color-white;
+      font-family: $font-heading;
+      font-size: 45px;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      text-transform: none;
+
+      @media #{$maxTablet} {
+        font-size: 45px;
+      }
+
+      @media screen and (min-width: 992px) and (max-width: 1200px) {
+        font-size: 60px;
+      }
+    }
+
+    .bio {
+      color: $color-white;
+      font-family: $font-body;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 27px;
+      margin-bottom: 42px;
+    }
+  }
+
+  .hero-action {
+    .contact-body {
+      .contactForm {
+        position: relative;
+
+        .form-control {
+          margin-bottom: 0;
+          background-color: $color-white;
+          border-radius: 4px;
+          padding-left: 40px;
+          padding-right: 250px;
+          border-bottom: 0;
+
+          @media #{$maxSmall} {
+            padding-left: 25px;
+            padding-right: 200px;
+          }
+        }
+
+        .btn {
+          position: absolute;
+          top: 3px;
+          right: 3px;
+
+          @media #{$maxSmall} {
+            width: 170px;
+          }
+        }
+      }
+    }
+
+    .form-action {
+      position: relative;
+      max-width: 600px;
+      margin-right: auto;
+      margin-left: auto;
+
+      .input-group {
+        border: none;
+        padding: 0;
+
+        .btn {
+          width: 220px;
+        }
+      }
+
+      .form-control {
+        margin-bottom: 0;
+        background-color: $color-white;
+        border-radius: 4px;
+        padding-left: 40px;
+        padding-right: 250px;
+        border-bottom: 0;
+        width: calc(100% - 230px);
+
+        @media #{$maxSmall} {
+          padding-left: 25px;
+          padding-right: 200px;
+        }
+      }
+
+      .btn {
+        position: absolute;
+        top: 3px;
+        right: 3px;
+        z-index: 60;
+
+        @media #{$maxSmall} {
+          width: 170px;
+        }
+      }
+    }
+  }
+
+  .scroll-to {
+    display: inline-block;
+    margin-top: 10px;
+    color: $color-white;
+
+    i {
+      --#{$prefix-plugin-essentials}icon-width: 4.2rem;
+      --#{$prefix-plugin-essentials}icon-height: 4.2rem;
+
+      animation: 1s efa-up-down ease-in-out infinite;
+    }
+
+    @media (max-width: 1023px) {
+      display: none;
+    }
+  }
+}
