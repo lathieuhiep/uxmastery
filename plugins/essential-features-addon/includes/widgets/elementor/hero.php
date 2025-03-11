@@ -132,12 +132,12 @@ class EFA_Widget_Hero extends Widget_Base {
 
 	// widget output on the frontend
 	protected function render(): void {
-		$settings = $this->get_settings_for_display();
-		$tag      = $settings['html_tag'];
-		$desc     = $settings['description'];
-		$cf7      = $settings['contact_form_list'];
-		$cf_heading      = $settings['cf_heading'];
-		$cf_desc      = $settings['cf_desc'];
+		$settings   = $this->get_settings_for_display();
+		$tag        = $settings['html_tag'];
+		$desc       = $settings['description'];
+		$cf7        = $settings['contact_form_list'];
+		$cf_heading = $settings['cf_heading'];
+		$cf_desc    = $settings['cf_desc'];
 
 		if ( ! empty( $settings['link']['url'] ) ) {
 			$this->add_link_attributes( 'link', $settings['link'] );
@@ -184,4 +184,56 @@ class EFA_Widget_Hero extends Widget_Base {
 		</div>
 	<?php
 	}
+
+	/**
+	 * Render shortcode widget output in the editor.
+	 *
+	 * Written as a Backbone JavaScript template and used to generate the live preview.
+	 *
+	 */
+	protected function content_template() {
+    ?>
+        <div class="efa-addon-hero">
+            <div class="box-item box-content">
+                <# if ( settings.heading ) { #>
+                    <{{{ settings.html_tag }}} class="headline">
+                        {{{ settings.heading }}}
+                    </{{{ settings.html_tag }}}>
+                <# } #>
+
+                <# if ( settings.description ) { #>
+                <div class="bio">
+                    {{{ settings.description }}}
+                </div>
+                <# } #>
+
+                <a class="scroll-to" href="{{{ settings.link.url }}}">
+                    <i class="efa-icon-mask efa-icon-mask-down-chevron"></i>
+                </a>
+            </div>
+
+            <div class="box-item box-action">
+                <div class="popup-contact-form">
+                    <div class="box-heading">
+                        <div class="cf-heading heading-title">
+                            {{{ settings.cf_heading }}}
+                        </div>
+
+                        <div class="cf-desc">
+                            {{{ settings.cf_desc }}}
+                        </div>
+                    </div>
+
+                    <# if ( settings.contact_form_list ) { #>
+                    <div class="contact-form">
+                        <!-- Shortcode rendering is handled by PHP in the render() method -->
+                        <span class="cf7-shortcode-placeholder">[contact-form-7 id="{{{ settings.contact_form_list }}}]</span>
+                    </div>
+                    <# } #>
+                </div>
+            </div>
+        </div>
+    <?php
+	}
+
 }
