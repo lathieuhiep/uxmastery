@@ -32,7 +32,7 @@ class EFA_Widget_Service_Card extends Widget_Base {
 
 	// widget scripts dependencies
 	public function get_script_depends(): array {
-		return [ 'counterup', 'efa-elementor-script' ];
+		return [ 'waypoints', 'counterup' ];
 	}
 
 	// widget controls

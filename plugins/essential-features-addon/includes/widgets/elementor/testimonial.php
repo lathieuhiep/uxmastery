@@ -38,7 +38,7 @@ class EFA_Widget_Testimonial extends Widget_Base {
 
 	// widget scripts dependencies
 	public function get_script_depends(): array {
-		return [ 'owl.carousel', 'efa-elementor-script' ];
+		return [ 'owl.carousel' ];
 	}
 
 	// widget controls
