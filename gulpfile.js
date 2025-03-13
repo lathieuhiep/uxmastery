@@ -36,8 +36,7 @@ const paths = {
             root: `themes/${themeName}/assets/`,
             css: `themes/${themeName}/assets/css/`,
             js: `themes/${themeName}/assets/js/`,
-            libs: `themes/${themeName}/assets/libs/`,
-            extension: `themes/${themeName}/extension/`
+            libs: `themes/${themeName}/assets/libs/`
         },
         plugins: {
             root: 'plugins/',
@@ -334,14 +333,14 @@ exports.buildJPluginEFA = buildJPluginEFA
 Task build project
 * */
 async function buildProject() {
-    await buildStyleBootstrap()
-    await buildLibsBootstrapJS()
-
-    await buildFontawesomeStyle()
-    await CopyWebFonts()
-
-    await buildStyleOwlCarousel()
-    await buildJsOwlCarouse()
+    // await buildStyleBootstrap()
+    // await buildLibsBootstrapJS()
+    //
+    // await buildFontawesomeStyle()
+    // await CopyWebFonts()
+    //
+    // await buildStyleOwlCarousel()
+    // await buildJsOwlCarouse()
 
     await buildStyleTheme()
     await buildJSTheme()

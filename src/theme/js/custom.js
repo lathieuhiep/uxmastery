@@ -4,105 +4,72 @@
  * Licensed under  ()
  */
 
-( function( $ ) {
+(function ($) {
     "use strict";
 
-    let timer_clear;
+    /* ------------------ NAVBAR FIXED ------------------ */
 
-    $( document ).ready( function () {
-
-        /* Start back top */
-        $('#back-top').on( 'click', function (e) {
-            e.preventDefault();
-            $('html').scrollTop(0);
-        } );
-        /* End back top */
-
-        /* btn mobile Start*/
-        let subMenuToggle  =   $('.sub-menu-toggle');
-
-        if ( subMenuToggle.length ) {
-
-            subMenuToggle.each(function () {
-                $(this).on( 'click', function () {
-                    const widthScreen = $(window).width();
-
-                    if ( widthScreen < 992 ) {
-                        $(this).toggleClass('active');
-                        $(this).closest( '.menu-item-has-children' ).siblings().find( subMenuToggle ).removeClass( 'active' );
-                        $(this).parent().children( '.sub-menu' ).slideToggle();
-                        $(this).parents( '.menu-item-has-children' ).siblings().find( '.sub-menu' ).slideUp();
-                    }
-
-                } )
-            })
-
+    $(window).scroll(function () {
+        /* affix after scrolling 100px */
+        if (
+            $(document).scrollTop() > $(window).height() ||
+            $(document).scrollTop() > 105
+        ) {
+            $(".navbar-sticky").addClass("navbar-fixed");
+        } else {
+            $(".navbar-sticky").removeClass("navbar-fixed");
         }
-        /* btn mobile End */
-
-        /* Start Gallery Single */
-        $( document ).general_owlCarousel_custom( '.site-post-slides' );
-        /* End Gallery Single */
-
     });
 
-    // loading
-    $( window ).on( "load", function() {
-        $( '#site-loading' ).remove();
+    /* ------------------  NAVBAR TOGGLE ------------------ */
+
+    $('.navbar-toggler').on('click', function () {
+        $('.navbar-toggler-icon').toggleClass('active');
     });
 
-    // scroll event
-    $( window ).scroll( function() {
+    /* ------------------  NAVBAR SCROLL TO ------------------ */
 
-        if ( timer_clear ) clearTimeout(timer_clear);
+    var aScroll = $('.nav-item .nav-link'),
+        $navbarCollapse = $('.navbar-collapse');
+    aScroll.on('click', function (event) {
+        var target = $($(this).attr('href'));
+        $(this).parent(".nav-item").siblings().removeClass('active');
+        $(this).parent('.nav-item').addClass('active');
 
-        timer_clear = setTimeout( function() {
+        if (target.length > 0) {
+            event.preventDefault();
+            $('html, body').animate({
+                scrollTop: target.offset().top - 100
+            }, 1000);
+        }
 
-            /* Start scroll back top */
-            let $scrollTop = $(this).scrollTop();
-
-            if ( $scrollTop > 200 ) {
-                $('#back-top').addClass('active_top');
-            }else {
-                $('#back-top').removeClass('active_top');
-            }
-            /* End scroll back top */
-
-        }, 100 );
-
+        // If click link and navabr is show
+        if ($('.navbar-collapse').hasClass('show')) {
+            $('.navbar-collapse').toggleClass('show');
+            $('.navbar-toggler-icon').toggleClass('active');
+            $('.navbar-toggler').toggleClass('collapsed');
+        }
     });
 
-    // function call owlCarousel
-    $.fn.general_owlCarousel_custom = function ( class_item ) {
+    /* ------------------ NAVBAR SCROLLING SECTION ------------------ */
 
-        let class_item_owlCarousel   =   $( class_item );
-
-        if ( class_item_owlCarousel.length ) {
-
-            class_item_owlCarousel.each( function () {
-
-                let slider = $(this);
-
-                if ( !slider.hasClass('owl-carousel-init') ) {
-
-                    let defaults = {
-                        autoplaySpeed: 800,
-                        navSpeed: 800,
-                        dotsSpeed: 800,
-                        autoHeight: false,
-                        navText: ['<i class="fa fa-angle-left" aria-hidden="true"></i>','<i class="fa fa-angle-right" aria-hidden="true"></i>'],
-                    };
-
-                    let config = $.extend( defaults, slider.data( 'settings-owl') );
-
-                    slider.owlCarousel( config ).addClass( 'owl-carousel-init' );
-
+    var $section = $('section'),
+        $bodyScroll = $('.body-scroll');
+    if ($bodyScroll.length > 0) {
+        $(window).on("scroll", function () {
+            $section.each(function () {
+                var sectionID = $(this).attr("id"),
+                    sectionTop = $(this).offset().top - 100,
+                    sectionHight = $(this).outerHeight(),
+                    wScroll = $(window).scrollTop(),
+                    $navHref = $("a[href='#" + sectionID + "']"),
+                    $nav = $('.navbar-nav').find($navHref).parent();
+                if (wScroll > sectionTop - 1 && wScroll < sectionTop + sectionHight - 1) {
+                    $nav.addClass('active');
+                    $nav.siblings().removeClass('active');
                 }
-
-            } )
-
-        }
-
+            });
+        });
     }
 
-} )( jQuery );
+}(jQuery));
