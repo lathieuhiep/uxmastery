@@ -349,9 +349,9 @@ async function buildProject() {
     await buildStyleCustomLogin()
     await buildJPluginEFA()
 
-    await buildStyleCustomPostType()
+    // await buildStyleCustomPostType()
 
-    await buildStylePageTemplate()
+    // await buildStylePageTemplate()
 }
 exports.buildProject = buildProject
 
@@ -363,37 +363,33 @@ function watchTask() {
     watch([
         `${paths.shared.scss}abstracts/*.scss`
     ], gulp.series(
-        buildStyleBootstrap,
+        // buildStyleBootstrap,
         buildStyleTheme,
         buildStyleElementor,
-        buildStyleCustomLogin,
-        buildStyleCustomPostType,
-        buildStylePageTemplate
+        buildStyleCustomLogin
+        // buildStyleCustomPostType,
+        // buildStylePageTemplate
     ))
 
     // watch lib bootstrap
-    watch([
-        `${paths.shared.vendors}bootstrap.scss`
-    ], buildStyleBootstrap)
+    // watch([
+    //     `${paths.shared.vendors}bootstrap.scss`
+    // ], buildStyleBootstrap)
 
     // theme watch
     watch([
-        `${paths.theme.scss}base/*.scss`,
-        `${paths.theme.scss}utilities/*.scss`,
-        `${paths.theme.scss}components/*.scss`,
-        `${paths.theme.scss}layout/*.scss`,
-        `${paths.theme.scss}style-theme.scss`,
+        `${paths.theme.scss}*/**.scss`
     ], buildStyleTheme)
 
     watch([`${paths.theme.js}custom.js`], buildJSTheme)
 
-    watch([
-        `${paths.theme.scss}post-type/*/**.scss`
-    ], buildStyleCustomPostType)
-
-    watch([
-        `${paths.theme.scss}page-templates/*.scss`
-    ], buildStylePageTemplate)
+    // watch([
+    //     `${paths.theme.scss}post-type/*/**.scss`
+    // ], buildStyleCustomPostType)
+    //
+    // watch([
+    //     `${paths.theme.scss}page-templates/*.scss`
+    // ], buildStylePageTemplate)
 
     // plugin essentials watch
     watch([
