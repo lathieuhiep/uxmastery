@@ -53,7 +53,7 @@
 
     /* ------------------ NAVBAR SCROLLING SECTION ------------------ */
 
-    var $section = $('section'),
+    var $section = $('.elementor-element'),
         $bodyScroll = $('.body-scroll');
     if ($bodyScroll.length > 0) {
         $(window).on("scroll", function () {

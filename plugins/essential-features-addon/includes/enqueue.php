@@ -24,6 +24,9 @@ function efa_elementor_scripts(): void {
 	$efa_check_elementor = get_post_meta( get_the_ID(), '_elementor_edit_mode', true );
 
 	if ( $efa_check_elementor == 'builder' ) {
+		// flat icon
+		wp_enqueue_style( 'flaticon', EFA_PLUGIN_URL . 'assets/libs/flaticon/css/flaticon.css', array(), EFA_PLUGIN_VERSION );
+
 		// style plugin
 		wp_enqueue_style( 'efa-elementor-style', EFA_PLUGIN_URL . 'assets/css/efa-elementor.min.css', array(), EFA_PLUGIN_VERSION );
 

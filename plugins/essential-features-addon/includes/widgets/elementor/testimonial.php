@@ -191,7 +191,6 @@ class EFA_Widget_Testimonial extends Widget_Base {
 			'autoplay'   => ( 'yes' === $settings['autoplay'] ),
 			'margin'     => 30,
 			'center'     => true,
-			'navText'    => [ '', '' ],
 			'responsive' => [
 				0    => [
 					'items' => 1,

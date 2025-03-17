@@ -28,8 +28,25 @@
     }
   }
 
+  &-arrow {
+    &-left {
+      mask-image: url("#{$icon-path}/arrow-left.svg");
+      -webkit-mask-image: url("#{$icon-path}/arrow-left.svg");
+    }
+
+    &-right {
+      mask-image: url("#{$icon-path}/arrow-right.svg");
+      -webkit-mask-image: url("#{$icon-path}/arrow-right.svg");
+    }
+  }
+
   &-down-chevron {
     mask-image: url("#{$icon-path}/down-chevron.svg");
     -webkit-mask-image: url("#{$icon-path}/down-chevron.svg");
+  }
+
+  &-play {
+    mask-image: url("#{$icon-path}/play.svg");
+    -webkit-mask-image: url("#{$icon-path}/play.svg");
   }
 }

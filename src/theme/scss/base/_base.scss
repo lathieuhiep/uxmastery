@@ -2,11 +2,6 @@
   --line-height-menu-item: 139px;
 }
 
-body,
-html {
-  overflow-x: hidden;
-}
-
 html {
   font-size: 62.5%;
 }
@@ -20,6 +15,7 @@ body {
   color: $color-body;
   line-height: $line-height-base;
   margin: 0;
+  overflow-x: hidden;
 
   .wrapper {
     min-height: inherit;
@@ -81,8 +77,14 @@ textarea {
   resize: none;
 }
 
-button.btn {
-  margin-bottom: 0;
+button {
+  &:focus {
+    outline: none;
+  }
+
+  &.btn {
+    margin-bottom: 0;
+  }
 }
 
 section {
@@ -102,5 +104,32 @@ section {
 @media only screen and (max-width: 992px) {
   .fullscreen {
     height: auto !important;
+  }
+}
+
+/* custom modal */
+.modal {
+  .modal-content {
+    .modal-header {
+      margin-bottom: 2.4rem;
+      padding: 0;
+      border-bottom: 0;
+    }
+
+    .btn-close-modal {
+      padding: 0;
+      font-size: 2rem;
+      border: none;
+      background: transparent;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        color: $color-theme;
+      }
+    }
+
+    .modal-body {
+      padding: 0;
+    }
   }
 }

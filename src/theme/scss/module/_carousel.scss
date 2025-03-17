@@ -47,6 +47,7 @@
       top: 50%;
       transform: translateY(-50%);
       outline: none;
+      color: #50A6E8;
 
       @media screen and (max-width: 1200px) {
         display: none;
@@ -56,30 +57,25 @@
         display: none;
       }
 
-      &::before {
-        font-family: 'icomoon';
-        font-size: 30px;
-        color: $color-theme;
+      .efa-icon-mask {
+        --efa-icon-width: 3rem;
+        --efa-icon-height: 3rem;
+        --efa-icon-color: #50A6E8;
       }
 
       &:hover {
-        &:before {
-          color: $color-heading;
+        .efa-icon-mask {
+          --efa-icon-color: #{$color-heading};
         }
       }
-
     }
 
     .owl-prev {
       left: -40px;
-      transform: rotate(-180deg) translateY(50%);
+      transform: translateY(50%);
 
       @media screen and (max-width: 991px) {
-        left: 0px;
-      }
-
-      &::before {
-        content: '\e901';
+        left: 0;
       }
     }
 
@@ -88,10 +84,6 @@
 
       @media screen and (max-width: 991px) {
         right: 0;
-      }
-
-      &::before {
-        content: '\e901';
       }
     }
   }

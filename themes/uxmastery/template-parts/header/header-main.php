@@ -1,7 +1,8 @@
 <?php
-$sticky_menu = uxmastery_get_option( 'opt_menu_sticky', '1' );
-$logo_light  = uxmastery_get_option( 'opt_general_logo_light' );
-$logo_dark   = uxmastery_get_option( 'opt_general_logo_dark' );
+$sticky_menu       = uxmastery_get_option( 'opt_menu_sticky', '1' );
+$logo_light        = uxmastery_get_option( 'opt_general_logo_light' );
+$logo_dark         = uxmastery_get_option( 'opt_general_logo_dark' );
+$menu_contact      = uxmastery_get_option( 'opt_menu_contact' );
 ?>
 
 <header class="header header-transparent header-sticky">
@@ -49,15 +50,15 @@ $logo_dark   = uxmastery_get_option( 'opt_general_logo_dark' );
                     </ul>
 	            <?php endif; ?>
 
-                <div class="module-container">
-                    <!--module-btn-->
-                    <div class="module module-cta">
-                        <a class="btn btn--white btn--secondary" href="javascript:void(0)">
-                            <span>contact us <i class="icon-right-arrow"></i></span>
-                        </a>
+                <?php if ( $menu_contact ) : ?>
+                    <div class="module-container">
+                        <div class="module module-cta">
+                            <button type="button" class="btn btn--white btn--secondary" data-toggle="modal" data-target="#contactMenuModal">
+                                <span><?php esc_html_e('contact us', 'uxmastery'); ?> <i class="fa-solid fa-arrow-right-long"></i></span>
+                            </button>
+                        </div>
                     </div>
-                </div>
-                <!-- End Module Container  -->
+                <?php endif; ?>
             </div>
             <!-- End .nav-collapse-->
         </div>
@@ -65,3 +66,5 @@ $logo_dark   = uxmastery_get_option( 'opt_general_logo_dark' );
     </nav>
     <!-- End .navbar-->
 </header>
+
+<?php get_template_part('template-parts/modals/contact', 'menu'); ?>

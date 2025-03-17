@@ -30,7 +30,9 @@
     transition: all 0.4s ease;
 
     i {
-      font-size: 16px;
+      --#{$prefix-plugin-essentials}icon-width: 1.8rem;
+      --#{$prefix-plugin-essentials}icon-height: 1.8rem;
+
       color: $color-theme;
       transition: all 0.4s ease;
     }

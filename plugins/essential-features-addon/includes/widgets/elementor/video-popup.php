@@ -103,7 +103,7 @@ class EFA_Widget_Video_Popup extends Widget_Base {
 			</div>
 
 			<a class="btn-video-popup" href="<?php echo esc_url( $settings['video_url'] ); ?>" data-lity>
-				<i class="fas fa-play"></i>
+				<i class="efa-icon-mask efa-icon-mask-play"></i>
 			</a>
 		</div>
 	<?php
@@ -121,7 +121,7 @@ class EFA_Widget_Video_Popup extends Widget_Base {
             </div>
 
             <a class="btn-video-popup" href="{{ settings.video_url }}" data-lity>
-                <i class="fas fa-play"></i>
+                <i class="efa-icon-mask efa-icon-mask-play"></i>
             </a>
         </div>
 		<?php

@@ -8,7 +8,7 @@
             navSpeed: 800,
             dotsSpeed: 800,
             dragEndSpeed: 800,
-            navText: ['<i class="efa-icon-mask efa-icon-mask-angle-left"></i>','<i class="efa-icon-mask efa-icon-mask-angle-right"></i>'],
+            navText: ['<i class="efa-icon-mask efa-icon-mask-arrow-left"></i>','<i class="efa-icon-mask efa-icon-mask-arrow-right"></i>'],
         }
 
         // extend options

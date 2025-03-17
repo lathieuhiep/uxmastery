@@ -197,16 +197,11 @@ function uxmastery_get_form_cf7(): array {
 			'numberposts' => - 1,
 		) );
 
-		$options[0] = esc_html__( 'Chọn một mẫu liên hệ', 'uxmastery' );
-
 		if ( ! empty( $wpcf7_form_list ) && ! is_wp_error( $wpcf7_form_list ) ) :
 			foreach ( $wpcf7_form_list as $item ) :
 				$options[ $item->ID ] = $item->post_title;
 			endforeach;
-		else :
-			$options[0] = esc_html__( 'Tạo biểu mẫu trước tiên', 'uxmastery' );
 		endif;
-
 	}
 
 	return $options;
