@@ -1,5 +1,6 @@
 <?php
 
+use Elementor\Group_Control_Typography;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
@@ -128,6 +129,101 @@ class EFA_Widget_Hero extends Widget_Base {
 		);
 
 		$this->end_controls_section();
+
+		// style heading cf7
+		$this->start_controls_section(
+			'style_cf_heading',
+			[
+				'label' => esc_html__( 'Tiêu đề form', 'essential-features-addon' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'cf_heading_color',
+			[
+				'label'     => esc_html__( 'Màu', 'essential-features-addon' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .popup-contact-form .box-heading .cf-heading' => '--efa-heading-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'cf_heading_typography',
+				'label'    => esc_html__( 'Kiểu chữ', 'essential-features-addon' ),
+				'selector' => '{{WRAPPER}} .popup-contact-form .box-heading .cf-heading',
+			]
+		);
+
+		$this->end_controls_section();
+
+		// style desc cf7
+		$this->start_controls_section(
+			'style_cf_desc',
+			[
+				'label' => esc_html__( 'Văn bản form', 'essential-features-addon' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'cf_desc_color',
+			[
+				'label'     => esc_html__( 'Màu', 'essential-features-addon' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .popup-contact-form .box-heading .cf-desc' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'cf_desc_typography',
+				'label'    => esc_html__( 'Kiểu chữ', 'essential-features-addon' ),
+				'selector' => '{{WRAPPER}} .popup-contact-form .box-heading .cf-desc',
+			]
+		);
+
+		$this->end_controls_section();
+
+        // style contact form
+        $this->start_controls_section(
+            'style_contact_form',
+            [
+                'label' => esc_html__( 'Form liên hệ', 'essential-features-addon' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_control(
+            'btn_submit_color',
+            [
+                'label'     => esc_html__( 'Màu chữ nút submit', 'essential-features-addon' ),
+                'type'      => Controls_Manager::COLOR,
+                'selectors' => [
+                    '{{WRAPPER}} .popup-contact-form .wpcf7-form .wpcf7-submit' => 'color: {{VALUE}}',
+                ],
+            ]
+        );
+
+		$this->add_control(
+			'btn_submit_bk_color',
+			[
+				'label'     => esc_html__( 'Màu nền nút submit', 'essential-features-addon' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .popup-contact-form .wpcf7-form .wpcf7-submit' => 'background-color: {{VALUE}}',
+				],
+			]
+		);
+
+        $this->end_controls_section();
 	}
 
 	// widget output on the frontend
@@ -142,98 +238,46 @@ class EFA_Widget_Hero extends Widget_Base {
 		if ( ! empty( $settings['link']['url'] ) ) {
 			$this->add_link_attributes( 'link', $settings['link'] );
 		}
-	?>
-		<div class="efa-addon-hero">
-			<div class="box-item box-content">
-				<?php if ( $settings['heading'] ) : ?>
-					<<?php echo esc_html( $tag ); ?> class="headline">
-						<?php echo esc_html( $settings['heading'] ); ?>
-					</<?php echo esc_html( $tag ); ?>>
-				<?php endif; ?>
-
-				<?php if ( ! empty( $desc ) ) : ?>
-					<div class="bio">
-						<?php echo wpautop( $desc ); ?>
-					</div>
-				<?php endif; ?>
-
-				<a class="scroll-to" <?php $this->print_render_attribute_string( 'link' ); ?>>
-                    <i class="efa-icon-mask efa-icon-mask-down-chevron"></i>
-                </a>
-			</div>
-
-			<div class="box-item box-action">
-                <div class="popup-contact-form">
-                    <div class="box-heading">
-                        <div class="cf-heading heading-title">
-                            <?php echo esc_html( $cf_heading ); ?>
-                        </div>
-
-                        <div class="cf-desc">
-                            <?php echo esc_html( $cf_desc ); ?>
-                        </div>
-                    </div>
-
-	                <?php
-	                if ( $cf7 ) :
-		                echo do_shortcode( '[contact-form-7 id="' . $settings['contact_form_list'] . '" ]' );
-	                endif;
-	                ?>
-                </div>
-            </div>
-		</div>
-	<?php
-	}
-
-	/**
-	 * Render shortcode widget output in the editor.
-	 *
-	 * Written as a Backbone JavaScript template and used to generate the live preview.
-	 *
-	 */
-	protected function content_template() {
-    ?>
+		?>
         <div class="efa-addon-hero">
             <div class="box-item box-content">
-                <# if ( settings.heading ) { #>
-                    <{{{ settings.html_tag }}} class="headline">
-                        {{{ settings.heading }}}
-                    </{{{ settings.html_tag }}}>
-                <# } #>
+				<?php if ( $settings['heading'] ) : ?>
+                    <<?php echo esc_html( $tag ); ?> class="headline">
+                    <?php echo esc_html( $settings['heading'] ); ?>
+                </<?php echo esc_html( $tag ); ?>>
+			<?php endif; ?>
 
-                <# if ( settings.description ) { #>
+			<?php if ( ! empty( $desc ) ) : ?>
                 <div class="bio">
-                    {{{ settings.description }}}
+					<?php echo wpautop( $desc ); ?>
                 </div>
-                <# } #>
+			<?php endif; ?>
 
-                <a class="scroll-to" href="{{{ settings.link.url }}}">
-                    <i class="efa-icon-mask efa-icon-mask-down-chevron"></i>
-                </a>
-            </div>
+            <a class="scroll-to" <?php $this->print_render_attribute_string( 'link' ); ?>>
+                <i class="efa-icon-mask efa-icon-mask-down-chevron"></i>
+            </a>
+        </div>
 
-            <div class="box-item box-action">
-                <div class="popup-contact-form">
-                    <div class="box-heading">
-                        <div class="cf-heading heading-title">
-                            {{{ settings.cf_heading }}}
-                        </div>
-
-                        <div class="cf-desc">
-                            {{{ settings.cf_desc }}}
-                        </div>
+        <div class="box-item box-action">
+            <div class="popup-contact-form">
+                <div class="box-heading">
+                    <div class="cf-heading heading-title">
+						<?php echo esc_html( $cf_heading ); ?>
                     </div>
 
-                    <# if ( settings.contact_form_list ) { #>
-                    <div class="contact-form">
-                        <!-- Shortcode rendering is handled by PHP in the render() method -->
-                        <span class="cf7-shortcode-placeholder">[contact-form-7 id="{{{ settings.contact_form_list }}}]</span>
+                    <div class="cf-desc">
+						<?php echo esc_html( $cf_desc ); ?>
                     </div>
-                    <# } #>
                 </div>
+
+				<?php
+				if ( $cf7 ) :
+					echo do_shortcode( '[contact-form-7 id="' . $settings['contact_form_list'] . '" ]' );
+				endif;
+				?>
             </div>
         </div>
-    <?php
+        </div>
+		<?php
 	}
-
 }
