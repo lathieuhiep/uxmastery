@@ -47,7 +47,7 @@
       top: 50%;
       transform: translateY(-50%);
       outline: none;
-      color: #50A6E8;
+      color: $color-theme;
 
       @media screen and (max-width: 1200px) {
         display: none;
@@ -60,7 +60,7 @@
       .efa-icon-mask {
         --efa-icon-width: 3rem;
         --efa-icon-height: 3rem;
-        --efa-icon-color: #50A6E8;
+        --efa-icon-color: #{$color-theme};
       }
 
       &:hover {
