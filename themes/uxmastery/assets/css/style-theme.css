@@ -1076,7 +1076,7 @@ a.back span {
 
 /* Button Secondary*/
 .btn--secondary {
-  background-color: #E87F50;
+  background-color: #FF4F40;
   color: #ffffff;
 }
 .btn--secondary:active, .btn--secondary:focus, .btn--secondary:hover {
@@ -1144,7 +1144,7 @@ a.back span {
 }
 
 .btn--white.btn--secondary {
-  color: #E87F50;
+  color: #FF4F40;
   border-color: #ffffff;
   background-color: #ffffff;
 }
@@ -1584,7 +1584,7 @@ a.back span {
   height: 50px;
   padding: 0 17px;
   cursor: pointer;
-  color: #E87F50;
+  color: #FF4F40;
   font-size: 16px;
   font-weight: 400;
   text-transform: capitalize;
@@ -1615,7 +1615,7 @@ a.back span {
   }
 }
 .header .navbar-fixed .module-container .module-cta .btn {
-  background-color: #E87F50;
+  background-color: #FF4F40;
   color: #ffffff;
 }
 .header .navbar-fixed .module-container .module-cta .btn:hover {
