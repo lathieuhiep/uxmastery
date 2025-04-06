@@ -33,12 +33,12 @@
       --#{$prefix-plugin-essentials}icon-width: 1.8rem;
       --#{$prefix-plugin-essentials}icon-height: 1.8rem;
 
-      color: $color-theme;
+      color: $color-secondary;
       transition: all 0.4s ease;
     }
 
     &:hover {
-      background-color: $color-theme;
+      background-color: $color-secondary;
 
       i {
         color: $color-white;

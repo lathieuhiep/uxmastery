@@ -31,7 +31,7 @@
           transform: rotate(180deg);
           display: inline-block;
           font-size: 32px;
-          color: $color-theme;
+          color: $color-secondary;
         }
       }
 
@@ -85,7 +85,7 @@
             font-size: 16px;
             line-height: 24px;
             font-weight: 400;
-            color: $color-theme;
+            color: $color-secondary;
             margin-bottom: 0;
 
             &::before {

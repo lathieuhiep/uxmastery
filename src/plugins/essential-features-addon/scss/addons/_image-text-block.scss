@@ -20,7 +20,7 @@
     }
 
     &.icon-box {
-      --#{$prefix-plugin-essentials}icon-color: #{$color-theme};
+      --#{$prefix-plugin-essentials}icon-color: #{$color-secondary};
       --#{$prefix-plugin-essentials}icon-size: 5rem;
 
       color: var(--#{$prefix-plugin-essentials}icon-color);

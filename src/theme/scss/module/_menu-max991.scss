@@ -87,11 +87,11 @@
         }
 
         .navbar-toggler-icon {
-          background-color: $color-theme;
+          background-color: $color-secondary;
 
           &:before,
           &:after {
-            background-color: $color-theme;
+            background-color: $color-secondary;
           }
         }
       }

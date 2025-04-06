@@ -59,7 +59,7 @@
           }
 
           &.active {
-            background-color: $color-theme;
+            background-color: $color-secondary;
 
             a {
               color: $color-white
@@ -99,14 +99,14 @@
             }
           }
 
+          &:hover,
           &.active {
-
             a {
-              color: $color-theme;
+              color: $color-secondary;
             }
 
             @media #{$maxTablet} {
-              background-color: $color-theme;
+              background-color: $color-secondary;
 
               a {
                 color: $color-white

@@ -41,28 +41,28 @@ body {
 }
 
 ::selection {
-  background-color: $color-theme;
+  background-color: $color-secondary;
   color: $color-white;
   text-shadow: none;
 }
 
 a {
   transition: 0.3s ease;
-  color: $color-theme;
+  color: $color-secondary;
 
   &:hover {
-    color: darken($color-theme, 10%);
+    color: darken($color-secondary, 10%);
     text-decoration: none;
   }
 
   &:focus {
-    color: darken($color-theme, 10%);
+    color: darken($color-secondary, 10%);
     outline: none;
     text-decoration: none;
   }
 
   &:active {
-    color: darken($color-theme, 10%);
+    color: darken($color-secondary, 10%);
     outline: none;
     text-decoration: none;
   }
@@ -124,7 +124,7 @@ section {
       transition: 0.3s ease-in-out;
 
       &:hover {
-        color: $color-theme;
+        color: $color-secondary;
       }
     }
 

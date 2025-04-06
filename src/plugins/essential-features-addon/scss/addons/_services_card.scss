@@ -15,7 +15,7 @@
     height: 152px;
     border-radius: 4px;
     z-index: 0;
-    background-image: url("#{$image-path}/bg-card.png");
+    background-color: $color-secondary;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -44,7 +44,7 @@
     z-index: 3;
     padding: 33px 29px;
     cursor: pointer;
-    background-image: url("#{$image-path}/bg-card.png");
+    background-color: $color-secondary;
 
     .counters {
       .counting-holder {
