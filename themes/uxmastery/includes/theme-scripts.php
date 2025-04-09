@@ -19,9 +19,8 @@ function uxmastery_remove_jquery_migrate( $scripts ): void {
 	}
 }
 
-// load libs front-end style +scrip
-add_action('wp_enqueue_scripts', 'uxmastery_front_end_libs', 5);
-function uxmastery_front_end_libs(): void {
+// Remove WordPress block library CSS from loading on the front-end
+function uxmastery_remove_wp_block_library_css(): void {
 	// remove style gutenberg
 	wp_dequeue_style('wp-block-library');
 	wp_dequeue_style('wp-block-library-theme');
@@ -29,16 +28,28 @@ function uxmastery_front_end_libs(): void {
 
 	wp_dequeue_style('wc-blocks-style');
 	wp_dequeue_style('storefront-gutenberg-blocks');
+}
+add_action( 'wp_enqueue_scripts', 'uxmastery_remove_wp_block_library_css', 100 );
 
-	// font google
-	wp_enqueue_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Roboto:400,500&amp;display=swap%7CMontserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&amp;display=swap', array(), null );
+add_action( 'wp_head', function() {
+	// Preconnect and preload for Google Fonts
+	echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
+	echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
+	echo '<link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
 
+	// Preconnect and preload for Font Awesome
+	echo '<link rel="preconnect" href="https://cdnjs.cloudflare.com">' . "\n";
+	echo '<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>'. "\n";
+	echo '<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
+}, 5);
+
+
+// load libs front-end style +scrip
+add_action('wp_enqueue_scripts', 'uxmastery_front_end_libs', 5);
+function uxmastery_front_end_libs(): void {
 	// bootstrap css
 	wp_enqueue_style( 'bootstrap', get_theme_file_uri( '/assets/libs/bootstrap/bootstrap.min.css' ), array(), null );
 	wp_enqueue_script( 'bootstrap', get_theme_file_uri( '/assets/libs/bootstrap/bootstrap.bundle.min.js' ), array('jquery'), null, true );
-
-	// fontawesome
-	wp_enqueue_style( 'fontawesome', get_theme_file_uri( '/assets/libs/fontawesome/css/fontawesome.min.css' ), array(), '6.7.2' );
 }
 
 // load front-end styles
