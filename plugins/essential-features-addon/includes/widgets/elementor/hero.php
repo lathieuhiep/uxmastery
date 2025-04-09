@@ -130,6 +130,90 @@ class EFA_Widget_Hero extends Widget_Base {
 
 		$this->end_controls_section();
 
+		// style heading
+		$this->start_controls_section(
+			'style_heading',
+			[
+				'label' => esc_html__( 'Tiêu đề', 'essential-features-addon' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'heading_color',
+			[
+				'label'     => esc_html__( 'Màu', 'essential-features-addon' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .efa-addon-hero .box-content .headline' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'heading_typography',
+				'label'    => esc_html__( 'Kiểu chữ', 'essential-features-addon' ),
+				'selector' => '{{WRAPPER}} .efa-addon-hero .box-content .headline',
+			]
+		);
+
+		$this->end_controls_section();
+
+		// style desc
+		$this->start_controls_section(
+			'style_desc',
+			[
+				'label' => esc_html__( 'Nội dung', 'essential-features-addon' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'desc_color',
+			[
+				'label'     => esc_html__( 'Màu', 'essential-features-addon' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .efa-addon-hero .box-content .bio' => 'color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->add_group_control(
+			Group_Control_Typography::get_type(),
+			[
+				'name'     => 'desc_typography',
+				'label'    => esc_html__( 'Kiểu chữ', 'essential-features-addon' ),
+				'selector' => '{{WRAPPER}} .efa-addon-hero .box-content .bio',
+			]
+		);
+
+		$this->end_controls_section();
+
+		// style icon
+		$this->start_controls_section(
+			'style_icon',
+			[
+				'label' => esc_html__( 'Icon', 'essential-features-addon' ),
+				'tab'   => Controls_Manager::TAB_STYLE,
+			]
+		);
+
+		$this->add_control(
+			'icon_color',
+			[
+				'label'     => esc_html__( 'Màu', 'essential-features-addon' ),
+				'type'      => Controls_Manager::COLOR,
+				'selectors' => [
+					'{{WRAPPER}} .efa-icon-mask' => '--efa-icon-color: {{VALUE}}',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
 		// style heading cf7
 		$this->start_controls_section(
 			'style_cf_heading',
