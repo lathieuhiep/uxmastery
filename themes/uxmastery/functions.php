@@ -22,3 +22,6 @@ require get_theme_file_path( '/includes/theme-options.php' );
 require get_parent_theme_file_path( '/includes/widgets/contact-info-widget.php' );
 require get_parent_theme_file_path( '/includes/widgets/recent-post.php' );
 require get_parent_theme_file_path( '/includes/widgets/social-widget.php' );
+
+// Required: Custom Post Types
+require get_parent_theme_file_path( '/includes/custom-post-types/cpt-services.php' );
