@@ -32,11 +32,6 @@ function uxmastery_remove_wp_block_library_css(): void {
 add_action( 'wp_enqueue_scripts', 'uxmastery_remove_wp_block_library_css', 100 );
 
 add_action( 'wp_head', function() {
-	// Preconnect and preload for Google Fonts
-	echo '<link rel="preconnect" href="https://fonts.googleapis.com">' . "\n";
-	echo '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>' . "\n";
-	echo '<link rel="preload" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
-
 	// Preconnect and preload for Font Awesome
 	echo '<link rel="preconnect" href="https://cdnjs.cloudflare.com">' . "\n";
 	echo '<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>'. "\n";

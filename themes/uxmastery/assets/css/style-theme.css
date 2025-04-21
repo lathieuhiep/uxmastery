@@ -3,8 +3,43 @@ body .wrapper {
   flex-direction: column;
 }
 
+@font-face {
+  font-family: "SFProDisplay";
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/SFProDisplay/SFProDisplay-Thin.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SFProDisplay";
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/SFProDisplay/SFProDisplay-Regular.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SFProDisplay";
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/SFProDisplay/SFProDisplay-Medium.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SFProDisplay";
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/SFProDisplay/SFProDisplay-Semibold.woff2") format("woff2");
+}
+@font-face {
+  font-family: "SFProDisplay";
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url("../fonts/SFProDisplay/SFProDisplay-Bold.woff2") format("woff2");
+}
 :root {
-  --line-height-menu-item: 139px;
+  --line-height-menu-item: 10rem;
 }
 
 html {
@@ -14,8 +49,8 @@ html {
 body {
   min-height: 100vh;
   background-color: #ffffff;
-  font-family: "Roboto", sans-serif;
-  font-size: 16px;
+  font-family: "SFProDisplay", sans-serif;
+  font-size: 1.6rem;
   font-weight: 400;
   color: #868E96;
   line-height: 1.5;
@@ -70,6 +105,10 @@ a:active {
 hr {
   margin: 0;
   border-color: #343A40;
+}
+
+img {
+  max-width: 100%;
 }
 
 textarea {
@@ -173,7 +212,7 @@ h4,
 h5,
 h6 {
   color: #212529;
-  font-family: "Montserrat", sans-serif;
+  font-family: "SFProDisplay", sans-serif;
   font-weight: 700;
   margin: 0 0 28px;
   line-height: 1;
@@ -181,32 +220,32 @@ h6 {
 
 .h1,
 h1 {
-  font-size: 52px;
+  font-size: 5.2rem;
 }
 
 .h2,
 h2 {
-  font-size: 42px;
+  font-size: 4.2rem;
 }
 
 .h3,
 h3 {
-  font-size: 38px;
+  font-size: 3.8rem;
 }
 
 .h4,
 h4 {
-  font-size: 32px;
+  font-size: 3.2rem;
 }
 
 .h5,
 h5 {
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 .h6,
 h6 {
-  font-size: 18px;
+  font-size: 1.8rem;
 }
 
 p:last-child {
@@ -298,15 +337,15 @@ p:last-child {
 }
 
 .font-heading {
-  font-family: "Montserrat", sans-serif;
+  font-family: "SFProDisplay", sans-serif;
 }
 
 .font-body {
-  font-family: "Roboto", sans-serif;
+  font-family: "SFProDisplay", sans-serif;
 }
 
 .font-18 {
-  font-size: 24px;
+  font-size: 2.4rem;
 }
 
 .font-16 {
@@ -384,7 +423,7 @@ p,
 pre,
 table,
 ul {
-  margin-bottom: 20px;
+  margin-bottom: 2rem;
 }
 
 section {
@@ -399,19 +438,19 @@ section {
 }
 
 .m-xs {
-  margin: 10px;
+  margin: 1rem;
 }
 
 .m-sm {
-  margin: 20px;
+  margin: 2rem;
 }
 
 .m-md {
-  margin: 40px;
+  margin: 4rem;
 }
 
 .m-lg {
-  margin: 80px;
+  margin: 8rem;
 }
 
 /* top margin */
@@ -420,7 +459,7 @@ section {
 }
 
 .mt-xs {
-  margin-top: 10px;
+  margin-top: 1rem;
 }
 
 .mt-10 {
@@ -547,19 +586,19 @@ section {
 }
 
 .ml-xs {
-  margin-left: 10px;
+  margin-left: 1rem;
 }
 
 .ml-sm {
-  margin-left: 20px;
+  margin-left: 2rem;
 }
 
 .ml-md {
-  margin-left: 40px;
+  margin-left: 4rem;
 }
 
 .ml-lg {
-  margin-left: 80px;
+  margin-left: 8rem;
 }
 
 .ml-30 {
@@ -584,19 +623,19 @@ section {
 }
 
 .p-xs {
-  padding: 10px;
+  padding: 1rem;
 }
 
 .p-sm {
-  padding: 20px;
+  padding: 2rem;
 }
 
 .p-md {
-  padding: 40px;
+  padding: 4rem;
 }
 
 .p-lg {
-  padding: 80px;
+  padding: 8rem;
 }
 
 /* top padding */
@@ -683,19 +722,19 @@ section {
 }
 
 .pr-xs {
-  padding-right: 10px;
+  padding-right: 1rem;
 }
 
 .pr-sm {
-  padding-right: 20px;
+  padding-right: 2rem;
 }
 
 .pr-md {
-  padding-right: 40px;
+  padding-right: 4rem;
 }
 
 .pr-lg {
-  padding-right: 80px;
+  padding-right: 8rem;
 }
 
 .pr-15 {
@@ -1019,7 +1058,7 @@ section {
     #BUTTONS
 \*------------------------------------*/
 .btn {
-  font-family: "Roboto", sans-serif;
+  font-family: "SFProDisplay", sans-serif;
   display: inline-block;
   position: relative;
   z-index: 2;
@@ -1191,7 +1230,7 @@ a.back span {
 \*------------------------------------*/
 .form-control {
   color: #868E96;
-  font-family: "Roboto", sans-serif;
+  font-family: "SFProDisplay", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 57px;
@@ -1274,7 +1313,7 @@ a.back span {
   margin-bottom: 38px;
 }
 .heading .heading-title {
-  font-family: "Montserrat", sans-serif;
+  font-family: "SFProDisplay", sans-serif;
   color: #212529;
   font-size: 30px;
   font-weight: 700;
@@ -1283,7 +1322,7 @@ a.back span {
   text-transform: none;
 }
 .heading .heading-desc {
-  font-family: "Roboto", sans-serif;
+  font-family: "SFProDisplay", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
@@ -1394,8 +1433,8 @@ a.back span {
   font-size: 16px;
   text-transform: capitalize;
   font-weight: 400;
+  color: #212529;
   line-height: var(--line-height-menu-item);
-  color: #ffffff;
   padding: 0;
   position: relative;
   display: block;
@@ -1417,6 +1456,15 @@ a.back span {
   .header .navbar .navbar-nav > li.active a {
     color: #ffffff;
   }
+}
+.header .navbar .navbar-nav li a:hover {
+  color: #FF4F40;
+}
+.header .navbar.navbar-sticky .navbar-nav > li > a {
+  color: #ffffff;
+}
+.header .navbar.navbar-sticky .navbar-nav > li > a:hover {
+  color: #FF4F40;
 }
 .header .navbar.navbar-fixed {
   top: 0;
@@ -1558,6 +1606,15 @@ a.back span {
     padding-left: 0;
   }
 }
+.breadcrumbs {
+  padding-top: 2.5rem;
+  padding-bottom: 2.8rem;
+  background-color: #F4F4F4;
+}
+.breadcrumbs + .single-post-warp {
+  margin-top: 5.6rem;
+}
+
 .widget ul {
   list-style: none;
   padding: 0;
@@ -1588,7 +1645,6 @@ a.back span {
   cursor: pointer;
   color: #FF4F40;
   text-transform: capitalize;
-  background-color: #ffffff;
   border: 0;
   border-radius: 0.8rem;
   display: flex;
@@ -1612,6 +1668,13 @@ a.back span {
   .header .module-container .module-cta .btn:before {
     line-height: 40px;
   }
+}
+.header.header-default .module-cta .btn {
+  background-color: #FF4F40;
+  color: #ffffff;
+}
+.header.header-transparent .module-cta .btn {
+  background-color: #ffffff;
 }
 .header .navbar-fixed .module-container .module-cta .btn {
   background-color: #FF4F40;
@@ -1737,7 +1800,7 @@ a.back span {
   }
 }
 .landing-hero .landing-content p {
-  font-family: "Montserrat", sans-serif;
+  font-family: "SFProDisplay", sans-serif;
   font-size: 18px;
   line-height: 27px;
 }
@@ -1884,7 +1947,7 @@ a.back span {
   line-height: 1.19;
   color: #868E96;
   font-weight: 400;
-  font-family: "Roboto", sans-serif;
+  font-family: "SFProDisplay", sans-serif;
   transition: 0.3s ease-in-out;
   text-transform: capitalize;
 }
@@ -1918,7 +1981,7 @@ a.back span {
 .footer .footer-copyright-mini {
   padding-top: 30px;
   padding-bottom: 30px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "SFProDisplay", sans-serif;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;

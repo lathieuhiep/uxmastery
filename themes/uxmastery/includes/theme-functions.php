@@ -136,7 +136,7 @@ function uxmastery_col_use_sidebar( $option_sidebar, $active_sidebar ): string {
 			$class_position_sidebar = ' order-1';
 		endif;
 
-		$class_col_content = 'col-12 col-md-8 col-lg-9' . $class_position_sidebar;
+		$class_col_content = 'col-12 col-md-8' . $class_position_sidebar;
 	else:
 		$class_col_content = 'col-md-12';
 	endif;
@@ -145,7 +145,7 @@ function uxmastery_col_use_sidebar( $option_sidebar, $active_sidebar ): string {
 }
 
 function uxmastery_col_sidebar(): string {
-	return 'col-12 col-md-4 col-lg-3';
+	return 'col-12 col-md-4';
 }
 
 // Post Meta
@@ -265,4 +265,15 @@ function uxmastery_get_all_categories(): array {
 	}
 
 	return $categories_list;
+}
+
+// check page elementor
+function uxmastery_get_elementor_container_class( $post_id = null ): string {
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	$is_elementor = get_post_meta( $post_id, '_elementor_edit_mode', true );
+
+	return $is_elementor ? ' site-container-elementor' : '';
 }

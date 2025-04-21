@@ -34,18 +34,12 @@
           font-size: 16px;
           text-transform: capitalize;
           font-weight: 400;
+          color: $color-heading;
           line-height: var(--line-height-menu-item);
-          color: $color-white;
           padding: 0;
           position: relative;
           display: block;
           transition: 0.3s ease-in-out;
-        }
-
-        &.active > a,
-        > a:focus,
-        > a:hover {
-          //color: $color-heading;
         }
 
         @media #{$maxTablet} {
@@ -63,6 +57,28 @@
 
             a {
               color: $color-white
+            }
+          }
+        }
+      }
+
+      li {
+        a {
+          &:hover {
+            color: $color-secondary;
+          }
+        }
+      }
+    }
+
+    &.navbar-sticky {
+      .navbar-nav {
+        > li {
+          > a {
+            color: $color-white;
+
+            &:hover {
+              color: $color-secondary;
             }
           }
         }

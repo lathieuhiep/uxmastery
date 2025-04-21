@@ -1,4 +1,5 @@
 <?php
+$is_template_fixed_menu = is_page_template( 'templates/page-fixed-menu.php' );
 $sticky_menu  = uxmastery_get_option( 'opt_menu_sticky', '1' );
 $logo_light   = uxmastery_get_option( 'opt_general_logo_light' );
 $logo_dark    = uxmastery_get_option( 'opt_general_logo_dark' );
@@ -6,12 +7,12 @@ $menu_contact = uxmastery_get_option( 'opt_menu_contact' );
 $chat_zalo    = uxmastery_get_option( 'opt_link_zalo' );
 ?>
 
-<header class="header header-transparent header-sticky">
-    <nav class="navbar navbar-sticky navbar-expand-lg" id="primary-menu">
+<header class="header header-sticky <?php echo esc_attr( $is_template_fixed_menu ? 'header-transparent': 'header-default' ) ?>">
+    <nav class="navbar navbar-expand-lg<?php echo esc_attr( $is_template_fixed_menu ? ' navbar-sticky': '' ) ?>" id="primary-menu">
         <div class="container">
             <a class="logo navbar-brand" href="<?php echo esc_url( get_home_url( '/' ) ); ?>">
 				<?php
-				if ( ! empty( $logo_light['id'] ) || ! empty( $logo_dark['id'] ) ) :
+				if ( $is_template_fixed_menu && ( ! empty( $logo_light['id'] ) || ! empty( $logo_dark['id'] ) ) ) :
 					if ( ! empty( $logo_dark['id'] ) ) :
 						echo wp_get_attachment_image( $logo_dark['id'], 'medium', false, array( "class" => "logo-dark" ) );
 					endif;
@@ -19,6 +20,8 @@ $chat_zalo    = uxmastery_get_option( 'opt_link_zalo' );
                     if ( ! empty( $logo_light['id'] ) ) :
 	                    echo wp_get_attachment_image( $logo_light['id'], 'medium', false, array( "class" => "logo-light" ) );
                     endif;
+                elseif ( !$is_template_fixed_menu && ! empty( $logo_dark['id'] ) ) :
+	                echo wp_get_attachment_image( $logo_dark['id'], 'medium' );
 				else :
                 ?>
                     <img class="logo-default"

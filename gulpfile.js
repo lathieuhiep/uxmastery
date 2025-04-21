@@ -349,7 +349,7 @@ async function buildProject() {
     await buildStyleCustomLogin()
     await buildJPluginEFA()
 
-    // await buildStyleCustomPostType()
+    await buildStyleCustomPostType()
 
     // await buildStylePageTemplate()
 }
@@ -366,8 +366,8 @@ function watchTask() {
         // buildStyleBootstrap,
         buildStyleTheme,
         buildStyleElementor,
-        buildStyleCustomLogin
-        // buildStyleCustomPostType,
+        buildStyleCustomLogin,
+        buildStyleCustomPostType
         // buildStylePageTemplate
     ))
 
@@ -383,9 +383,10 @@ function watchTask() {
 
     watch([`${paths.theme.js}custom.js`], buildJSTheme)
 
-    // watch([
-    //     `${paths.theme.scss}post-type/*/**.scss`
-    // ], buildStyleCustomPostType)
+    watch([
+        `${paths.theme.scss}layout/_sidebar.scss`,
+        `${paths.theme.scss}post-type/*/**.scss`
+    ], buildStyleCustomPostType)
     //
     // watch([
     //     `${paths.theme.scss}page-templates/*.scss`
