@@ -63,6 +63,10 @@ body {
 
     .site-container {
       flex: 1;
+
+      &:not(.site-container-elementor) {
+        padding-bottom: 5.6rem;
+      }
     }
   }
 }
@@ -144,6 +148,12 @@ section {
   height: 100vh !important;
 }
 
+blockquote {
+  padding: 2.5rem 7.2rem 2.6rem 3rem;
+  background-color: #FFFEF4;
+  border-left: 0.3rem solid $color-secondary;
+}
+
 /* Medium Devices, Desktops */
 @media only screen and (max-width: 992px) {
   .fullscreen {
@@ -175,5 +185,11 @@ section {
     .modal-body {
       padding: 0;
     }
+  }
+}
+
+.container {
+  @media (max-width: 991px) {
+    max-width: 100%;
   }
 }

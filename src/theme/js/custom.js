@@ -72,4 +72,12 @@
         });
     }
 
+    /* ------------------  sticky sidebar ------------------ */
+    const siteSidebar = $('.site-sidebar');
+    if (siteSidebar.length > 0) {
+        siteSidebar.theiaStickySidebar({
+            additionalMarginTop: 60
+        });
+    }
+
 }(jQuery));

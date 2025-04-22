@@ -38,7 +38,6 @@ add_action( 'wp_head', function() {
 	echo '<link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" as="style" onload="this.onload=null;this.rel=\'stylesheet\'">' . "\n";
 }, 5);
 
-
 // load libs front-end style +scrip
 add_action('wp_enqueue_scripts', 'uxmastery_front_end_libs', 5);
 function uxmastery_front_end_libs(): void {
@@ -73,6 +72,10 @@ function uxmastery_front_end_scripts (): void {
 	// comment reply
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
+	}
+
+	if ( is_singular('post') ) {
+		wp_enqueue_script( 'theia-sticky-sidebar', get_theme_file_uri( '/assets/js/theia-sticky-sidebar.min.js' ), array('jquery'), '3.7.11', true );
 	}
 
 	// functions js

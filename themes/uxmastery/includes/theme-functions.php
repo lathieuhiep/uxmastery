@@ -99,8 +99,8 @@ function uxmastery_pagination(): void {
 	the_posts_pagination( array(
 		'type'               => 'list',
 		'mid_size'           => 2,
-		'prev_text'          => esc_html__( 'Trước', 'uxmastery' ),
-		'next_text'          => esc_html__( 'Sau', 'uxmastery' ),
+		'prev_text'          => esc_html__( 'Trước', 'basictheme' ),
+		'next_text'          => esc_html__( 'Sau', 'basictheme' ),
 		'screen_reader_text' => '&nbsp;',
 	) );
 }
@@ -108,8 +108,8 @@ function uxmastery_pagination(): void {
 // Pagination Nav Query
 function uxmastery_paging_nav_query( $query ): void {
 	$args = array(
-		'prev_text' => esc_html__( ' Trước', 'uxmastery' ),
-		'next_text' => esc_html__( 'Sau', 'uxmastery' ),
+		'prev_text' => esc_html__( ' Trước', 'basictheme' ),
+		'next_text' => esc_html__( 'Sau', 'basictheme' ),
 		'current'   => max( 1, get_query_var( 'paged' ) ),
 		'total'     => $query->max_num_pages,
 		'type'      => 'list',
@@ -146,34 +146,6 @@ function uxmastery_col_use_sidebar( $option_sidebar, $active_sidebar ): string {
 
 function uxmastery_col_sidebar(): string {
 	return 'col-12 col-md-4';
-}
-
-// Post Meta
-function uxmastery_post_meta(): void {
-	?>
-
-    <div class="post-meta">
-        <span class="post-meta__author">
-            <?php esc_html_e( 'Tác giả:', 'uxmastery' ); ?>
-
-            <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
-                <?php the_author(); ?>
-            </a>
-        </span>
-
-        <span class="post-meta__date">
-            <?php esc_html_e( 'Ngày đăng: ', 'uxmastery' );
-            the_date(); ?>
-        </span>
-
-        <span class="post-meta__comments">
-            <?php
-            comments_popup_link( '0 ' . esc_html__( 'Bình luận', 'uxmastery' ), '1 ' . esc_html__( 'Bình luận', 'uxmastery' ), '% ' . esc_html__( 'Bình luận', 'uxmastery' ) );
-            ?>
-        </span>
-    </div>
-
-	<?php
 }
 
 // Link Pages
@@ -276,4 +248,76 @@ function uxmastery_get_elementor_container_class( $post_id = null ): string {
 	$is_elementor = get_post_meta( $post_id, '_elementor_edit_mode', true );
 
 	return $is_elementor ? ' site-container-elementor' : '';
+}
+
+// Get post description
+function uxmastery_get_post_description_fallback( $post ): string {
+	$excerpt = get_the_excerpt( $post );
+
+	if ( empty( $excerpt ) ) {
+		$content = strip_tags( strip_shortcodes( $post->post_content ) );
+		$excerpt = wp_trim_words( $content, 30, '...' ); // Lấy 30 từ đầu làm mô tả
+	}
+
+	return $excerpt;
+}
+
+// Get post title
+function uxmastery_get_custom_archive_title() {
+	if ( is_singular('post') ) {
+		$categories = get_the_category();
+		return ! empty($categories) ? $categories[0]->name : '';
+
+	} elseif ( is_page() ) {
+		return get_the_title();
+
+	} elseif ( is_category() ) {
+		return single_cat_title('', false);
+
+	} elseif ( is_tag() ) {
+		return single_tag_title('', false);
+
+	} elseif ( is_author() ) {
+		$author = get_queried_object();
+		return $author->display_name;
+
+	} elseif ( is_tax() ) {
+		$term = get_queried_object();
+		return $term->name;
+
+	} elseif ( is_post_type_archive() ) {
+		return post_type_archive_title('', false);
+
+	} elseif ( is_day() || is_month() || is_year() ) {
+		return get_the_date();
+
+	} else {
+		return get_the_archive_title();
+	}
+}
+
+
+// social sharing
+function uxmastery_social_sharing(): void {
+?>
+    <div class="social-sharing">
+        <p class="text"><?php esc_html_e('Chia sẻ trên', 'uxmastery'); ?></p>
+
+        <div class="list">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink() ); ?>"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn-share btn-share-facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo urlencode( get_permalink() ); ?>"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn-share btn-share-linkedin">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+        </div>
+    </div>
+<?php
 }

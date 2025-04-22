@@ -1,19 +1,31 @@
 <?php
 $show_related = uxmastery_get_option('opt_post_single_related', '1');
+
+$back_url = wp_get_referer();
+if ( ! $back_url ) {
+	$back_url = home_url();
+}
 ?>
 
 <div id="post-<?php the_ID() ?>" <?php post_class('single-post-content'); ?>>
+    <div class="back-url-warp">
+        <a href="<?php echo esc_url( $back_url ); ?>" class="btn-back d-inline-flex align-items-center">
+            <i class="fas fa-arrow-left-long"></i>
+            <span><?php esc_html_e('Quay lại', 'uxmastery'); ?></span>
+        </a>
+    </div>
+
+    <h1 class="single-post-content__title">
+		<?php the_title(); ?>
+    </h1>
+
+    <?php uxmastery_social_sharing(); ?>
+
     <?php if ( has_post_thumbnail() ) :?>
         <div class="single-post-content__image">
             <?php the_post_thumbnail('full'); ?>
         </div>
     <?php endif; ?>
-
-    <h2 class="single-post-content__title">
-		<?php the_title(); ?>
-    </h2>
-
-	<?php uxmastery_post_meta(); ?>
 
     <div class="single-post-content__detail">
 		<?php
@@ -23,27 +35,7 @@ $show_related = uxmastery_get_option('opt_post_single_related', '1');
 		?>
     </div>
 
-    <div class="single-post-content__tax">
-		<?php if( get_the_category() ): ?>
-            <p class="post-category">
-				<?php
-				esc_html_e('Category: ','uxmastery');
-				the_category( ', ' );
-				?>
-            </p>
-		<?php
-		endif;
-
-		if( get_the_tags() ):
-        ?>
-            <p class="post-tag">
-				<?php
-				esc_html_e( 'Tag: ','uxmastery' );
-				the_tags('',', ');
-				?>
-            </p>
-		<?php endif; ?>
-    </div>
+	<?php uxmastery_social_sharing(); ?>
 </div>
 
 <?php

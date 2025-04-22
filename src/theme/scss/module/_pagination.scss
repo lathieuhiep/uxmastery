@@ -1,0 +1,35 @@
+@import "../../../shared/scss/abstracts/abstracts";
+
+.pagination {
+  display: block;
+  float: none;
+  text-align: center;
+  margin-top: 2.4rem;
+}
+
+.page-numbers {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: inline-block;
+
+    span,
+    a {
+      display: block;
+      cursor: pointer;
+      border: 1px solid $color-gray-medium;
+      padding: .4rem 1.2rem;
+      position: relative;
+      border-radius: .4rem;
+    }
+
+    span.current,
+    a:hover {
+      background: $color-secondary;
+      border-color: $color-secondary;
+      color: #fff;
+    }
+  }
+}

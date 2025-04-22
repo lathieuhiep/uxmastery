@@ -4,6 +4,7 @@
 @import "../../shared/scss/abstracts/placeholder-selector";
 @import "base/base";
 @import "base/wp-core";
+@import "base/grid";
 
 //Layout rules
 @import "layout/typography";
@@ -22,6 +23,7 @@
 @import "module/menu-max1200";
 @import "module/menu-min992";
 @import "module/breadcrumb";
+@import "module/pagination";
 @import "module/sidebar";
 @import "module/modules";
 @import "module/carousel";

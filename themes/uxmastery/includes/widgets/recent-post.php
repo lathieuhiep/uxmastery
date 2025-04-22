@@ -81,11 +81,6 @@ class BasicTheme_Recent_Post_Widget extends WP_Widget {
 									<?php the_title(); ?>
                                 </a>
                             </h4>
-
-                            <p class="meta">
-                                <i class="fas fa-calendar"></i>
-								<?php echo get_the_date(); ?>
-                            </p>
                         </div>
                     </div>
 				<?php

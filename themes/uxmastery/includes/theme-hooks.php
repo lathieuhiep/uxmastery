@@ -16,6 +16,30 @@ function uxmastery_disable_emojis(): void {
 	add_filter( 'tiny_mce_plugins', 'uxmastery_disable_emojis_tinymce' );
 }
 
+// add open graph meta tags
+function uxmastery_add_open_graph_tags(): void {
+	if ( is_singular( 'post' ) ) {
+		global $post;
+		$title = get_the_title( $post );
+		$desc  = uxmastery_get_post_description_fallback( $post );
+		$img   = get_the_post_thumbnail_url( $post, 'full' );
+		$url   = get_permalink( $post );
+
+		if ( ! $img ) {
+			$img = get_template_directory_uri() . '/assets/images/no-image.png';
+		}
+    ?>
+        <meta property="og:title" content="<?php echo esc_attr( $title ); ?>">
+        <meta property="og:description" content="<?php echo esc_attr( $desc ); ?>">
+        <meta property="og:image" content="<?php echo esc_url( $img ); ?>">
+        <meta property="og:url" content="<?php echo esc_url( $url ); ?>">
+        <meta property="og:type" content="article">
+    <?php
+	}
+}
+
+add_action( 'wp_head', 'uxmastery_add_open_graph_tags', 1 );
+
 function uxmastery_disable_emojis_tinymce( $plugins ): array {
 	if ( is_array( $plugins ) ) {
 		return array_diff( $plugins, array( 'wpemoji' ) );
