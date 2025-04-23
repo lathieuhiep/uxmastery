@@ -268,7 +268,10 @@ function uxmastery_get_custom_archive_title() {
 		$categories = get_the_category();
 		return ! empty($categories) ? $categories[0]->name : '';
 
-	} elseif ( is_page() ) {
+	} elseif ( is_singular('ux_service') ) {
+		$terms = get_the_terms( get_the_ID(), 'ux_service_category' );
+		return ! empty($terms) && ! is_wp_error($terms) ? $terms[0]->name : '';
+    } elseif ( is_page() ) {
 		return get_the_title();
 
 	} elseif ( is_category() ) {

@@ -19,3 +19,9 @@
     transform: translateY(0);
   }
 }
+
+.btn-link {
+  &:hover {
+    text-decoration: none;
+  }
+}

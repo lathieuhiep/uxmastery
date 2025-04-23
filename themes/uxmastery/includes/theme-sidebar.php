@@ -15,6 +15,7 @@ function uxmastery_register_sidebar( $name, $id, $description = '' ): void {
 add_action( 'widgets_init', 'uxmastery_multiple_widget_init' );
 function uxmastery_multiple_widget_init(): void {
 	uxmastery_register_sidebar( esc_html__( 'Sidebar chính', 'uxmastery' ), 'sidebar-main', 'Dùng ở các trang bài viết' );
+	uxmastery_register_sidebar( esc_html__( 'Sidebar dịch vụ', 'uxmastery' ), 'sidebar-service', 'Dùng ở chi tiết dịch vụ' );
 
 	// sidebar footer
 	$opt_number_columns = uxmastery_get_option( 'opt_footer_columns', '4' );

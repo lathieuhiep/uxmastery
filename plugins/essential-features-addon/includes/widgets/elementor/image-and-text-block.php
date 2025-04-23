@@ -152,6 +152,81 @@ class EFA_Widget_Image_And_Text_Block extends Widget_Base {
 
 		$this->end_controls_section();
 
+        // layout settings
+		$this->start_controls_section(
+			'content_layout_section',
+			[
+				'label' => esc_html__( 'Bố cục', 'essential-features-addon' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_responsive_control(
+			'columns_grid',
+			[
+				'label' => esc_html__( 'Cột', 'clinic' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'fr' => [
+						'min' => 1,
+						'max' => 12,
+						'step' => 1,
+					],
+				],
+				'size_units' => [ 'fr', 'custom' ],
+				'unit_selectors_dictionary' => [
+					'custom' => 'grid-template-columns: {{SIZE}}',
+				],
+				'default' => [
+					'unit' => 'fr',
+					'size' => 2,
+				],
+				'mobile_default' => [
+					'unit' => 'fr',
+					'size' => 1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .efa-addon-image-text-block:has(.select-box)' => 'grid-template-columns: repeat({{SIZE}}, 1fr)',
+				],
+				'responsive' => true,
+				'editor_available' => true,
+			]
+		);
+
+		$this->add_responsive_control(
+			'row_gap',
+			[
+				'label' => __( 'Khoảng cách hàng', 'essential-features-addon' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem' ],
+				'default' => [
+					'size' => 2.4,
+					'unit' => 'rem',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .efa-addon-image-text-block:has(.select-box)' => 'row-gap: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'column_gap',
+			[
+				'label' => __( 'Khoảng cách cột (Column Gap)', 'essential-features-addon' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem' ],
+				'default' => [
+					'size' => 3.6,
+					'unit' => 'rem',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .efa-addon-image-text-block:has(.select-box)' => 'column-gap: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
         // Style Icon
 		$this->start_controls_section(
 			'style_icon',

@@ -18,7 +18,7 @@ function uxmastery_register_services_cpt(): void {
 		'labels'        => $labels,
 		'public'        => true,
 		'menu_icon'     => 'dashicons-hammer',
-		'supports'      => array( 'title', 'editor', 'thumbnail' ),
+		'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
 		'has_archive'   => true,
 		'rewrite'       => array( 'slug' => 'dich-vu' ),
 		'show_in_rest'  => true,

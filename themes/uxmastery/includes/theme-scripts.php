@@ -59,7 +59,7 @@ function uxmastery_front_end_scripts (): void {
 		wp_enqueue_style( 'category-post', get_theme_file_uri( '/assets/css/post-type/post/archive.min.css' ), array(), uxmastery_get_version_theme() );
 	}
 
-	if (is_singular('post')) {
+	if (is_singular('post') || is_singular('ux_service')) {
 		wp_enqueue_style( 'single-post', get_theme_file_uri( '/assets/css/post-type/post/single.min.css' ), array(), uxmastery_get_version_theme() );
 	}
 
