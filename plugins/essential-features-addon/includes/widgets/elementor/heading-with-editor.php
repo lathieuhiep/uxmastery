@@ -88,6 +88,18 @@ class EFA_Widget_Heading_With_Editor extends Widget_Base {
 		);
 
 		$this->add_responsive_control(
+			'heading_margin',
+			[
+				'label' => esc_html__('Margin', 'essential-features-addon'),
+				'type' => Controls_Manager::DIMENSIONS,
+				'size_units' => ['px', '%', 'em'],
+				'selectors' => [
+					'{{WRAPPER}} .efa-addon-heading-with-editor .heading' => 'margin: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
 			'heading_align',
 			[
 				'label'     => esc_html__( 'Căn chỉnh', 'essential-features-addon' ),
@@ -114,7 +126,7 @@ class EFA_Widget_Heading_With_Editor extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .element-heading-with-editor .heading' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .efa-addon-heading-with-editor .heading' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -125,7 +137,7 @@ class EFA_Widget_Heading_With_Editor extends Widget_Base {
 				'label'     => esc_html__( 'Màu', 'essential-features-addon' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .element-heading-with-editor .heading' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .efa-addon-heading-with-editor .heading' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -135,13 +147,13 @@ class EFA_Widget_Heading_With_Editor extends Widget_Base {
 			[
 				'name'     => 'heading_typography',
 				'label'    => esc_html__( 'Kiểu chữ', 'essential-features-addon' ),
-				'selector' => '{{WRAPPER}} .element-heading-with-editor .heading',
+				'selector' => '{{WRAPPER}} .efa-addon-heading-with-editor .heading',
 			]
 		);
 
 		$this->end_controls_section();
 
-		// Style Heading
+		// Style description
 		$this->start_controls_section(
 			'style_description',
 			[
@@ -177,7 +189,7 @@ class EFA_Widget_Heading_With_Editor extends Widget_Base {
 					],
 				],
 				'selectors' => [
-					'{{WRAPPER}} .element-heading-with-editor .desc' => 'text-align: {{VALUE}};',
+					'{{WRAPPER}} .efa-addon-heading-with-editor .desc' => 'text-align: {{VALUE}};',
 				],
 			]
 		);
@@ -188,7 +200,7 @@ class EFA_Widget_Heading_With_Editor extends Widget_Base {
 				'label'     => esc_html__( 'Color', 'essential-features-addon' ),
 				'type'      => Controls_Manager::COLOR,
 				'selectors' => [
-					'{{WRAPPER}} .element-heading-with-editor .desc' => 'color: {{VALUE}}',
+					'{{WRAPPER}} .efa-addon-heading-with-editor .desc' => 'color: {{VALUE}}',
 				],
 			]
 		);
@@ -198,7 +210,7 @@ class EFA_Widget_Heading_With_Editor extends Widget_Base {
 			[
 				'name'     => 'desc_typography',
 				'label'    => esc_html__( 'Kiểu chữ', 'essential-features-addon' ),
-				'selector' => '{{WRAPPER}} .element-heading-with-editor .desc',
+				'selector' => '{{WRAPPER}} .efa-addon-heading-with-editor .desc',
 			]
 		);
 

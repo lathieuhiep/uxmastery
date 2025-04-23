@@ -8,16 +8,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class EFA_Widget_Post_Grid extends Widget_Base {
+class EFA_Widget_Dual_Post_Block extends Widget_Base {
 
 	// widget name
 	public function get_name(): string {
-		return 'efa-post-grid';
+		return 'efa-dual-post-block';
 	}
 
 	// widget title
 	public function get_title(): string {
-		return esc_html__( 'Bài viết dạng lưới', 'essential-features-addon' );
+		return esc_html__( 'Cặp bài viết nổi bật', 'essential-features-addon' );
 	}
 
 	// widget icon
@@ -117,21 +117,6 @@ class EFA_Widget_Post_Grid extends Widget_Base {
 			[
 				'label' => esc_html__( 'Thiết lập giao diện', 'essential-features-addon' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
-			]
-		);
-
-		$this->add_control(
-			'column_number',
-			[
-				'label'   => esc_html__( 'Cột', 'essential-features-addon' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 3,
-				'options' => [
-					1 => esc_html__( '1 Cột', 'essential-features-addon' ),
-					2 => esc_html__( '2 Cột', 'essential-features-addon' ),
-					3 => esc_html__( '3 Cột', 'essential-features-addon' ),
-					4 => esc_html__( '4 Cột', 'essential-features-addon' ),
-				],
 			]
 		);
 
@@ -334,50 +319,47 @@ class EFA_Widget_Post_Grid extends Widget_Base {
 		$query = new WP_Query( $args );
 
 		if ( $query->have_posts() ) :
-        ?>
-            <div class="efa-addon-post-grid">
-                <div class="efa-row efa-row-cols-1 efa-row-cols-sm-2 efa-row-cols-md-3 efa-row-cols-lg-<?php echo esc_attr( $settings['column_number'] ); ?> efa-row-gap-6">
-					<?php while ( $query->have_posts() ): $query->the_post(); ?>
-                        <div class="efa-col">
-                            <div class="item">
-                                <div class="box-thumbnail">
-                                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-										<?php
-										if ( has_post_thumbnail() ) :
-											the_post_thumbnail( $settings['image_size'] );
-										else:
-											?>
-                                            <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>"
-                                                 alt="<?php the_title(); ?>"/>
-										<?php endif; ?>
-                                    </a>
-                                </div>
-
-                                <h2 class="title">
-                                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-										<?php the_title(); ?>
-                                    </a>
-                                </h2>
-
-								<?php if ( $settings['show_excerpt'] == 'show' ) : ?>
-                                    <div class="desc">
-                                        <p>
-											<?php
-											if ( has_excerpt() ) :
-												echo esc_html( wp_trim_words( get_the_excerpt(), $settings['excerpt_length'], '...' ) );
-											else:
-												echo esc_html( wp_trim_words( get_the_content(), $settings['excerpt_length'], '...' ) );
-											endif;
-											?>
-                                        </p>
-                                    </div>
+			?>
+			<div class="efa-addon-post-grid efa-addon-dual-post">
+				<?php while ( $query->have_posts() ): $query->the_post(); ?>
+					<div class="item">
+						<div class="box-thumbnail">
+							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+								<?php
+								if ( has_post_thumbnail() ) :
+									the_post_thumbnail( $settings['image_size'] );
+								else:
+									?>
+									<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>"
+									     alt="<?php the_title(); ?>"/>
 								<?php endif; ?>
-                            </div>
-                        </div>
-					<?php endwhile;
-					wp_reset_postdata(); ?>
-                </div>
-            </div>
+							</a>
+						</div>
+
+						<div class="box-content">
+							<h2 class="title">
+								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+									<?php the_title(); ?>
+								</a>
+							</h2>
+
+							<?php if ( $settings['show_excerpt'] == 'show' ) : ?>
+								<div class="desc">
+									<p>
+										<?php
+										if ( has_excerpt() ) :
+											echo esc_html( wp_trim_words( get_the_excerpt(), $settings['excerpt_length'], '...' ) );
+										else:
+											echo esc_html( wp_trim_words( get_the_content(), $settings['excerpt_length'], '...' ) );
+										endif;
+										?>
+									</p>
+								</div>
+							<?php endif; ?>
+						</div>
+					</div>
+				<?php endwhile;wp_reset_postdata(); ?>
+			</div>
 		<?php
 		endif;
 	}
