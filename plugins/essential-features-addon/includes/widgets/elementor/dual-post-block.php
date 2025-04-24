@@ -22,7 +22,7 @@ class EFA_Widget_Dual_Post_Block extends Widget_Base {
 
 	// widget icon
 	public function get_icon(): string {
-		return 'eicon-gallery-grid';
+		return 'eicon-post-list';
 	}
 
 	// widget categories

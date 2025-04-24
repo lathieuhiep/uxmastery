@@ -301,7 +301,38 @@ class EFA_Widget_Book_Curriculum extends Widget_Base {
 
 	protected function content_template() {
 	?>
+        <div class="efa-addon-book-curriculum">
+            <div class="image-box">
+                <# if ( settings.image.url ) { #>
+                <img src="{{ settings.image.url }}" class="{{ settings.image_size }}">
+                <# } #>
+            </div>
 
+            <div class="content-box">
+                <# if ( settings.heading ) { #>
+                <{{{ settings.html_tag }}} class="heading">{{{ settings.heading }}}</{{{ settings.html_tag }}}>
+                <# } #>
+
+                <# if ( settings.description ) { #>
+                <div class="desc">{{{ settings.description }}}</div>
+                <# } #>
+
+                <div class="action-box">
+                    <# if ( settings.preview_link.url ) { #>
+                    <a class="btn-link preview-link" href="{{ settings.preview_link.url }}">
+                        <span class="text">{{ settings.preview_text }}</span>
+                    </a>
+                    <# } #>
+
+                    <# if ( settings.contact_link.url ) { #>
+                    <a class="btn-link contact-link" href="{{ settings.contact_link.url }}">
+                        <span class="text">{{ settings.contact_text }}</span>
+                        <i class="fas fa-arrow-right-long"></i>
+                    </a>
+                    <# } #>
+                </div>
+            </div>
+        </div>
 	<?php
 	}
 }

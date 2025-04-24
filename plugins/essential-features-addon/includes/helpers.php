@@ -479,3 +479,14 @@ function efa_pagination(): void {
 		'screen_reader_text' => '&nbsp;',
 	) );
 }
+
+// replace number
+function efa_preg_replace_ony_number( $string ): string|null {
+	$number = '';
+
+	if ( ! empty( $string ) ) {
+		$number = preg_replace( '/[^0-9]/', '', strip_tags( $string ) );
+	}
+
+	return $number;
+}
