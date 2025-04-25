@@ -14,7 +14,7 @@
   filter: "alpha(opacity=${opperc})";
 }
 
-@mixin transition($duration:0.3s, $ease:ease-out) {
+@mixin transition($duration:0.4s, $ease:ease-out) {
   -webkit-transition: all $duration $ease;
   -moz-transition: all $duration $ease;
   -o-transition: all $duration $ease;

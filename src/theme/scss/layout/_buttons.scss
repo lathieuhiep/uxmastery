@@ -49,7 +49,7 @@ a.back {
   }
 
   span {
-    transition: 0.3s ease-in-out;
+    transition: 0.4s ease-in-out;
     display: inline-block;
     transform: rotate(-180deg);
     margin-right: 15px;
@@ -199,11 +199,11 @@ a.back {
     line-height: 51px;
     font-family: 'icomoon';
     content: "\e901";
-    transition: all 0.3s;
+    transition: all 0.4s;
   }
 
   span {
-    transition: all 0.3s;
+    transition: all 0.4s;
     display: inline-block;
     height: 100%;
     width: 100%;

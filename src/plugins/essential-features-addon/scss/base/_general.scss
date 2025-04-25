@@ -5,6 +5,10 @@
   font-weight: 700;
 }
 
+.elementor-heading-title {
+  line-height: normal;
+}
+
 // animation for up-down
 @include keyFrame(efa-up-down) {
   0% {

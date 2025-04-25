@@ -1,7 +1,7 @@
 .efa-addon-image-text-block {
   position: relative;
   box-shadow: none;
-  transition: 0.3s ease-in-out;
+  transition: 0.4s ease-in-out;
   cursor: pointer;
 
   &:has(.select-box) {
@@ -13,7 +13,7 @@
     position: relative;
 
     .icon {
-      transition: all 0.3s linear;
+      transition: all 0.4s linear;
       display: inline-block;
     }
 
@@ -35,9 +35,8 @@
 
   .content-box {
     .heading {
-      font-size: 20px;
-      line-height: 1.5;
-      margin-bottom: 9px;
+      font-size: 2rem;
+      margin-bottom: 1rem;
     }
 
     .desc {
@@ -98,7 +97,7 @@
 
 .feature-left {
   .feature-panel {
-    transition: all 0.3s;
+    transition: all 0.4s;
     margin-bottom: 18px;
 
     &:hover {
