@@ -326,10 +326,8 @@ class EFA_Widget_Hero extends Widget_Base {
         <div class="efa-addon-hero">
             <div class="box-item box-content">
 				<?php if ( $settings['heading'] ) : ?>
-                    <<?php echo esc_html( $tag ); ?> class="headline">
-                    <?php echo esc_html( $settings['heading'] ); ?>
-                </<?php echo esc_html( $tag ); ?>>
-			<?php endif; ?>
+                    <<?php echo esc_html( $tag ); ?> class="headline fly-up-title" data-text="<?php echo esc_attr( $settings['heading'] ); ?>"></<?php echo esc_html( $tag ); ?>>
+			    <?php endif; ?>
 
 			<?php if ( ! empty( $desc ) ) : ?>
                 <div class="bio">

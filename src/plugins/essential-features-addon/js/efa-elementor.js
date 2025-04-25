@@ -15,6 +15,41 @@
         return $.extend(defaults, options)
     }
 
+    /* Fly-up title animation */
+    const ElementFlyUpTitle = function ($scope, $) {
+        const titles = $scope.find('.fly-up-title');
+console.log(titles)
+        if ( titles.length ) {
+            titles.each(function () {
+                const el = $(this);
+                const text = el.data('text');
+                if (!text) return;
+
+                el.html(''); // Clear nội dung cũ
+
+                // Tạo từng span, giữ cả khoảng trắng
+                for (let i = 0; i < text.length; i++) {
+                    const char = text[i];
+                    const letter = $('<span>').text(char === ' ' ? '\u00A0' : char); // \u00A0 = non-breaking space
+                    el.append(letter);
+                }
+
+                // Tạo hiệu ứng sóng nhẹ và fade-in mượt
+                el.find('span').each(function (index) {
+                    const that = $(this);
+
+                    const baseDelay = 100;
+                    const waveOffset = Math.sin(index / 2);
+                    const delay = index * baseDelay + waveOffset;
+
+                    setTimeout(function () {
+                        that.addClass('visible');
+                    }, delay);
+                });
+            });
+        }
+    };
+
     /* Start Carousel slider */
     const ElementCarouselSlider = function ($scope, $) {
         const slider = $scope.find('.custom-owl-carousel');
@@ -38,6 +73,9 @@
     }
 
     $(window).on('elementor/frontend/init', function () {
+        /* Element fly-up title */
+        elementorFrontend.hooks.addAction('frontend/element_ready/efa-hero.default', ElementFlyUpTitle);
+
         /* Element slider */
         elementorFrontend.hooks.addAction('frontend/element_ready/efa-slides.default', ElementCarouselSlider);
 
