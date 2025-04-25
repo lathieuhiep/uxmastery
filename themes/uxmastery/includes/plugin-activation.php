@@ -13,6 +13,14 @@ function uxmastery_register_required_plugins(): void {
 	$uxmastery_plugins = array(
 		// This is an example of how to include a plugin from the WordPress Plugin Repository
 		array(
+			'name'      =>  'Breadcrumb Navxt',
+			'slug'      =>  'breadcrumb-navxt',
+			'required'  =>  true,
+			'source' => 'https://github.com/Codestar/codestar-framework/archive/refs/heads/master.zip'
+		),
+
+		// This is an example of how to include a plugin from the WordPress Plugin Repository
+		array(
 			'name'      =>  'Codestar Framework',
 			'slug'      =>  'codestar-framework',
 			'required'  =>  true,
