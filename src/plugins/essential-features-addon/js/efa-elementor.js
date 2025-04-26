@@ -18,7 +18,7 @@
     /* Fly-up title animation */
     const ElementFlyUpTitle = function ($scope, $) {
         const titles = $scope.find('.fly-up-title');
-console.log(titles)
+
         if ( titles.length ) {
             titles.each(function () {
                 const el = $(this);
