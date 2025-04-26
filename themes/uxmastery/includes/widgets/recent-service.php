@@ -30,7 +30,7 @@ class MyTheme_Recent_Service_Widget extends WP_Widget {
 		$limit   = $instance['number'] ?? 5;
 		$cat_ids = ! empty( $instance['select_cat'] ) ? $instance['select_cat'] : array( '0' );
 
-		$post__not_in = [];
+//		$post__not_in = [];
 		if ( is_singular('ux_service') && get_the_ID() ) {
 			$post__not_in[] = get_the_ID();
 		}
@@ -41,8 +41,11 @@ class MyTheme_Recent_Service_Widget extends WP_Widget {
 			'orderby'             => $instance['order_by'],
 			'order'               => $instance['order'],
 			'ignore_sticky_posts' => 1,
-			'post__not_in'        => $post__not_in,
 		);
+
+		if ( is_singular('ux_service') && get_the_ID() ) {
+			$post_arg['post__not_in'] = array(get_the_ID());
+		}
 
 		if ( ! in_array( 0, $cat_ids ) ) :
 			$post_arg['tax_query'] = array(
