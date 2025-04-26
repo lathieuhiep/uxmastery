@@ -38,8 +38,8 @@
                 el.find('span').each(function (index) {
                     const that = $(this);
 
-                    const baseDelay = 100;
-                    const waveOffset = Math.sin(index / 2);
+                    const baseDelay = 30;
+                    const waveOffset = Math.sin(index / 2) * 10;
                     const delay = index * baseDelay + waveOffset;
 
                     setTimeout(function () {
