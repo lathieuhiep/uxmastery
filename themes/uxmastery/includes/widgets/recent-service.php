@@ -30,6 +30,11 @@ class MyTheme_Recent_Service_Widget extends WP_Widget {
 		$limit   = $instance['number'] ?? 5;
 		$cat_ids = ! empty( $instance['select_cat'] ) ? $instance['select_cat'] : array( '0' );
 
+//		$post__not_in = [];
+		if ( is_singular('ux_service') && get_the_ID() ) {
+			$post__not_in[] = get_the_ID();
+		}
+
 		$post_arg = array(
 			'post_type'           => 'ux_service',
 			'posts_per_page'      => $limit,
@@ -37,6 +42,10 @@ class MyTheme_Recent_Service_Widget extends WP_Widget {
 			'order'               => $instance['order'],
 			'ignore_sticky_posts' => 1,
 		);
+
+		if ( is_singular('ux_service') && get_the_ID() ) {
+			$post_arg['post__not_in'] = array(get_the_ID());
+		}
 
 		if ( ! in_array( 0, $cat_ids ) ) :
 			$post_arg['tax_query'] = array(
@@ -51,8 +60,7 @@ class MyTheme_Recent_Service_Widget extends WP_Widget {
 		$post_query = new WP_Query( $post_arg );
 
 		if ( $post_query->have_posts() ) :
-
-			?>
+        ?>
             <div class="post-list">
 				<?php
 				while ( $post_query->have_posts() ) :
@@ -60,14 +68,15 @@ class MyTheme_Recent_Service_Widget extends WP_Widget {
 					?>
                     <div class="item">
                         <div class="image">
-							<?php
-							if ( has_post_thumbnail() ):
-								the_post_thumbnail( 'medium' );
-							else:
-								?>
-                                <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ); ?>"
-                                     alt="post">
-							<?php endif; ?>
+                            <a href="<?php the_permalink(); ?>">
+                                <?php
+                                if ( has_post_thumbnail() ):
+                                    the_post_thumbnail( 'medium' );
+                                else:
+                                ?>
+                                    <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ); ?>" alt="post">
+                                <?php endif; ?>
+                            </a>
                         </div>
 
                         <div class="content">

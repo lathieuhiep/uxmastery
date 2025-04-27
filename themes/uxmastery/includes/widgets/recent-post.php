@@ -34,24 +34,21 @@ class BasicTheme_Recent_Post_Widget extends WP_Widget {
 		$limit   = $instance['number'] ?? 5;
 		$cat_ids = ! empty( $instance['select_cat'] ) ? $instance['select_cat'] : array( '0' );
 
-		if ( in_array( 0, $cat_ids ) ) :
-			$post_arg = array(
-				'post_type'           => 'post',
-				'posts_per_page'      => $limit,
-				'orderby'             => $instance['order_by'],
-				'order'               => $instance['order'],
-				'ignore_sticky_posts' => 1,
-			);
-		else:
-			$post_arg = array(
-				'post_type'           => 'post',
-				'cat'                 => $cat_ids,
-				'posts_per_page'      => $limit,
-				'orderby'             => $instance['order_by'],
-				'order'               => $instance['order'],
-				'ignore_sticky_posts' => 1,
-			);
-		endif;
+		$post_arg = array(
+			'post_type'           => 'post',
+			'posts_per_page'      => $limit,
+			'orderby'             => $instance['order_by'],
+			'order'               => $instance['order'],
+			'ignore_sticky_posts' => 1,
+		);
+
+		if ( is_singular('post') && get_the_ID() ) {
+			$post_arg['post__not_in'] = array(get_the_ID());
+		}
+
+		if ( ! in_array( 0, $cat_ids ) ) {
+			$post_arg['cat'] = $cat_ids;
+		}
 
 		$post_query = new WP_Query( $post_arg );
 

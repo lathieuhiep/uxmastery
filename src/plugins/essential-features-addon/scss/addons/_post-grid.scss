@@ -12,13 +12,13 @@
         display: block;
         border-radius: .4rem;
         overflow: hidden;
+
+        @extend %image-hover;
       }
 
       img {
         width: 100%;
       }
-
-      @extend %image-hover;
     }
 
     .title {
@@ -27,7 +27,7 @@
 
       a {
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 1;
         -webkit-box-orient: vertical;
         overflow: hidden;
         text-overflow: ellipsis;

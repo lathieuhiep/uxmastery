@@ -18,7 +18,7 @@
     /* Fly-up title animation */
     const ElementFlyUpTitle = function ($scope, $) {
         const titles = $scope.find('.fly-up-title');
-console.log(titles)
+
         if ( titles.length ) {
             titles.each(function () {
                 const el = $(this);
@@ -38,8 +38,8 @@ console.log(titles)
                 el.find('span').each(function (index) {
                     const that = $(this);
 
-                    const baseDelay = 100;
-                    const waveOffset = Math.sin(index / 2);
+                    const baseDelay = 30;
+                    const waveOffset = Math.sin(index / 2) * 10;
                     const delay = index * baseDelay + waveOffset;
 
                     setTimeout(function () {
