@@ -59,7 +59,7 @@ body {
   font-size: 1.6rem;
   font-weight: 400;
   color: #353535;
-  line-height: 1.6;
+  line-height: 1.8;
   margin: 0;
   overflow-x: hidden;
 }
@@ -2017,9 +2017,22 @@ body .wrapper {
     line-height: 40px;
   }
 }
+.header.header-default {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+  background-color: #ffffff;
+  box-shadow: 0 8px 12px -10px rgba(0, 0, 0, 0.03);
+}
 .header.header-default .module-cta .btn {
   background-color: #FF4F40;
   color: #ffffff;
+}
+.header.header-default .navbar-toggler.collapsed .navbar-toggler-icon {
+  background-color: #FF4F40;
+}
+.header.header-default .navbar-toggler .navbar-toggler-icon::before, .header.header-default .navbar-toggler .navbar-toggler-icon::after {
+  background-color: #FF4F40;
 }
 .header.header-transparent .module-cta .btn {
   background-color: #ffffff;

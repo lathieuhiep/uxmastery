@@ -50,10 +50,31 @@
   }
 
   &.header-default {
+    position: sticky;
+    top: 0;
+    z-index: 99;
+    background-color: $color-white;
+    box-shadow: 0 8px 12px -10px rgba(0,0,0,.03);
+
     .module-cta {
       .btn {
         background-color: $color-secondary;
         color: $color-white;
+      }
+    }
+
+    .navbar-toggler {
+      &.collapsed {
+        .navbar-toggler-icon {
+          background-color: $color-secondary;
+        }
+      }
+
+      .navbar-toggler-icon {
+        &::before,
+        &::after {
+          background-color: $color-secondary;
+        }
       }
     }
   }
