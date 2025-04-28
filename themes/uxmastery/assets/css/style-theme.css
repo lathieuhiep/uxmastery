@@ -1695,11 +1695,10 @@ a.back span {
   padding: 0;
   margin-right: 0;
   max-width: 16rem;
-  height: 10rem;
+  min-height: 10rem;
 }
 .header .navbar .navbar-brand img {
   width: 100%;
-  height: inherit;
 }
 .header .navbar .navbar-brand .logo-dark {
   display: none;

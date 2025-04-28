@@ -38,6 +38,81 @@ class EFA_Widget_Image_And_Text_Block extends Widget_Base {
 
 	// widget controls
 	protected function register_controls(): void {
+		// layout settings
+		$this->start_controls_section(
+			'content_layout_section',
+			[
+				'label' => esc_html__( 'Bố cục', 'essential-features-addon' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_responsive_control(
+			'columns_grid',
+			[
+				'label' => esc_html__( 'Cột', 'clinic' ),
+				'type' => Controls_Manager::SLIDER,
+				'range' => [
+					'fr' => [
+						'min' => 1,
+						'max' => 12,
+						'step' => 1,
+					],
+				],
+				'size_units' => [ 'fr', 'custom' ],
+				'unit_selectors_dictionary' => [
+					'custom' => 'grid-template-columns: {{SIZE}}',
+				],
+				'default' => [
+					'unit' => 'fr',
+					'size' => 2,
+				],
+				'mobile_default' => [
+					'unit' => 'fr',
+					'size' => 1,
+				],
+				'selectors' => [
+					'{{WRAPPER}} .efa-addon-image-text-block:has(.select-box)' => 'grid-template-columns: repeat({{SIZE}}, 1fr)',
+				],
+				'responsive' => true,
+				'editor_available' => true,
+			]
+		);
+
+		$this->add_responsive_control(
+			'row_gap',
+			[
+				'label' => __( 'Khoảng cách hàng', 'essential-features-addon' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem' ],
+				'default' => [
+					'size' => 2.4,
+					'unit' => 'rem',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .efa-addon-image-text-block:has(.select-box)' => 'row-gap: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'column_gap',
+			[
+				'label' => __( 'Khoảng cách cột (Column Gap)', 'essential-features-addon' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem' ],
+				'default' => [
+					'size' => 3.6,
+					'unit' => 'rem',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .efa-addon-image-text-block:has(.select-box)' => 'column-gap: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
 		// Image or icon
 		$this->start_controls_section(
 			'image_section',
@@ -152,75 +227,23 @@ class EFA_Widget_Image_And_Text_Block extends Widget_Base {
 
 		$this->end_controls_section();
 
-        // layout settings
+        // link
 		$this->start_controls_section(
-			'content_layout_section',
+			'link_section',
 			[
-				'label' => esc_html__( 'Bố cục', 'essential-features-addon' ),
+				'label' => esc_html__( 'Link điều hướng', 'essential-features-addon' ),
 				'tab'   => Controls_Manager::TAB_CONTENT,
 			]
 		);
 
-		$this->add_responsive_control(
-			'columns_grid',
+		$this->add_control(
+			'link',
 			[
-				'label' => esc_html__( 'Cột', 'clinic' ),
-				'type' => Controls_Manager::SLIDER,
-				'range' => [
-					'fr' => [
-						'min' => 1,
-						'max' => 12,
-						'step' => 1,
-					],
-				],
-				'size_units' => [ 'fr', 'custom' ],
-				'unit_selectors_dictionary' => [
-					'custom' => 'grid-template-columns: {{SIZE}}',
-				],
-				'default' => [
-					'unit' => 'fr',
-					'size' => 2,
-				],
-				'mobile_default' => [
-					'unit' => 'fr',
-					'size' => 1,
-				],
-				'selectors' => [
-					'{{WRAPPER}} .efa-addon-image-text-block:has(.select-box)' => 'grid-template-columns: repeat({{SIZE}}, 1fr)',
-				],
-				'responsive' => true,
-				'editor_available' => true,
-			]
-		);
-
-		$this->add_responsive_control(
-			'row_gap',
-			[
-				'label' => __( 'Khoảng cách hàng', 'essential-features-addon' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', 'em', 'rem' ],
-				'default' => [
-					'size' => 2.4,
-					'unit' => 'rem',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .efa-addon-image-text-block:has(.select-box)' => 'row-gap: {{SIZE}}{{UNIT}};',
-				],
-			]
-		);
-
-		$this->add_responsive_control(
-			'column_gap',
-			[
-				'label' => __( 'Khoảng cách cột (Column Gap)', 'essential-features-addon' ),
-				'type' => Controls_Manager::SLIDER,
-				'size_units' => [ 'px', 'em', 'rem' ],
-				'default' => [
-					'size' => 3.6,
-					'unit' => 'rem',
-				],
-				'selectors' => [
-					'{{WRAPPER}} .efa-addon-image-text-block:has(.select-box)' => 'column-gap: {{SIZE}}{{UNIT}};',
+				'label'       => esc_html__( 'Url', 'essential-features-addon' ),
+				'type'        => Controls_Manager::URL,
+				'placeholder' => esc_html__( 'https://your-link.com', 'essential-features-addon' ),
+				'default'     => [
+					'url' => '#',
 				],
 			]
 		);
@@ -323,6 +346,11 @@ class EFA_Widget_Image_And_Text_Block extends Widget_Base {
 		$icon          = $settings['icon'];
 		$image         = $settings['image'];
 		$image_size    = $settings['image_size'];
+
+		if ( ! empty( $settings['link']['url'] ) ) {
+			$this->add_link_attributes( 'link', $settings['link'] );
+		}
+
 		?>
         <div class="efa-addon-image-text-block">
             <?php if ( ($icon_or_image == 'icon' && $icon) || ( $icon_or_image == 'image' && $image && $image['id'] ) ) : ?>
@@ -350,6 +378,8 @@ class EFA_Widget_Image_And_Text_Block extends Widget_Base {
                     </div>
                 <?php endif; ?>
             </div>
+
+            <a class="link" <?php $this->print_render_attribute_string( 'link' ); ?>></a>
         </div>
 		<?php
 	}
@@ -384,11 +414,12 @@ class EFA_Widget_Image_And_Text_Block extends Widget_Base {
                 <# } #>
 
                 <# if ( description ) { #>
-                <div class="desc">
-                    {{{ description }}}
-                </div>
-            <# } #>
-        </div>
+                    <div class="desc">
+                        {{{ description }}}
+                    </div>
+                <# } #>
+            </div>
+            <a class="link" href="{{ settings.link.url }}"></a>
         </div>
 		<?php
 	}
