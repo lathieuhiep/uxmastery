@@ -32,5 +32,11 @@ function efa_elementor_scripts(): void {
 
 		// js plugin
 		wp_enqueue_script( 'efa-elementor-script', EFA_PLUGIN_URL . 'assets/js/efa-elementor.min.js', array( 'jquery' ), EFA_PLUGIN_VERSION, true );
+
+		// call ajax
+		wp_localize_script( 'efa-elementor-script', 'btnEfaLoadMore', [
+			'ajaxurl' => admin_url( 'admin-ajax.php' ),
+			'nonce'   => wp_create_nonce( 'efa_load_nonce' ),
+		]);
 	}
 }

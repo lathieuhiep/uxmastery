@@ -72,6 +72,67 @@
         }
     }
 
+    // load more
+    const ElementBtnLoadMore = ($scope, $) => {
+        const btnLoadMore = $scope.find('.btn-load-more');
+
+        if ( btnLoadMore.length ) {
+            let paged = 2;
+
+            btnLoadMore.on('click', function () {
+                const btn = $(this);
+                const checkActive = btn.hasClass('active-loading');
+
+                if ( checkActive ) return;
+
+                const postBlock = btn.closest('.efa-addon-post-grid');
+                const postWarp = postBlock.find('.efa-addon-dual-post');
+                const settings = postBlock.data('settings');
+                const posts_per_page = parseInt( settings.posts_per_page );
+                const order_by = settings.order_by;
+                const order = settings.order;
+                const cat = settings.cat;
+                const image_size = settings.image_size;
+                const show_excerpt = settings.show_excerpt;
+                const excerpt_length = settings.excerpt_length;
+
+                $.ajax({
+                    url: btnEfaLoadMore.ajaxurl,
+                    type: 'POST',
+                    data: {
+                        action: 'efa_load_more_dual_posts',
+                        paged: paged,
+                        posts_per_page: posts_per_page,
+                        order_by: order_by,
+                        order: order,
+                        cat: cat,
+                        image_size: image_size,
+                        show_excerpt: show_excerpt,
+                        excerpt_length: excerpt_length,
+                        nonce: btnEfaLoadMore.nonce
+                    },
+                    beforeSend: function () {
+                        btn.addClass('active-loading');
+                    },
+                    success: function (response) {
+                        if ( response.success ) {
+                            postWarp.append(response.data.html);
+
+                            if ( response.data.posts_loaded < posts_per_page ) {
+                                btn.remove();
+                            } else {
+                                paged++;
+                                btn.removeClass('active-loading');
+                            }
+                        } else {
+                            btn.remove();
+                        }
+                    }
+                })
+            })
+        }
+    }
+
     $(window).on('elementor/frontend/init', function () {
         /* Element fly-up title */
         elementorFrontend.hooks.addAction('frontend/element_ready/efa-hero.default', ElementFlyUpTitle);
@@ -90,6 +151,9 @@
 
         /* Element counter up */
         elementorFrontend.hooks.addAction('frontend/element_ready/efa-service-card.default', ElementCounterUp);
+
+        /* Element load more */
+        elementorFrontend.hooks.addAction('frontend/element_ready/efa-dual-post-block.default', ElementBtnLoadMore);
     });
 
 })(jQuery);

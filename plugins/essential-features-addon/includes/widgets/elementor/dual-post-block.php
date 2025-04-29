@@ -75,12 +75,11 @@ class EFA_Widget_Dual_Post_Block extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Sắp xếp theo', 'essential-features-addon' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'id',
+				'default' => 'ID',
 				'options' => [
-					'id'    => esc_html__( 'ID', 'essential-features-addon' ),
+					'ID'    => esc_html__( 'ID', 'essential-features-addon' ),
 					'title' => esc_html__( 'Tiêu đề', 'essential-features-addon' ),
 					'date'  => esc_html__( 'Ngày đăng', 'essential-features-addon' ),
-					'rand'  => esc_html__( 'Ngẫu nhiên', 'essential-features-addon' ),
 				],
 			]
 		);
@@ -299,12 +298,25 @@ class EFA_Widget_Dual_Post_Block extends Widget_Base {
 
 	// widget output on the frontend
 	protected function render(): void {
+		$settings       = $this->get_settings_for_display();
+		$cat_post       = $settings['select_cat'];
+		$limit_post     = $settings['limit'];
+		$order_by_post  = $settings['order_by'];
+		$order_post     = $settings['order'];
+		$image_size     = $settings['image_size'];
+		$show_excerpt   = $settings['show_excerpt'];
+		$excerpt_length = $settings['excerpt_length'];
 
-		$settings      = $this->get_settings_for_display();
-		$cat_post      = $settings['select_cat'];
-		$limit_post    = $settings['limit'];
-		$order_by_post = $settings['order_by'];
-		$order_post    = $settings['order'];
+        // data setting
+		$settings_data = array(
+			'posts_per_page' => $limit_post,
+			'order_by'       => $order_by_post,
+			'order'          => $order_post,
+			'cat'            => $cat_post,
+			'image_size'     => $image_size,
+			'show_excerpt'   => $show_excerpt,
+			'excerpt_length' => $excerpt_length,
+		);
 
 		// Query
 		$args = array(
@@ -312,53 +324,40 @@ class EFA_Widget_Dual_Post_Block extends Widget_Base {
 			'posts_per_page'      => $limit_post,
 			'orderby'             => $order_by_post,
 			'order'               => $order_post,
-			'cat'                 => $cat_post,
 			'ignore_sticky_posts' => 1,
 		);
+
+		if ( ! empty( $cat_post ) ) {
+			$args['tax_query'] = array(
+				array(
+					'taxonomy' => 'category',
+					'field'    => 'term_id',
+					'terms'    => $cat_post,
+				),
+			);
+		}
 
 		$query = new WP_Query( $args );
 
 		if ( $query->have_posts() ) :
 			?>
-			<div class="efa-addon-post-grid efa-addon-dual-post">
-				<?php while ( $query->have_posts() ): $query->the_post(); ?>
-					<div class="item">
-						<div class="box-thumbnail">
-							<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-								<?php
-								if ( has_post_thumbnail() ) :
-									the_post_thumbnail( $settings['image_size'] );
-								else:
-									?>
-									<img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>"
-									     alt="<?php the_title(); ?>"/>
-								<?php endif; ?>
-							</a>
-						</div>
+			<div class="efa-addon-post-grid" data-settings='<?php echo json_encode( $settings_data ); ?>'>
+                <div class="efa-addon-dual-post">
+                    <?php
+                    while ( $query->have_posts() ):
+                        $query->the_post();
 
-						<div class="box-content">
-							<h2 class="title">
-								<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-									<?php the_title(); ?>
-								</a>
-							</h2>
+	                    efa_render_single_post_item( $image_size, $show_excerpt, $excerpt_length );
 
-							<?php if ( $settings['show_excerpt'] == 'show' ) : ?>
-								<div class="desc">
-									<p>
-										<?php
-										if ( has_excerpt() ) :
-											echo esc_html( wp_trim_words( get_the_excerpt(), $settings['excerpt_length'], '...' ) );
-										else:
-											echo esc_html( wp_trim_words( get_the_content(), $settings['excerpt_length'], '...' ) );
-										endif;
-										?>
-									</p>
-								</div>
-							<?php endif; ?>
-						</div>
-					</div>
-				<?php endwhile;wp_reset_postdata(); ?>
+                    endwhile; wp_reset_postdata(); ?>
+                </div>
+
+                <div class="action-box">
+                    <button type="button" class="btn-load-more">
+                        <span class="btn-text"><?php esc_html_e('Xem thêm', 'essential-features-addon'); ?></span>
+                        <span class="btn-spinner"><span class="loader"></span></span>
+                    </button>
+                </div>
 			</div>
 		<?php
 		endif;

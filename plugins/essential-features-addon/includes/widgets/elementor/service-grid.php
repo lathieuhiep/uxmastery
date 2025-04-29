@@ -75,9 +75,9 @@ class EFA_Widget_Service_Grid extends Widget_Base {
 			[
 				'label'   => esc_html__( 'Sắp xếp theo', 'essential-features-addon' ),
 				'type'    => Controls_Manager::SELECT,
-				'default' => 'id',
+				'default' => 'ID',
 				'options' => [
-					'id'    => esc_html__( 'ID', 'essential-features-addon' ),
+					'ID'    => esc_html__( 'ID', 'essential-features-addon' ),
 					'title' => esc_html__( 'Tiêu đề', 'essential-features-addon' ),
 					'date'  => esc_html__( 'Ngày đăng', 'essential-features-addon' ),
 					'rand'  => esc_html__( 'Ngẫu nhiên', 'essential-features-addon' ),

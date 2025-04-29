@@ -490,3 +490,45 @@ function efa_preg_replace_ony_number( $string ): string|null {
 
 	return $number;
 }
+
+//
+function efa_render_single_post_item($image_size, $show_excerpt, $excerpt_length): void {
+?>
+	<div class="item">
+		<div class="box-thumbnail">
+			<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+				<?php
+				if ( has_post_thumbnail() ) :
+					the_post_thumbnail( $image_size );
+				else:
+					?>
+					<img src="<?php echo esc_url( EFA_PLUGIN_URL . 'assets/images/no-image.png' ); ?>"
+					     alt="<?php the_title(); ?>"/>
+				<?php endif; ?>
+			</a>
+		</div>
+
+		<div class="box-content">
+			<h2 class="title">
+				<a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+					<?php the_title(); ?>
+				</a>
+			</h2>
+
+			<?php if ( $show_excerpt == 'show' ) : ?>
+				<div class="desc">
+					<p>
+						<?php
+						if ( has_excerpt() ) :
+							echo esc_html( wp_trim_words( get_the_excerpt(), $excerpt_length, '...' ) );
+						else:
+							echo esc_html( wp_trim_words( get_the_content(), $excerpt_length, '...' ) );
+						endif;
+						?>
+					</p>
+				</div>
+			<?php endif; ?>
+		</div>
+	</div>
+<?php
+}

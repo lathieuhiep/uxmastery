@@ -43,6 +43,11 @@
       color: rgba(0, 0, 0, .75);
     }
   }
+
+  .action-box {
+    margin-top: 5.2rem;
+    text-align: center;
+  }
 }
 
 .efa-addon-dual-post {
@@ -69,4 +74,72 @@
       font-size: 1.8rem;
     }
   }
+}
+
+.btn-load-more {
+  position: relative;
+  padding: .4rem 3.2rem;
+  color: $color-white;
+  border: none;
+  border-radius: .8rem;
+  background-color: $color-secondary;
+  @include transition();
+
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    background-color: rgba(0, 0, 0, .8);
+    @include transition();
+  }
+
+  &:hover {
+    background-color: $color-black;
+  }
+
+  .btn-spinner {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.2em;
+    height: 1.2em;
+    z-index: 2;
+    transform: translate(-50%, -50%);
+
+    .loader {
+      display: block;
+      width: inherit;
+      height: inherit;
+      border-width: .3rem;
+      border-style: solid;
+      border-color: #eee;
+      border-top-color: $color-secondary;
+      border-radius: 50%;
+      animation: spinner 0.6s linear infinite;
+    }
+  }
+
+  &.active-loading {
+    pointer-events: none;
+
+    &::before {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .btn-spinner {
+      display: inline-block;
+    }
+  }
+}
+
+@keyframes spinner {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
 }
