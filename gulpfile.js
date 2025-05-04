@@ -8,6 +8,8 @@ const cleanCSS  = require('gulp-clean-css')
 const rename = require("gulp-rename")
 const plumber = require('gulp-plumber');
 const path = require('path');
+const gulpIf = require('gulp-if');
+const isProduction = process.env.NODE_ENV === 'production';
 
 // Biến đại diện cho tên plugin và theme
 const pluginNameEFA = 'essential-features-addon';
@@ -60,45 +62,6 @@ function server() {
         cors: true,
         ghostMode: false
     })
-}
-
-/*
-Task build fontawesome
-* */
-function buildFontawesomeStyle() {
-    return src(`${paths.shared.vendors}fontawesome.scss`)
-        .pipe(plumber({
-            errorHandler: function (err) {
-                console.error(err.message);
-                this.emit('end');
-            }
-        }))
-        .pipe(sass({
-            outputStyle: 'expanded',
-            includePaths: [
-                path.resolve(__dirname, 'node_modules/')
-            ],
-            quietDeps: true
-        }, '').on('error', sass.logError))
-        .pipe(cleanCSS ({
-            level: 2
-        }))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(dest(`${paths.output.theme.libs}fontawesome/css`))
-        .pipe(browserSync.stream())
-}
-
-function CopyWebFonts() {
-    return src([
-        `${paths.node_modules}@fortawesome/fontawesome-free/webfonts/fa-solid-900.ttf`,
-        `${paths.node_modules}@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2`,
-        `${paths.node_modules}@fortawesome/fontawesome-free/webfonts/fa-regular-400.ttf`,
-        `${paths.node_modules}@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2`,
-        `${paths.node_modules}@fortawesome/fontawesome-free/webfonts/fa-brands-400.ttf`,
-        `${paths.node_modules}@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2`,
-    ], {encoding: false})
-        .pipe(dest(`${paths.output.theme.libs}fontawesome/webfonts`))
-        .pipe(browserSync.stream())
 }
 
 /*
@@ -335,10 +298,7 @@ Task build project
 async function buildProject() {
     // await buildStyleBootstrap()
     // await buildLibsBootstrapJS()
-    //
-    // await buildFontawesomeStyle()
-    // await CopyWebFonts()
-    //
+
     // await buildStyleOwlCarousel()
     // await buildJsOwlCarouse()
 
