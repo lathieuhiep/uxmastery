@@ -72,6 +72,10 @@
 
     .title {
       font-size: 1.8rem;
+
+      a {
+        -webkit-line-clamp: 2;
+      }
     }
   }
 }
