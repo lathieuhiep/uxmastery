@@ -9,7 +9,11 @@ const rename = require("gulp-rename")
 const plumber = require('gulp-plumber');
 const path = require('path');
 const gulpIf = require('gulp-if');
-const isProduction = process.env.NODE_ENV === 'production';
+
+require('dotenv').config()
+
+// setting NODE_ENV: development or production
+const isDev = (process.env.NODE_ENV === 'development');
 
 // Biến đại diện cho tên plugin và theme
 const pluginNameEFA = 'essential-features-addon';
@@ -53,7 +57,6 @@ const paths = {
 
 // server
 // tạo file .env với biến PROXY="localhost/basicthem". Có thể thay đổi giá trị này.
-require('dotenv').config()
 const proxy = process.env.PROXY || "localhost/basicthem";
 function server() {
     browserSync.init({
@@ -155,7 +158,7 @@ function buildStyleTheme() {
                 this.emit('end');
             }
         }))
-        .pipe(sourcemaps.init())
+        .pipe(gulpIf(isDev, sourcemaps.init()))
         .pipe(sass({
             outputStyle: 'expanded'
         }, '').on('error', sass.logError))
@@ -164,7 +167,7 @@ function buildStyleTheme() {
             level: 2
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(sourcemaps.write())
+        .pipe(gulpIf(isDev, sourcemaps.write()))
         .pipe(dest(`${paths.output.theme.css}`))
         .pipe(browserSync.stream())
 }
@@ -193,7 +196,7 @@ function buildStyleCustomPostType() {
                 this.emit('end');
             }
         }))
-        .pipe(sourcemaps.init())
+        .pipe(gulpIf(isDev, sourcemaps.init()))
         .pipe(sass({
             outputStyle: 'expanded'
         }, '').on('error', sass.logError))
@@ -201,7 +204,7 @@ function buildStyleCustomPostType() {
             level: 2
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(sourcemaps.write())
+        .pipe(gulpIf(isDev, sourcemaps.write()))
         .pipe(dest(`${paths.output.theme.css}post-type/`))
         .pipe(browserSync.stream())
 }
@@ -215,7 +218,7 @@ function buildStylePageTemplate() {
                 this.emit('end');
             }
         }))
-        .pipe(sourcemaps.init())
+        .pipe(gulpIf(isDev, sourcemaps.init()))
         .pipe(sass({
             outputStyle: 'expanded'
         }, '').on('error', sass.logError))
@@ -223,7 +226,7 @@ function buildStylePageTemplate() {
             level: 2
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(sourcemaps.write())
+        .pipe(gulpIf(isDev, sourcemaps.write()))
         .pipe(dest(`${paths.output.theme.css}page-templates/`))
         .pipe(browserSync.stream())
 }
@@ -241,7 +244,7 @@ function buildStyleElementor() {
                 this.emit('end');
             }
         }))
-        .pipe(sourcemaps.init())
+        .pipe(gulpIf(isDev, sourcemaps.init()))
         .pipe(sass({
             outputStyle: 'expanded'
         }, '').on('error', sass.logError))
@@ -249,7 +252,7 @@ function buildStyleElementor() {
             level: 2
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(sourcemaps.write())
+        .pipe(gulpIf(isDev, sourcemaps.write()))
         .pipe(dest(`${paths.output.plugins.efa.css}`))
         .pipe(browserSync.stream())
 }
@@ -264,7 +267,7 @@ function buildStyleCustomLogin() {
                 this.emit('end');
             }
         }))
-        .pipe(sourcemaps.init())
+        .pipe(gulpIf(isDev, sourcemaps.init()))
         .pipe(sass({
             outputStyle: 'expanded'
         }, '').on('error', sass.logError))
@@ -272,7 +275,7 @@ function buildStyleCustomLogin() {
             level: 2
         }))
         .pipe(rename({suffix: '.min'}))
-        .pipe(sourcemaps.write())
+        .pipe(gulpIf(isDev, sourcemaps.write()))
         .pipe(dest(`${paths.output.plugins.efa.css}`))
         .pipe(browserSync.stream())
 }
