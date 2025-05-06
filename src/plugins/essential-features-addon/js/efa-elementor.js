@@ -116,7 +116,11 @@
                     },
                     success: function (response) {
                         if ( response.success ) {
-                            postWarp.append(response.data.html);
+                            const $html = $(response.data.html);
+                            const $newItems = $html.filter('.item').add($html.find('.item'));
+
+                            $newItems.addClass('efa-zoom-in');
+                            postWarp.append($html)
 
                             if ( response.data.posts_loaded < posts_per_page ) {
                                 btn.remove();
