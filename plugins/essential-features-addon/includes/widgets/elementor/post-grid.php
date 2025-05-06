@@ -109,32 +109,6 @@ class EFA_Widget_Post_Grid extends Widget_Base {
 			]
 		);
 
-		$this->end_controls_section();
-
-		// Content layout
-		$this->start_controls_section(
-			'content_layout',
-			[
-				'label' => esc_html__( 'Thiết lập giao diện', 'essential-features-addon' ),
-				'tab'   => Controls_Manager::TAB_CONTENT,
-			]
-		);
-
-		$this->add_control(
-			'column_number',
-			[
-				'label'   => esc_html__( 'Cột', 'essential-features-addon' ),
-				'type'    => Controls_Manager::SELECT,
-				'default' => 3,
-				'options' => [
-					1 => esc_html__( '1 Cột', 'essential-features-addon' ),
-					2 => esc_html__( '2 Cột', 'essential-features-addon' ),
-					3 => esc_html__( '3 Cột', 'essential-features-addon' ),
-					4 => esc_html__( '4 Cột', 'essential-features-addon' ),
-				],
-			]
-		);
-
 		$this->add_control(
 			'show_excerpt',
 			[
@@ -160,9 +134,67 @@ class EFA_Widget_Post_Grid extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Số lượng từ hiển thị', 'essential-features-addon' ),
 				'type'      => Controls_Manager::NUMBER,
-				'default'   => '10',
+				'default'   => 20,
 				'condition' => [
 					'show_excerpt' => 'show',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		// Content layout
+		$this->start_controls_section(
+			'content_layout',
+			[
+				'label' => esc_html__( 'Thiết lập giao diện', 'essential-features-addon' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_responsive_control(
+			'column_number',
+			[
+				'label' => esc_html__( 'Số cột', 'essential-features-addon' ),
+				'type' => Controls_Manager::NUMBER,
+				'min' => 1,
+				'max' => 100,
+				'step' => 1,
+				'default' => 3,
+				'selectors' => [
+					'{{WRAPPER}} .efa-grid-layout' => 'grid-template-columns: repeat({{VALUE}}, 1fr)',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'column_gap',
+			[
+				'label' => esc_html__( 'Khoảng cách cột', 'essential-features-addon' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem' ],
+				'default' => [
+					'size' => 2.4,
+					'unit' => 'rem',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .efa-grid-layout' => 'column-gap: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'row_gap',
+			[
+				'label' => esc_html__( 'Khoảng cách hàng', 'essential-features-addon' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem' ],
+				'default' => [
+					'size' => 2.4,
+					'unit' => 'rem',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .efa-grid-layout' => 'row-gap: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
@@ -327,56 +359,63 @@ class EFA_Widget_Post_Grid extends Widget_Base {
 			'posts_per_page'      => $limit_post,
 			'orderby'             => $order_by_post,
 			'order'               => $order_post,
-			'cat'                 => $cat_post,
 			'ignore_sticky_posts' => 1,
 		);
+
+		if ( ! empty( $cat_post ) ) {
+			$args['tax_query'] = array(
+				array(
+					'taxonomy' => 'category',
+					'field'    => 'term_id',
+					'terms'    => $cat_post,
+				),
+			);
+		}
 
 		$query = new WP_Query( $args );
 
 		if ( $query->have_posts() ) :
         ?>
-            <div class="efa-addon-post-grid">
-                <div class="efa-row efa-row-cols-1 efa-row-cols-sm-2 efa-row-cols-md-3 efa-row-cols-lg-<?php echo esc_attr( $settings['column_number'] ); ?> efa-row-gap-6">
-					<?php while ( $query->have_posts() ): $query->the_post(); ?>
-                        <div class="efa-col">
-                            <div class="item">
-                                <div class="box-thumbnail">
-                                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-										<?php
-										if ( has_post_thumbnail() ) :
-											the_post_thumbnail( $settings['image_size'] );
-										else:
-											?>
-                                            <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>"
-                                                 alt="<?php the_title(); ?>"/>
-										<?php endif; ?>
-                                    </a>
-                                </div>
-
-                                <h2 class="title">
-                                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
-										<?php the_title(); ?>
-                                    </a>
-                                </h2>
-
-								<?php if ( $settings['show_excerpt'] == 'show' ) : ?>
-                                    <div class="desc">
-                                        <p>
-											<?php
-											if ( has_excerpt() ) :
-												echo esc_html( wp_trim_words( get_the_excerpt(), $settings['excerpt_length'], '...' ) );
-											else:
-												echo esc_html( wp_trim_words( get_the_content(), $settings['excerpt_length'], '...' ) );
-											endif;
-											?>
-                                        </p>
-                                    </div>
-								<?php endif; ?>
+            <div class="efa-addon-post-grid efa-grid-layout">
+                <?php while ( $query->have_posts() ): $query->the_post(); ?>
+                    <div class="efa-col">
+                        <div class="item">
+                            <div class="box-thumbnail">
+                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                    <?php
+                                    if ( has_post_thumbnail() ) :
+                                        the_post_thumbnail( $settings['image_size'] );
+                                    else:
+                                        ?>
+                                        <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>"
+                                             alt="<?php the_title(); ?>"/>
+                                    <?php endif; ?>
+                                </a>
                             </div>
+
+                            <h2 class="title">
+                                <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                                    <?php the_title(); ?>
+                                </a>
+                            </h2>
+
+                            <?php if ( $settings['show_excerpt'] == 'show' ) : ?>
+                                <div class="desc">
+                                    <p>
+                                        <?php
+                                        if ( has_excerpt() ) :
+                                            echo esc_html( wp_trim_words( get_the_excerpt(), $settings['excerpt_length'], '...' ) );
+                                        else:
+                                            echo esc_html( wp_trim_words( get_the_content(), $settings['excerpt_length'], '...' ) );
+                                        endif;
+                                        ?>
+                                    </p>
+                                </div>
+                            <?php endif; ?>
                         </div>
-					<?php endwhile;
-					wp_reset_postdata(); ?>
-                </div>
+                    </div>
+                <?php endwhile;
+                wp_reset_postdata(); ?>
             </div>
 		<?php
 		endif;

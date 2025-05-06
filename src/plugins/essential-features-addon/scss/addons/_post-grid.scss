@@ -52,7 +52,6 @@
 
 .efa-addon-dual-post {
   display: grid;
-  gap: 4.4rem 4rem;
 
   @media (min-width: 576px) {
     grid-template-columns: repeat(2, 1fr);

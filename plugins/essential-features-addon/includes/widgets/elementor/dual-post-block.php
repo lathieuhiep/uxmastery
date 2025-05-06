@@ -108,17 +108,6 @@ class EFA_Widget_Dual_Post_Block extends Widget_Base {
 			]
 		);
 
-		$this->end_controls_section();
-
-		// Content layout
-		$this->start_controls_section(
-			'content_layout',
-			[
-				'label' => esc_html__( 'Thiết lập giao diện', 'essential-features-addon' ),
-				'tab'   => Controls_Manager::TAB_CONTENT,
-			]
-		);
-
 		$this->add_control(
 			'show_excerpt',
 			[
@@ -144,9 +133,52 @@ class EFA_Widget_Dual_Post_Block extends Widget_Base {
 			[
 				'label'     => esc_html__( 'Số lượng từ hiển thị', 'essential-features-addon' ),
 				'type'      => Controls_Manager::NUMBER,
-				'default'   => '10',
+				'default'   => 20,
 				'condition' => [
 					'show_excerpt' => 'show',
+				],
+			]
+		);
+
+		$this->end_controls_section();
+
+		// Content layout
+		$this->start_controls_section(
+			'content_layout',
+			[
+				'label' => esc_html__( 'Thiết lập giao diện', 'essential-features-addon' ),
+				'tab'   => Controls_Manager::TAB_CONTENT,
+			]
+		);
+
+		$this->add_responsive_control(
+			'column_gap',
+			[
+				'label' => esc_html__( 'Khoảng cách cột', 'essential-features-addon' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem' ],
+				'default' => [
+					'size' => 4,
+					'unit' => 'rem',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .efa-addon-dual-post' => 'column-gap: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+
+		$this->add_responsive_control(
+			'row_gap',
+			[
+				'label' => esc_html__( 'Khoảng cách hàng', 'essential-features-addon' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px', 'em', 'rem' ],
+				'default' => [
+					'size' => 4.4,
+					'unit' => 'rem',
+				],
+				'selectors' => [
+					'{{WRAPPER}} .efa-addon-dual-post' => 'row-gap: {{SIZE}}{{UNIT}};',
 				],
 			]
 		);
