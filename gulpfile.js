@@ -7,8 +7,9 @@ const uglify = require('gulp-uglify')
 const cleanCSS  = require('gulp-clean-css')
 const rename = require("gulp-rename")
 const plumber = require('gulp-plumber');
-const path = require('path');
 const gulpIf = require('gulp-if');
+const webpack = require('webpack-stream');
+const TerserPlugin = require('terser-webpack-plugin');
 
 require('dotenv').config()
 
@@ -67,88 +68,6 @@ function server() {
     })
 }
 
-/*
-Task build Bootstrap
-* */
-
-// Task build style bootstrap
-function buildStyleBootstrap() {
-    return src(`${paths.shared.scss}vendors/bootstrap.scss`)
-        .pipe(plumber({
-            errorHandler: function (err) {
-                console.error(err.message);
-                this.emit('end');
-            }
-        }))
-        .pipe(sass({
-            outputStyle: 'expanded',
-            includePaths: [
-                path.resolve(__dirname, 'node_modules/')
-            ],
-            quietDeps: true
-        }, '').on('error', sass.logError))
-        .pipe(cleanCSS ({
-            level: 2
-        }))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(dest(`${paths.output.theme.libs}bootstrap/`))
-        .pipe(browserSync.stream())
-}
-
-// Task build js bootstrap
-function buildLibsBootstrapJS() {
-    return src( `${paths.node_modules}/bootstrap/dist/js/bootstrap.bundle.js`, {allowEmpty: true} )
-        .pipe(plumber({
-            errorHandler: function (err) {
-                console.error('Error in buildLibsBootstrapJS:', err.message);
-                this.emit('end');
-            }
-        }))
-        .pipe(uglify())
-        .pipe(rename( {suffix: '.min'} ))
-        .pipe(dest(`${paths.output.theme.libs}/bootstrap/`))
-        .pipe(browserSync.stream())
-}
-
-/*
-Task build owl carousel
-* */
-function buildStyleOwlCarousel() {
-    return src(`${paths.node_modules}/owl.carousel/dist/assets/owl.carousel.css`)
-        .pipe(plumber({
-            errorHandler: function (err) {
-                console.error(err.message);
-                this.emit('end');
-            }
-        }))
-        .pipe(sass({
-            outputStyle: 'expanded',
-            quietDeps: true
-        }, '').on('error', sass.logError))
-        .pipe(cleanCSS ({
-            level: 2
-        }))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(dest(`${paths.output.theme.libs}owl.carousel/`))
-        .pipe(dest(`${paths.output.plugins.efa.libs}owl.carousel/`))
-        .pipe(browserSync.stream())
-}
-
-function buildJsOwlCarouse() {
-    return src(`${paths.node_modules}/owl.carousel/dist/owl.carousel.js`, {allowEmpty: true})
-        .pipe(plumber({
-            errorHandler: function (err) {
-                console.error('Error in buildLibsOwlCarouseJS:', err.message);
-                this.emit('end');
-            }
-        }))
-        .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
-        .pipe(dest(`${paths.output.theme.libs}owl.carousel/`))
-        .pipe(dest(`${paths.output.plugins.efa.libs}owl.carousel/`))
-        .pipe(browserSync.stream())
-}
-
 // Task build style theme
 function buildStyleTheme() {
     return src(`${paths.theme.scss}style-theme.scss`)
@@ -160,7 +79,8 @@ function buildStyleTheme() {
         }))
         .pipe(gulpIf(isDev, sourcemaps.init()))
         .pipe(sass({
-            outputStyle: 'expanded'
+            outputStyle: 'expanded',
+            includePaths: ['node_modules']
         }, '').on('error', sass.logError))
         .pipe(dest(`${paths.output.theme.css}`))
         .pipe(cleanCSS ({
@@ -171,7 +91,6 @@ function buildStyleTheme() {
         .pipe(dest(`${paths.output.theme.css}`))
         .pipe(browserSync.stream())
 }
-exports.buildStyleTheme = buildStyleTheme
 
 function buildJSTheme() {
     return src(`${paths.theme.js}*.js`, {allowEmpty: true})
@@ -181,8 +100,37 @@ function buildJSTheme() {
                 this.emit('end');
             }
         }))
-        .pipe(uglify())
-        .pipe(rename({suffix: '.min'}))
+        .pipe(webpack({
+            mode: 'production',
+            output: {
+                filename: 'theme.bundle.js'
+            },
+            module: {
+                rules: [
+                    {
+                        test: /\.m?js$/,
+                        exclude: /node_modules/,
+                        use: {
+                            loader: 'babel-loader',
+                            options: {
+                                presets: ['@babel/preset-env']
+                            }
+                        }
+                    }
+                ]
+            },
+            resolve: {
+                extensions: ['.js']
+            },
+            optimization: {
+                minimize: true,
+                minimizer: [
+                    new TerserPlugin({
+                        extractComments: false
+                    })
+                ]
+            }
+        }))
         .pipe(dest(`${paths.output.theme.js}`))
         .pipe(browserSync.stream())
 }
@@ -206,28 +154,6 @@ function buildStyleCustomPostType() {
         .pipe(rename({suffix: '.min'}))
         .pipe(gulpIf(isDev, sourcemaps.write()))
         .pipe(dest(`${paths.output.theme.css}post-type/`))
-        .pipe(browserSync.stream())
-}
-
-// Task build style page templates
-function buildStylePageTemplate() {
-    return src(`${paths.theme.scss}page-templates/*.scss`)
-        .pipe(plumber({
-            errorHandler: function (err) {
-                console.error(err.message);
-                this.emit('end');
-            }
-        }))
-        .pipe(gulpIf(isDev, sourcemaps.init()))
-        .pipe(sass({
-            outputStyle: 'expanded'
-        }, '').on('error', sass.logError))
-        .pipe(cleanCSS ({
-            level: 2
-        }))
-        .pipe(rename({suffix: '.min'}))
-        .pipe(gulpIf(isDev, sourcemaps.write()))
-        .pipe(dest(`${paths.output.theme.css}page-templates/`))
         .pipe(browserSync.stream())
 }
 
@@ -256,7 +182,6 @@ function buildStyleElementor() {
         .pipe(dest(`${paths.output.plugins.efa.css}`))
         .pipe(browserSync.stream())
 }
-exports.buildStyleElementor = buildStyleElementor
 
 // Task build style custom login
 function buildStyleCustomLogin() {
@@ -293,28 +218,19 @@ function buildJPluginEFA() {
         .pipe(dest(`${paths.output.plugins.efa.js}`))
         .pipe(browserSync.stream())
 }
-exports.buildJPluginEFA = buildJPluginEFA
 
 /*
 Task build project
 * */
 async function buildProject() {
-    // await buildStyleBootstrap()
-    // await buildLibsBootstrapJS()
-
-    // await buildStyleOwlCarousel()
-    // await buildJsOwlCarouse()
+    await buildStyleCustomLogin()
+    await buildStyleElementor()
+    await buildJPluginEFA()
 
     await buildStyleTheme()
     await buildJSTheme()
 
-    await buildStyleElementor()
-    await buildStyleCustomLogin()
-    await buildJPluginEFA()
-
     await buildStyleCustomPostType()
-
-    // await buildStylePageTemplate()
 }
 exports.buildProject = buildProject
 
@@ -326,22 +242,16 @@ function watchTask() {
     watch([
         `${paths.shared.scss}abstracts/*.scss`
     ], gulp.series(
-        // buildStyleBootstrap,
         buildStyleTheme,
         buildStyleElementor,
         buildStyleCustomLogin,
         buildStyleCustomPostType
-        // buildStylePageTemplate
     ))
-
-    // watch lib bootstrap
-    // watch([
-    //     `${paths.shared.vendors}bootstrap.scss`
-    // ], buildStyleBootstrap)
 
     // theme watch
     watch([
-        `${paths.theme.scss}*/**.scss`
+        `${paths.theme.scss}/*.scss`,
+        `${paths.theme.scss}/*/**.scss`
     ], buildStyleTheme)
 
     watch([`${paths.theme.js}custom.js`], buildJSTheme)
@@ -350,10 +260,6 @@ function watchTask() {
         `${paths.theme.scss}layout/_sidebar.scss`,
         `${paths.theme.scss}post-type/*/**.scss`
     ], buildStyleCustomPostType)
-    //
-    // watch([
-    //     `${paths.theme.scss}page-templates/*.scss`
-    // ], buildStylePageTemplate)
 
     // plugin essentials watch
     watch([

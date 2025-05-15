@@ -13,14 +13,11 @@
 }
 
 .header-2 {
-
   @media #{$minLarge} {
-
     .navbar-expand-lg > .container,
     .navbar-expand-lg > .container-fluid {
       justify-content: space-between;
-      padding: 0 70px;
+      padding: 0 7rem;
     }
   }
-
 }

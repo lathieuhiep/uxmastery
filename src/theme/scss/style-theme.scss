@@ -1,7 +1,10 @@
-//Base rules
 @import "../../shared/scss/abstracts/vars";
 @import "../../shared/scss/abstracts/mixins";
 @import "../../shared/scss/abstracts/placeholder-selector";
+
+@import "vendors/bootstrap";
+
+//Base rules
 @import "base/base";
 @import "base/wp-core";
 @import "base/grid";
@@ -9,7 +12,6 @@
 //Layout rules
 @import "layout/typography";
 @import "layout/color";
-@import "layout/align";
 @import "layout/grid";
 @import "layout/buttons";
 @import "layout/forms";
@@ -27,6 +29,5 @@
 @import "module/sidebar";
 @import "module/modules";
 @import "module/carousel";
-@import "module/landing";
 @import "module/footer";
 

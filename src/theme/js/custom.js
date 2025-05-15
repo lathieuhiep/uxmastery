@@ -1,10 +1,9 @@
-/**
- * Custom js v1.0.0
- * Copyright 2017-2020
- * Licensed under  ()
- */
+import 'bootstrap/js/dist/modal';
+import 'bootstrap/js/dist/dropdown';
+import 'bootstrap/js/dist/collapse';
 
 (function ($) {
+
     "use strict";
 
     /* ------------------ NAVBAR FIXED ------------------ */
