@@ -139,7 +139,6 @@ function buildJSTheme() {
         .pipe(dest(`${paths.output.theme.js}`))
         .pipe(browserSync.stream())
 }
-exports.buildJSTheme = buildJSTheme
 
 // Task build style custom post type
 function buildStyleCustomPostType() {
