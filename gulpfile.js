@@ -103,7 +103,7 @@ function buildJSTheme() {
         .pipe(webpack({
             mode: 'production',
             output: {
-                filename: 'theme.bundle.js'
+                filename: 'main.bundle.min.js'
             },
             module: {
                 rules: [
@@ -126,7 +126,12 @@ function buildJSTheme() {
                 minimize: true,
                 minimizer: [
                     new TerserPlugin({
-                        extractComments: false
+                        extractComments: false,
+                        terserOptions: {
+                            format: {
+                                comments: false
+                            },
+                        },
                     })
                 ]
             }
@@ -134,6 +139,7 @@ function buildJSTheme() {
         .pipe(dest(`${paths.output.theme.js}`))
         .pipe(browserSync.stream())
 }
+exports.buildJSTheme = buildJSTheme
 
 // Task build style custom post type
 function buildStyleCustomPostType() {

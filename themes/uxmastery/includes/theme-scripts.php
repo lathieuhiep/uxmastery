@@ -66,7 +66,7 @@ function uxmastery_front_end_scripts (): void {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-	wp_enqueue_script( 'theme.bundle.js', get_theme_file_uri( '/assets/js/theme.bundle.js' ), array('jquery'), uxmastery_get_version_theme(), true );
+	wp_enqueue_script( 'main.bundle.js', get_theme_file_uri( '/assets/js/main.bundle.min.js' ), array('jquery'), uxmastery_get_version_theme(), true );
 
 	if ( is_singular('post') ) {
 		wp_enqueue_script( 'theia-sticky-sidebar', get_theme_file_uri( '/assets/js/theia-sticky-sidebar.min.js' ), array('jquery'), '3.7.11', true );
