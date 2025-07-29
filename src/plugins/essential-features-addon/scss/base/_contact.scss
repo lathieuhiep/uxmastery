@@ -1,0 +1,105 @@
+.popup-contact-form {
+  background-color: $color-white;
+  text-align: center;
+  padding: 40px;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(233, 120, 74, .16);
+
+  @media #{$maxSmall} {
+    padding: 10px;
+  }
+
+  .wpcf7-form {
+    margin-bottom: 0;
+
+    br {
+      display: none;
+    }
+
+    p {
+      position: relative;
+      margin-bottom: 0;
+
+      + p {
+        margin-top: 3rem;
+      }
+    }
+
+    label {
+      position: absolute;
+      left: 1rem;
+      top: -1.2rem;
+      padding: 0 .8rem;
+      background-color: $color-white;
+      font-size: 1.5rem;
+      text-transform: capitalize;
+      margin-bottom: 0;
+      z-index: 1;
+    }
+
+    .wpcf7-form-control-wrap {
+      display: block;
+
+      .wpcf7-form-control {
+        padding: 0 1.6rem;
+        width: 100%;
+        border: 1px solid #DEE2E6;
+        border-radius: 4px;
+        line-height: 5rem;
+        height: 5rem;
+        margin-bottom: 0;
+      }
+
+      .wpcf7-not-valid-tip {
+        margin-top: .8rem;
+        text-align: left;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+    }
+
+    .wpcf7-submit {
+      display: block;
+      width: 100%;
+      font-size: 1.6rem;
+      text-align: center;
+      color: $color-white;
+      height: 5rem;
+      line-height: 5rem;
+      border: 0;
+      border-radius: .4rem;
+      background: $color-secondary;
+    }
+
+    .wpcf7-spinner {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: 0;
+      transform: translate(-50%, -50%);
+    }
+
+    .wpcf7-response-output {
+      margin: 30px 0 0;
+      font-size: 1.2rem;
+    }
+  }
+
+  .box-heading {
+    margin-bottom: 3.8rem;
+
+    .cf-heading {
+      font-size: 30px;
+      margin-bottom: 4px;
+      text-transform: capitalize;
+
+      @media #{$maxSmall} {
+        font-size: 26px;
+      }
+    }
+
+    .cf-desc {
+      line-height: 1.31;
+    }
+  }
+}

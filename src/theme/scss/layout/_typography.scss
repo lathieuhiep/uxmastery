@@ -1,0 +1,168 @@
+/*------------------------------------*\
+    #TYPOGRAPHY
+\*------------------------------------*/
+
+/* Heading Text */
+%heading-base {
+  color: $color-black;
+  font-family: $font-heading;
+  font-weight: 500;
+  margin: 0 0 .8rem;
+  line-height: $line-height-heading;
+}
+
+@each $i, $size in $font-sizes {
+  h#{$i}, .h#{$i} {
+    @extend %heading-base;
+    font-size: $size;
+  }
+}
+
+p {
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.lead {
+  font-size: $font-size-base;
+  line-height: $line-height-content;
+}
+
+/* Aligning Text */
+.text--left {
+  text-align: left !important;
+}
+
+.text--right {
+  text-align: right !important;
+}
+
+.text--center {
+  text-align: center !important;
+}
+
+.text--just {
+  text-align: justify !important;
+}
+
+.align--top {
+  vertical-align: top;
+}
+
+.align--bottom {
+  vertical-align: bottom;
+}
+
+.align--middle {
+  vertical-align: middle;
+}
+
+.align--baseline {
+  vertical-align: baseline;
+}
+
+/* Weight Text */
+.bold {
+  font-weight: bold;
+}
+
+.regular {
+  font-weight: normal;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.break-word {
+  word-wrap: break-word;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+/* Text Color */
+.text-white {
+  color: $color-white !important;
+}
+
+.text-gray {
+  color: $color-gray !important;
+}
+
+.text-black {
+  color: $color-heading;
+}
+
+.text-theme {
+  color: $color-theme;
+}
+
+.text--capitalize {
+  text-transform: capitalize !important;
+}
+
+.text--uppercase {
+  text-transform: uppercase !important;
+}
+
+.font-heading {
+  font-family: $font-heading;
+}
+
+.font-body {
+  font-family: $font-body;
+}
+
+.font-18 {
+  font-size: 1.8rem;
+}
+
+.font-16 {
+  font-size: 1.6rem;
+}
+
+.font-20 {
+  font-size: 2rem;
+}
+
+.font-40 {
+  font-size: 4rem;
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (min-width: 320px) and (max-width: 767px) {
+  text-center-xs {
+    text-align: center !important;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  text-center-sm {
+    text-align: center !important;
+  }
+}
+
+%higlighted-style {
+  color: #fff;
+  padding: 5px 0;
+}
+
+.higlighted-style1 {
+  @extend %higlighted-style;
+  background-color: $color-theme;
+}
+
+.higlighted-style2 {
+  @extend %higlighted-style;
+  background-color: $color-heading;
+}
+
+.higlighted-style3 {
+  @extend %higlighted-style;
+  background-color: $color-gray;
+  color: $color-theme;
+}

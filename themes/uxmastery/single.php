@@ -7,7 +7,7 @@ $class_col_content = uxmastery_col_use_sidebar( $sidebar, 'sidebar-main' );
 get_template_part( 'template-parts/parts/breadcrumbs' );
 ?>
 
-<div class="site-container single-post-warp">
+<div class="site-container single-post-warp has-breadcrumbs">
     <div class="container">
         <div class="row">
             <div class="<?php echo esc_attr( $class_col_content ); ?>">

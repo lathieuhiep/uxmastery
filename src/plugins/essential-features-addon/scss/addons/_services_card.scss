@@ -1,0 +1,123 @@
+.efa-addon-service-card {
+  position: relative;
+  padding: 30px 80px 0 30px;
+
+  @media #{$maxSmall} {
+    padding: 30px 30px 0 30px;
+  }
+
+  &::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 152px;
+    height: 152px;
+    border-radius: 4px;
+    z-index: 0;
+    background-color: $color-secondary;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__image {
+    position: relative;
+    z-index: 1;
+    border-radius: 4px;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @extend %image-hover;
+  }
+
+  &__counters {
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+    width: 157px;
+    height: 180px;
+    border-radius: 4px;
+    z-index: 3;
+    padding: 33px 29px;
+    cursor: pointer;
+    background-color: $color-secondary;
+
+    .counters {
+      .counting-holder {
+        font-size: 40px;
+        font-weight: 500;
+        line-height: 50px;
+        color: $color-white;
+        margin-bottom: 10px;
+
+        .counting {
+          display: inline-block;
+        }
+      }
+
+      .counting-desc {
+        font-size: 20px;
+        font-weight: 500;
+        line-height: 30px;
+        color: $color-white;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+
+.services {
+  .service-content {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    height: 100%;
+
+    @media #{$minLarge} {
+      .heading {
+        .heading-desc {
+          padding-right: 70px;
+        }
+      }
+    }
+
+    .service-list {
+      li {
+        display: flex;
+        font-size: 16px;
+        line-height: 1.5;
+        color: $color-body;
+        font-weight: 400;
+        margin-bottom: 20px;
+        padding-left: 10px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        span {
+          margin-top: 4px;
+          color: $color-theme;
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+
+  .service-card {
+
+
+    .service-card-middle {
+      position: relative;
+    }
+
+
+
+  }
+}

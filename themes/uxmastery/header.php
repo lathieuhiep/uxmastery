@@ -7,13 +7,13 @@
     <meta name="description" content="<?php bloginfo('description'); ?>" />
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class('body-scroll'); ?>>
 <?php wp_body_open(); ?>
-<?php
-if ( !is_404() ) :
-	get_template_part('template-parts/header/header','main');
-endif;
-?>
 
-<!--Start Sticky Footer-->
-<div class="sticky-footer">
+<!-- open class wrapper -->
+<div class="wrapper clearfix" id="wrapper">
+    <?php
+    if ( !is_404() ) :
+        get_template_part('template-parts/header/header','main');
+    endif;
+    ?>

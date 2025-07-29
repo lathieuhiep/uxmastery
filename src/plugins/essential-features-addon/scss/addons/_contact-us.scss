@@ -1,0 +1,85 @@
+.efa-addon-contact-us {
+  display: grid;
+  gap: 2rem;
+
+  .phone-box {
+    display: flex;
+    gap: 1.2rem;
+    justify-content: space-between;
+
+    .title {
+      margin: 0;
+      display: flex;
+      gap: 1.2rem;
+      align-items: center;
+      font-size: 1.6rem;
+      color: #353535;
+
+      i {
+        font-size: 2rem;
+      }
+    }
+
+    .number {
+      font-size: 1.6rem;
+    }
+  }
+
+  .social-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .title {
+      margin: 0;
+      font-size: 1.4rem;
+    }
+
+    &__block {
+      padding: 1.2rem 1.8rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2.4rem;
+      border: 1px solid #E7E7E7;
+      border-radius: .4rem;
+
+      .list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.8rem;
+      }
+    }
+
+    .social-network-item {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+
+      &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: .8rem;
+        background-color: $color-black;
+        transform: rotate(45deg);
+      }
+
+      svg {
+        position: relative;
+        width: 1.5rem;
+        height: 1.5rem;
+
+        path {
+          fill: #fff;
+        }
+      }
+    }
+  }
+}

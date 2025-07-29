@@ -8,7 +8,7 @@
   display: inline-block;
   width: var(--#{$prefix-plugin-essentials}icon-width);
   height: var(--#{$prefix-plugin-essentials}icon-height);
-  background-color: var(--#{$prefix-plugin-essentials}-icon-color);
+  background-color: var(--#{$prefix-plugin-essentials}icon-color);
   mask-size: contain;
   -webkit-mask-size: contain;
   mask-repeat: no-repeat;
@@ -26,5 +26,27 @@
       mask-image: url("#{$icon-path}/angle-right.svg");
       -webkit-mask-image: url("#{$icon-path}/angle-right.svg");
     }
+  }
+
+  &-arrow {
+    &-left {
+      mask-image: url("#{$icon-path}/arrow-left.svg");
+      -webkit-mask-image: url("#{$icon-path}/arrow-left.svg");
+    }
+
+    &-right {
+      mask-image: url("#{$icon-path}/arrow-right.svg");
+      -webkit-mask-image: url("#{$icon-path}/arrow-right.svg");
+    }
+  }
+
+  &-down-chevron {
+    mask-image: url("#{$icon-path}/down-chevron.svg");
+    -webkit-mask-image: url("#{$icon-path}/down-chevron.svg");
+  }
+
+  &-play {
+    mask-image: url("#{$icon-path}/play.svg");
+    -webkit-mask-image: url("#{$icon-path}/play.svg");
   }
 }

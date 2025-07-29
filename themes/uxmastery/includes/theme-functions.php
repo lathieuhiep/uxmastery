@@ -99,8 +99,8 @@ function uxmastery_pagination(): void {
 	the_posts_pagination( array(
 		'type'               => 'list',
 		'mid_size'           => 2,
-		'prev_text'          => esc_html__( 'Trước', 'uxmastery' ),
-		'next_text'          => esc_html__( 'Sau', 'uxmastery' ),
+		'prev_text'          => esc_html__( 'Trước', 'basictheme' ),
+		'next_text'          => esc_html__( 'Sau', 'basictheme' ),
 		'screen_reader_text' => '&nbsp;',
 	) );
 }
@@ -108,8 +108,8 @@ function uxmastery_pagination(): void {
 // Pagination Nav Query
 function uxmastery_paging_nav_query( $query ): void {
 	$args = array(
-		'prev_text' => esc_html__( ' Trước', 'uxmastery' ),
-		'next_text' => esc_html__( 'Sau', 'uxmastery' ),
+		'prev_text' => esc_html__( ' Trước', 'basictheme' ),
+		'next_text' => esc_html__( 'Sau', 'basictheme' ),
 		'current'   => max( 1, get_query_var( 'paged' ) ),
 		'total'     => $query->max_num_pages,
 		'type'      => 'list',
@@ -136,7 +136,7 @@ function uxmastery_col_use_sidebar( $option_sidebar, $active_sidebar ): string {
 			$class_position_sidebar = ' order-1';
 		endif;
 
-		$class_col_content = 'col-12 col-md-8 col-lg-9' . $class_position_sidebar;
+		$class_col_content = 'col-12 col-md-8' . $class_position_sidebar;
 	else:
 		$class_col_content = 'col-md-12';
 	endif;
@@ -145,35 +145,7 @@ function uxmastery_col_use_sidebar( $option_sidebar, $active_sidebar ): string {
 }
 
 function uxmastery_col_sidebar(): string {
-	return 'col-12 col-md-4 col-lg-3';
-}
-
-// Post Meta
-function uxmastery_post_meta(): void {
-	?>
-
-    <div class="post-meta">
-        <span class="post-meta__author">
-            <?php esc_html_e( 'Tác giả:', 'uxmastery' ); ?>
-
-            <a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
-                <?php the_author(); ?>
-            </a>
-        </span>
-
-        <span class="post-meta__date">
-            <?php esc_html_e( 'Ngày đăng: ', 'uxmastery' );
-            the_date(); ?>
-        </span>
-
-        <span class="post-meta__comments">
-            <?php
-            comments_popup_link( '0 ' . esc_html__( 'Bình luận', 'uxmastery' ), '1 ' . esc_html__( 'Bình luận', 'uxmastery' ), '% ' . esc_html__( 'Bình luận', 'uxmastery' ) );
-            ?>
-        </span>
-    </div>
-
-	<?php
+	return 'col-12 col-md-4';
 }
 
 // Link Pages
@@ -197,16 +169,11 @@ function uxmastery_get_form_cf7(): array {
 			'numberposts' => - 1,
 		) );
 
-		$options[0] = esc_html__( 'Chọn một mẫu liên hệ', 'uxmastery' );
-
 		if ( ! empty( $wpcf7_form_list ) && ! is_wp_error( $wpcf7_form_list ) ) :
 			foreach ( $wpcf7_form_list as $item ) :
 				$options[ $item->ID ] = $item->post_title;
 			endforeach;
-		else :
-			$options[0] = esc_html__( 'Tạo biểu mẫu trước tiên', 'uxmastery' );
 		endif;
-
 	}
 
 	return $options;
@@ -228,19 +195,22 @@ function uxmastery_get_social_url(): void {
 	$opt_social_networks = uxmastery_get_option( 'opt_social_networks' );
 
 	if ( ! empty( $opt_social_networks ) ) :
-		foreach ( $opt_social_networks as $item ) :
-			if ( empty( $item['item'] ) ) {
-				continue;
-			}
-			?>
-            <div class="social-network-item">
-                <a href="<?php echo esc_url( $item['url'] ); ?>" target="_blank">
-                    <i class="fab fa-<?php echo esc_attr( $item['item'] ); ?>"></i>
-                </a>
-            </div>
-		<?php
-
-		endforeach;
+    ?>
+    <ul class="list-unstyled">
+        <?php
+            foreach ( $opt_social_networks as $item ) :
+                if ( empty( $item['item'] ) ) {
+                    continue;
+                }
+            ?>
+                <li class="social-network-item">
+                    <a href="<?php echo esc_url( $item['url'] ); ?>" target="_blank">
+                        <i class="fab fa-<?php echo esc_attr( $item['item'] ); ?>"></i>
+                    </a>
+                </li>
+        <?php endforeach; ?>
+    </ul>
+    <?php
 	endif;
 }
 
@@ -267,4 +237,90 @@ function uxmastery_get_all_categories(): array {
 	}
 
 	return $categories_list;
+}
+
+// check page elementor
+function uxmastery_get_elementor_container_class( $post_id = null ): string {
+	if ( ! $post_id ) {
+		$post_id = get_the_ID();
+	}
+
+	$is_elementor = get_post_meta( $post_id, '_elementor_edit_mode', true );
+
+	return $is_elementor ? ' site-container-elementor' : '';
+}
+
+// Get post description
+function uxmastery_get_post_description_fallback( $post ): string {
+	$excerpt = get_the_excerpt( $post );
+
+	if ( empty( $excerpt ) ) {
+		$content = strip_tags( strip_shortcodes( $post->post_content ) );
+		$excerpt = wp_trim_words( $content, 30, '...' ); // Lấy 30 từ đầu làm mô tả
+	}
+
+	return $excerpt;
+}
+
+// Get post title
+function uxmastery_get_custom_archive_title() {
+	if ( is_singular('post') ) {
+		$categories = get_the_category();
+		return ! empty($categories) ? $categories[0]->name : '';
+
+	} elseif ( is_singular('ux_service') ) {
+		$terms = get_the_terms( get_the_ID(), 'ux_service_category' );
+		return ! empty($terms) && ! is_wp_error($terms) ? $terms[0]->name : '';
+    } elseif ( is_page() ) {
+		return get_the_title();
+
+	} elseif ( is_category() ) {
+		return single_cat_title('', false);
+
+	} elseif ( is_tag() ) {
+		return single_tag_title('', false);
+
+	} elseif ( is_author() ) {
+		$author = get_queried_object();
+		return $author->display_name;
+
+	} elseif ( is_tax() ) {
+		$term = get_queried_object();
+		return $term->name;
+
+	} elseif ( is_post_type_archive() ) {
+		return post_type_archive_title('', false);
+
+	} elseif ( is_day() || is_month() || is_year() ) {
+		return get_the_date();
+
+	} else {
+		return get_the_archive_title();
+	}
+}
+
+
+// social sharing
+function uxmastery_social_sharing(): void {
+?>
+    <div class="social-sharing">
+        <p class="text"><?php esc_html_e('Chia sẻ trên', 'uxmastery'); ?></p>
+
+        <div class="list">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode( get_permalink() ); ?>"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn-share btn-share-facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo urlencode( get_permalink() ); ?>"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn-share btn-share-linkedin">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+        </div>
+    </div>
+<?php
 }

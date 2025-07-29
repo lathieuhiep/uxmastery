@@ -9,9 +9,17 @@ CSF::createSection( $prefix_theme_options, array(
 	'fields' => array(
 		// logo
 		array(
-			'id'      => 'opt_general_logo',
+			'id'      => 'opt_general_logo_light',
 			'type'    => 'media',
-			'title'   => esc_html__( 'Chọn ảnh logo', 'uxmastery' ),
+			'title'   => esc_html__( 'Logo sáng', 'uxmastery' ),
+			'library' => 'image',
+			'url'     => false
+		),
+
+		array(
+			'id'      => 'opt_general_logo_dark',
+			'type'    => 'media',
+			'title'   => esc_html__( 'Logo tối', 'uxmastery' ),
 			'library' => 'image',
 			'url'     => false
 		),

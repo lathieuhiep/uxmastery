@@ -17,11 +17,12 @@ CSF::createSection( $prefix_theme_options, array(
 			'default'    => true
 		),
 
-		// Show cart
+		// Show contact form 7
 		array(
-			'id'         => 'opt_menu_cart',
+			'id'         => 'opt_menu_contact',
 			'type'       => 'switcher',
-			'title'      => esc_html__( 'Hiện thị giỏ hàng trên menu', 'uxmastery' ),
+			'title'      => esc_html__( 'Hiện thị liên hệ', 'uxmastery' ),
+			'subtitle'   => esc_html__( 'Sử dụng contact form 7', 'uxmastery' ),
 			'text_on'    => esc_html__( 'Có', 'uxmastery' ),
 			'text_off'   => esc_html__( 'Không', 'uxmastery' ),
 			'text_width' => 80,

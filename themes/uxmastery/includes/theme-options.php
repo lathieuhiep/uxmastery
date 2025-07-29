@@ -37,6 +37,9 @@ if ( class_exists( 'CSF' ) ) {
 	// menu options
 	require get_theme_file_path( '/includes/theme-options/menu-options.php' );
 
+    // contact options
+    require get_theme_file_path( '/includes/theme-options/contact-options.php' );
+
 	// blog options
 	require get_theme_file_path( '/includes/theme-options/blog-options.php' );
 

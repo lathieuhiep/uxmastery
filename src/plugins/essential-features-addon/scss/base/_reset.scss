@@ -3,3 +3,18 @@
 :root {
   --#{$prefix-plugin-essentials}gutter-width: #{$gutter-width};
 }
+
+[class^="efa-addon-"] {
+  .carousel-navs {
+    .owl-nav {
+      button {
+        margin: 0;
+
+        &:hover {
+          background: transparent;
+          color: currentColor;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,33 @@
+.breadcrumbs {
+  padding-top: 2.5rem;
+  padding-bottom: 2.8rem;
+  background-color: $color-light-gray;
+
+  + .has-breadcrumbs {
+    margin-top: 5.6rem;
+  }
+
+  .title {
+    font-size: 2.2rem;
+
+    a {
+      color: inherit;
+    }
+  }
+
+  span {
+    margin: 0 .4rem;
+    font-size: 1.4rem;
+    color: $color-gray-medium;
+    @include transition();
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:hover,
+    &.current-item {
+      color: $color-secondary;
+    }
+  }
+}

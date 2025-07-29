@@ -1,26 +1,33 @@
-/**
-# Root
------------------------------------------------------------------------------*/
+@import "../../shared/scss/abstracts/vars";
+@import "../../shared/scss/abstracts/mixins";
+@import "../../shared/scss/abstracts/placeholder-selector";
+
+@import "vendors/bootstrap";
+
+//Base rules
 @import "base/base";
+@import "base/wp-core";
+@import "base/grid";
 
-/**
-# Utilities
------------------------------------------------------------------------------*/
-@import "utilities/utilities";
+//Layout rules
+@import "layout/typography";
+@import "layout/color";
+@import "layout/grid";
+@import "layout/buttons";
+@import "layout/forms";
 
-/**
-# Layout
------------------------------------------------------------------------------*/
-@import "layout/header";
-@import "layout/sidebar";
-@import "layout/footer";
+//Module rules
+@import "module/heading";
+@import "module/loading";
+@import "module/header";
+@import "module/menu";
+@import "module/menu-max991";
+@import "module/menu-max1200";
+@import "module/menu-min992";
+@import "module/breadcrumb";
+@import "module/pagination";
+@import "module/sidebar";
+@import "module/modules";
+@import "module/carousel";
+@import "module/footer";
 
-/**
-# Components
------------------------------------------------------------------------------*/
-@import "components/breadcrumbs";
-@import "components/cf7";
-@import "components/comment-form";
-@import "components/pagination";
-@import "components/owl-carousel";
-@import "components/social-network";

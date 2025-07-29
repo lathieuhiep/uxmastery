@@ -1,11 +1,25 @@
 // base
+@import "../../../shared/scss/abstracts/abstracts";
+@import "abstracts/abstracts";
 @import "base/base";
 
 // components
 @import "components/grid";
 
 // addons
-@import "addons/slides";
+@import "addons/book-curriculum";
+@import "addons/button-contact-link";
+@import "addons/connect-link";
+@import "addons/contact-us";
+@import "addons/hero";
+@import "addons/image-text-block";
 @import "addons/post-grid";
-@import "addons/post-carousel";
-@import "addons/testimonial-slider";
+@import "addons/service-grid";
+@import "addons/services_card";
+@import "addons/testimonial";
+@import "addons/video-popup";
+@import "addons/special-title";
+
+//@import "addons/slides";
+
+//@import "addons/post-carousel";

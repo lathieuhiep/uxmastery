@@ -1,0 +1,173 @@
+/*------------------------------------*\
+    #Menu
+\*------------------------------------*/
+.header {
+  .navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+    min-height: 10rem;
+    border: none;
+    padding: 0;
+
+    .navbar-brand {
+      padding: 0;
+      margin-right: 0;
+      max-width: 16rem;
+      min-height: 10rem;
+      @extend %flex-align-center;
+
+      img {
+        width: 100%;
+      }
+
+      .logo-dark {
+        display: none;
+      }
+
+      .logo-light {
+        display: inline-block;
+      }
+    }
+
+    .navbar-nav {
+      > li {
+        margin-right: 3rem;
+        position: relative;
+
+        &:last-child {
+          margin-right: 0;
+        }
+
+        > a {
+          font-size: $font-size-base;
+          text-transform: capitalize;
+          font-weight: 500;
+          color: $color-heading;
+          line-height: var(--line-height-menu-item);
+          padding: 0;
+          position: relative;
+          display: block;
+          @include transition();
+        }
+
+        @media #{$maxTablet} {
+          margin-right: 0;
+
+          a {
+            margin-right: 0;
+            padding: 1.5rem 2.5rem;
+            color: $color-heading;
+            line-height: 1;
+          }
+
+          &.active {
+            background-color: $color-secondary;
+
+            a {
+              color: $color-white
+            }
+          }
+        }
+      }
+
+      li {
+        a {
+          &:hover {
+            color: $color-secondary;
+          }
+        }
+      }
+    }
+
+    &.navbar-sticky {
+      .navbar-nav {
+        > li {
+          > a {
+            @media (min-width: 992px) {
+              color: $color-white;
+            }
+
+            &:hover {
+              color: $color-secondary;
+            }
+          }
+        }
+      }
+    }
+
+    &.navbar-fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: $color-white;
+      box-shadow: 0 2px 4px rgba(3, 27, 78, 0.1);
+      animation: navbarFixed 0.8s;
+
+      .navbar-brand {
+        .logo-dark {
+          display: inline-block;
+        }
+
+        .logo-light {
+          display: none;
+        }
+      }
+
+      .navbar-nav > {
+        li {
+          a {
+            color: $color-heading;
+            line-height: 1;
+
+            @media #{$maxTablet} {
+              &:hover {
+                background-color: $color-theme;
+                color: $color-white;
+              }
+            }
+          }
+
+          &:hover,
+          &.active {
+            a {
+              color: $color-secondary;
+            }
+
+            @media #{$maxTablet} {
+              background-color: $color-secondary;
+
+              a {
+                color: $color-white
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.admin-bar {
+  .header {
+    .navbar {
+      &.navbar-fixed {
+        @media (min-width: 992px) {
+          top: 3.2rem;
+        }
+      }
+    }
+  }
+}
+
+@keyframes navbarFixed {
+  0% {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

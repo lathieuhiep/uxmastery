@@ -1,0 +1,61 @@
+/*------------------------------------*\
+    #Video
+\*------------------------------------*/
+.efa-addon-video-popup {
+  position: relative;
+
+  .bg-video {
+    height: 500px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @extend %image-hover;
+  }
+
+  .btn-video-popup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    background-color: $color-white;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.4s ease;
+
+    i {
+      --#{$prefix-plugin-essentials}icon-width: 1.8rem;
+      --#{$prefix-plugin-essentials}icon-height: 1.8rem;
+
+      color: $color-secondary;
+      transition: all 0.4s ease;
+    }
+
+    &:hover {
+      background-color: $color-secondary;
+
+      i {
+        color: $color-white;
+      }
+
+      ~ .bg-video {
+        &:after {
+          opacity: 1;
+        }
+
+        img {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+}
