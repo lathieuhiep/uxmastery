@@ -62,3 +62,24 @@
     transform: scale(1);
   }
 }
+
+//
+.efa-d-inline-block {
+  display: inline-block;
+}
+
+.typo-inherit {
+    font-size: inherit;
+    font-weight: inherit;
+    color: inherit;
+    line-height: inherit;
+    font-family: inherit;
+}
+
+.efa-scale-hover {
+    @include transition();
+
+    &:hover {
+        transform: scale(1.0161290323);
+    }
+}

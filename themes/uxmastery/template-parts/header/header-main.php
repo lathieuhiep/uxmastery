@@ -4,7 +4,6 @@ $sticky_menu  = uxmastery_get_option( 'opt_menu_sticky', '1' );
 $logo_light   = uxmastery_get_option( 'opt_general_logo_light' );
 $logo_dark    = uxmastery_get_option( 'opt_general_logo_dark' );
 $menu_contact = uxmastery_get_option( 'opt_menu_contact' );
-$chat_zalo    = uxmastery_get_option( 'opt_link_zalo' );
 ?>
 
 <header class="header header-sticky <?php echo esc_attr( $is_template_fixed_menu ? 'header-transparent': 'header-default' ) ?>">
@@ -53,16 +52,6 @@ $chat_zalo    = uxmastery_get_option( 'opt_link_zalo' );
                         </li>
                     </ul>
 	            <?php endif; ?>
-
-                <?php if ( !empty( $chat_zalo ) ) : ?>
-                    <div class="module-container">
-                        <div class="module module-cta">
-                            <a class="btn btn--white btn--secondary chat-zalo" href="<?php echo esc_url( $chat_zalo ) ?>" target="_blank">
-                                <span><?php esc_html_e('Liên hệ ngay', 'uxmastery'); ?> <i class="fa-solid fa-arrow-right-long"></i></span>
-                            </a>
-                        </div>
-                    </div>
-                <?php endif; ?>
             </div>
             <!-- End .nav-collapse-->
         </div>

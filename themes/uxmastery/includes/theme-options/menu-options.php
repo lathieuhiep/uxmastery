@@ -28,14 +28,5 @@ CSF::createSection( $prefix_theme_options, array(
 			'text_width' => 80,
 			'default'    => true
 		),
-		
-		// zalo
-		array(
-			'id'    => 'opt_link_zalo',
-			'type'  => 'text',
-			'title' => esc_html__( 'Link ZaLo', 'uxmastery' ),
-			'default' => 'http://zalo.me/2127558141747969331?src=qr',
-			'desc' => esc_html__('Link quét lấy mã:', 'uxmastery') . ' https://pageloot.com/vi/quet-ma-qr/',
-		),
 	)
 ) );

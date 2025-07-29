@@ -75,6 +75,18 @@ class EFA_Widget_Hero extends Widget_Base {
 			]
 		);
 
+        $this->add_control(
+            'scroll_to',
+            [
+                'type'         => Controls_Manager::SWITCHER,
+                'label'        => esc_html__( 'Di chuyển đến', 'essential-features-addon' ),
+                'label_on'     => esc_html__( 'Có', 'essential-features-addon' ),
+                'label_off'    => esc_html__( 'Không', 'essential-features-addon' ),
+                'return_value' => 'yes',
+                'default'      => 'yes',
+            ]
+        );
+
 		$this->add_control(
 			'link',
 			[
@@ -84,6 +96,14 @@ class EFA_Widget_Hero extends Widget_Base {
 				'default'     => [
 					'url' => '#',
 				],
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name'  => 'scroll_to',
+                            'value' => 'yes',
+                        ],
+                    ],
+                ],
 			]
 		);
 
@@ -130,6 +150,33 @@ class EFA_Widget_Hero extends Widget_Base {
 
 		$this->end_controls_section();
 
+        // style section content
+        $this->start_controls_section(
+            'style_section_content',
+            [
+                'label' => esc_html__( 'Nội dung', 'essential-features-addon' ),
+                'tab'   => Controls_Manager::TAB_STYLE,
+            ]
+        );
+
+        $this->add_responsive_control(
+            'space_content',
+            [
+                'label' => esc_html__( 'Khoảng cách nội dung', 'essential-features-addon' ),
+                'type' => Controls_Manager::SLIDER,
+                'size_units' => [ 'px', 'em', 'rem' ],
+                'default' => [
+                    'size' => 20,
+                    'unit' => 'px',
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .box-content' => 'row-gap: {{SIZE}}{{UNIT}};',
+                ],
+            ]
+        );
+
+        $this->end_controls_section();
+
 		// style heading
 		$this->start_controls_section(
 			'style_heading',
@@ -138,6 +185,38 @@ class EFA_Widget_Hero extends Widget_Base {
 				'tab'   => Controls_Manager::TAB_STYLE,
 			]
 		);
+
+        $this->add_responsive_control(
+            'heading_align',
+            [
+                'label'     => esc_html__( 'Căn chỉnh', 'essential-features-addon' ),
+                'type'      => Controls_Manager::CHOOSE,
+                'options'   => [
+                    'left' => [
+                        'title' => esc_html__( 'Trái', 'essential-features-addon' ),
+                        'icon'  => 'eicon-text-align-left',
+                    ],
+
+                    'center' => [
+                        'title' => esc_html__( 'Giữa', 'essential-features-addon' ),
+                        'icon'  => 'eicon-text-align-center',
+                    ],
+
+                    'right' => [
+                        'title' => esc_html__( 'Phải', 'essential-features-addon' ),
+                        'icon'  => 'eicon-text-align-right',
+                    ],
+
+                    'justify' => [
+                        'title' => esc_html__( 'Căn đều hai lề', 'essential-features-addon' ),
+                        'icon'  => 'eicon-text-align-justify',
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .headline' => 'text-align: {{VALUE}};',
+                ],
+            ]
+        );
 
 		$this->add_control(
 			'heading_color',
@@ -170,6 +249,38 @@ class EFA_Widget_Hero extends Widget_Base {
 			]
 		);
 
+        $this->add_responsive_control(
+            'desc_align',
+            [
+                'label'     => esc_html__( 'Căn chỉnh', 'essential-features-addon' ),
+                'type'      => Controls_Manager::CHOOSE,
+                'options'   => [
+                    'left' => [
+                        'title' => esc_html__( 'Trái', 'essential-features-addon' ),
+                        'icon'  => 'eicon-text-align-left',
+                    ],
+
+                    'center' => [
+                        'title' => esc_html__( 'Giữa', 'essential-features-addon' ),
+                        'icon'  => 'eicon-text-align-center',
+                    ],
+
+                    'right' => [
+                        'title' => esc_html__( 'Phải', 'essential-features-addon' ),
+                        'icon'  => 'eicon-text-align-right',
+                    ],
+
+                    'justify' => [
+                        'title' => esc_html__( 'Căn đều hai lề', 'essential-features-addon' ),
+                        'icon'  => 'eicon-text-align-justify',
+                    ],
+                ],
+                'selectors' => [
+                    '{{WRAPPER}} .bio' => 'text-align: {{VALUE}};',
+                ],
+            ]
+        );
+
 		$this->add_control(
 			'desc_color',
 			[
@@ -198,6 +309,14 @@ class EFA_Widget_Hero extends Widget_Base {
 			[
 				'label' => esc_html__( 'Icon', 'essential-features-addon' ),
 				'tab'   => Controls_Manager::TAB_STYLE,
+                'conditions' => [
+                    'terms' => [
+                        [
+                            'name'  => 'scroll_to',
+                            'value' => 'yes',
+                        ],
+                    ],
+                ],
 			]
 		);
 
@@ -318,10 +437,6 @@ class EFA_Widget_Hero extends Widget_Base {
 		$cf7        = $settings['contact_form_list'];
 		$cf_heading = $settings['cf_heading'];
 		$cf_desc    = $settings['cf_desc'];
-
-		if ( ! empty( $settings['link']['url'] ) ) {
-			$this->add_link_attributes( 'link', $settings['link'] );
-		}
 		?>
         <div class="efa-addon-hero">
             <div class="box-item box-content">
@@ -329,36 +444,39 @@ class EFA_Widget_Hero extends Widget_Base {
                     <<?php echo esc_html( $tag ); ?> class="headline fly-up-title" data-text="<?php echo esc_attr( $settings['heading'] ); ?>"></<?php echo esc_html( $tag ); ?>>
 			    <?php endif; ?>
 
-			<?php if ( ! empty( $desc ) ) : ?>
-                <div class="bio">
-					<?php echo wpautop( $desc ); ?>
-                </div>
-			<?php endif; ?>
-
-            <a class="scroll-to" <?php $this->print_render_attribute_string( 'link' ); ?>>
-                <i class="efa-icon-mask efa-icon-mask-down-chevron"></i>
-            </a>
-        </div>
-
-        <div class="box-item box-action">
-            <div class="popup-contact-form">
-                <div class="box-heading">
-                    <div class="cf-heading heading-title">
-						<?php echo esc_html( $cf_heading ); ?>
+                <?php if ( ! empty( $desc ) ) : ?>
+                    <div class="bio">
+                        <?php echo wpautop( $desc ); ?>
                     </div>
+                <?php endif; ?>
 
-                    <div class="cf-desc">
-						<?php echo esc_html( $cf_desc ); ?>
-                    </div>
-                </div>
-
-				<?php
-				if ( $cf7 ) :
-					echo do_shortcode( '[contact-form-7 id="' . $settings['contact_form_list'] . '" ]' );
-				endif;
-				?>
+                <?php
+                if ( $settings['scroll_to'] && ! empty( $settings['link']['url'] ) ) :
+                    $this->add_link_attributes( 'link', $settings['link'] );
+                ?>
+                    <a class="scroll-to" <?php $this->print_render_attribute_string( 'link' ); ?>>
+                        <i class="efa-icon-mask efa-icon-mask-down-chevron"></i>
+                    </a>
+                <?php endif; ?>
             </div>
-        </div>
+
+            <?php if ( $cf7 ) : ?>
+            <div class="box-item box-action">
+                <div class="popup-contact-form">
+                    <div class="box-heading">
+                        <div class="cf-heading heading-title">
+                            <?php echo esc_html( $cf_heading ); ?>
+                        </div>
+
+                        <div class="cf-desc">
+                            <?php echo esc_html( $cf_desc ); ?>
+                        </div>
+                    </div>
+
+                    <?php echo do_shortcode( '[contact-form-7 id="' . $settings['contact_form_list'] . '" ]' ); ?>
+                </div>
+            </div>
+            <?php endif; ?>
         </div>
 		<?php
 	}
