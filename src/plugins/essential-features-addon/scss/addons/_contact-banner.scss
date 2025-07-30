@@ -1,0 +1,28 @@
+.efa-contact-banner {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background-color: transparent;
+    transition: background-color 0.3s;
+  }
+
+  .warp {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    gap: 2.4rem;
+    align-items: center;
+    justify-content: space-between;
+
+    @media (max-width: 991px) {
+      flex-direction: column;
+    }
+  }
+}

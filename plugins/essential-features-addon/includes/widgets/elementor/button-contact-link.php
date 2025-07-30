@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly.
 }
 
-class EFA_Widget_Button_contact_Link extends Widget_Base {
+class EFA_Widget_Button_Contact_Link extends Widget_Base {
 
     // widget name
     public function get_name(): string {
@@ -96,7 +96,7 @@ class EFA_Widget_Button_contact_Link extends Widget_Base {
         if ( empty( $zalo ) ) return;
     ?>
         <div class="efa-button-contact-link">
-            <a href="<?php echo esc_url( $zalo ); ?>" class="link" target="_blank">
+            <a href="<?php echo esc_url( $zalo ); ?>" class="efa-btn-contact-link" target="_blank">
                 <span><?php echo esc_html( $settings['text'] ); ?></span>
 
                 <?php Icons_Manager::render_icon( $settings['icon'], [
