@@ -6311,6 +6311,9 @@ a.back span {
 /*------------------------------------*\
     #Menu
 \*------------------------------------*/
+.header .container {
+  gap: 2.4rem;
+}
 .header .navbar {
   margin-bottom: 0;
   border-radius: 0;
@@ -6417,6 +6420,28 @@ a.back span {
   .header .navbar.navbar-fixed .navbar-nav > li:hover a, .header .navbar.navbar-fixed .navbar-nav > li.active a {
     color: #ffffff;
   }
+}
+.header .chat-header {
+  gap: 1.2rem;
+}
+.header .chat-header .avatar {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.header .chat-header .avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.header .chat-header .message-text,
+.header .chat-header .action-button {
+  font-size: 1.4rem;
+}
+.header .chat-header .action-button {
+  font-weight: 500;
 }
 
 @media (min-width: 992px) {

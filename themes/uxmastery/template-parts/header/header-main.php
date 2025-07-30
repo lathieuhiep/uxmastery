@@ -4,6 +4,8 @@ $sticky_menu  = uxmastery_get_option( 'opt_menu_sticky', '1' );
 $logo_light   = uxmastery_get_option( 'opt_general_logo_light' );
 $logo_dark    = uxmastery_get_option( 'opt_general_logo_dark' );
 $menu_contact = uxmastery_get_option( 'opt_menu_contact' );
+$contact_zalo = uxmastery_get_option( 'opt_contact_zalo' );
+$contact_avatar = uxmastery_get_option( 'opt_contact_avatar' );
 ?>
 
 <header class="header header-sticky <?php echo esc_attr( $is_template_fixed_menu ? 'header-transparent': 'header-default' ) ?>">
@@ -39,12 +41,12 @@ $menu_contact = uxmastery_get_option( 'opt_menu_contact' );
 		            wp_nav_menu( array(
 			            'theme_location' => 'primary',
 			            'container'      => false,
-			            'menu_class'     => 'navbar-nav ml-auto',
+			            'menu_class'     => 'navbar-nav',
 			            'items_wrap'     => '<ul class="%2$s">%3$s</ul>',
 		            ) );
 	            else:
 		            ?>
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav">
                         <li class="nav-item active">
                             <a class="nav-link" href="<?php echo get_admin_url() . '/nav-menus.php'; ?>">
 					            <?php esc_html_e( 'Thêm Menu', 'uxmastery' ); ?>
@@ -54,6 +56,25 @@ $menu_contact = uxmastery_get_option( 'opt_menu_contact' );
 	            <?php endif; ?>
             </div>
             <!-- End .nav-collapse-->
+
+            <?php if ( $contact_avatar && $contact_avatar['id'] && $contact_zalo ) : ?>
+                <div class="chat-header d-flex align-items-center">
+                    <div class="avatar">
+                        <?php echo wp_get_attachment_image( $contact_avatar['id'] ); ?>
+                    </div>
+
+                    <div class="message-content">
+                        <h4 class="message-text mb-0">
+                            <?php esc_html_e('Bạn cần trợ giúp ?', 'uxmastery'); ?>
+                        </h4>
+
+                        <a href="<?php echo esc_url( $contact_zalo ); ?>" class="action-button" target="_blank">
+                            <span><?php esc_html_e('Hỏi chuyên gia ngay', 'uxmastery'); ?></span>
+                            <span class="arrow">↗</span>
+                        </a>
+                    </div>
+                </div>
+            <?php endif; ?>
         </div>
         <!-- End .container-->
     </nav>
