@@ -67,3 +67,46 @@ function efa_load_more_dual_posts(): void {
 		'posts_loaded' => $post_count
 	]);
 }
+
+// Load tab posts via AJAX
+add_action('wp_ajax_efa_load_tab_posts', 'efa_load_tab_posts');
+add_action('wp_ajax_nopriv_efa_load_tab_posts', 'efa_load_tab_posts');
+
+function efa_load_tab_posts(): void
+{
+    check_ajax_referer( 'efa_load_nonce', 'nonce' );
+
+    $posts_per_page = isset( $_POST['limit'] ) ? intval( $_POST['limit'] ) : 6;
+    $order_by       = isset( $_POST['order_by'] ) ? sanitize_text_field( $_POST['order_by'] ) : 'id';
+    $order          = isset( $_POST['order'] ) ? sanitize_text_field( $_POST['order'] ) : 'DESC';
+    $cat            = isset( $_POST['cat_id'] ) ? intval( $_POST['cat_id'] ) : '';
+    $image_size     = isset( $_POST['image_size'] ) ? sanitize_text_field( $_POST['image_size'] ) : 'large';
+
+    if (!$cat) {
+        wp_send_json_error(esc_html__('Đã có lỗi xảy ra', 'essential-features-addon'));
+    }
+
+    $args = [
+        'post_type'      => 'post',
+        'posts_per_page' => $posts_per_page,
+        'orderby'        => $order_by,
+        'order'          => $order,
+        'cat'            => $cat,
+        'post_status'    => 'publish',
+        'ignore_sticky_posts' => true,
+    ];
+
+    $query = new \WP_Query($args);
+
+    ob_start();
+
+    if ( $query->have_posts() ) :
+        efa_render_tab_post_item($query, $cat, $image_size);
+    endif;
+
+    $html = ob_get_clean();
+
+    wp_send_json_success([
+        'html' => $html
+    ]);
+}

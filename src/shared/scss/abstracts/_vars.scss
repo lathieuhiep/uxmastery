@@ -28,12 +28,13 @@ $color-white: #ffffff;
 $color-black: #000000;
 $color-light-gray: #F4F4F4;
 $color-gray-medium: #888888;
+$color-dark-gray: #444444;
 
 $baseline: 2rem;
 
-$line-height-base: 1.8;
-$line-height-content: 1.8;
-$line-height-heading: 1.6;
+$line-height-base: 1.4;
+$line-height-content: 1.4;
+$line-height-heading: 1.4;
 
 $font-body: 'Inter', sans-serif;
 $font-heading: inherit;
@@ -46,7 +47,7 @@ $font-size-h1: 3rem;
 $font-size-h2: 2.4rem;
 $font-size-h3: 2rem;
 $font-size-h4: 1.6rem;
-$font-size-h5: 1.3rem;
+$font-size-h5: 1.4rem;
 $font-size-h6: 1.2rem;
 
 $font-sizes: (
@@ -60,7 +61,6 @@ $font-sizes: (
 
 $background-base: no-repeat center center fixed;
 $background-size-base: cover;
-
 
 $fontawesome: fontawesome;
 $radius-5: .5rem;

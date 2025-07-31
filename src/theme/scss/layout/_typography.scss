@@ -3,21 +3,6 @@
 \*------------------------------------*/
 
 /* Heading Text */
-%heading-base {
-  color: $color-black;
-  font-family: $font-heading;
-  font-weight: 500;
-  margin: 0 0 .8rem;
-  line-height: $line-height-heading;
-}
-
-@each $i, $size in $font-sizes {
-  h#{$i}, .h#{$i} {
-    @extend %heading-base;
-    font-size: $size;
-  }
-}
-
 p {
   &:last-child {
     margin-bottom: 0;

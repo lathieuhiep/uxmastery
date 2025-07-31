@@ -62,7 +62,7 @@ $nav-link-font-weight: 400;
 // scss-docs-start container-max-widths
 $container-max-widths: (
         xl: 1224px
-) !default;
+);
 
 // Spacing
 // scss-docs-start spacer-variables-maps
@@ -72,10 +72,10 @@ $spacers: $spacers !default;
 // Include remainder of required Bootstrap stylesheets
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
-@import "bootstrap/scss/utilities";
+@import "bootstrap/scss/root";
 
 // Include any optional Bootstrap components as you like
-@import "bootstrap/scss/root";
+@import "bootstrap/scss/utilities";
 @import "bootstrap/scss/reboot";
 @import "bootstrap/scss/type";
 @import "bootstrap/scss/images";
@@ -85,4 +85,5 @@ $spacers: $spacers !default;
 @import "bootstrap/scss/navbar";
 @import "bootstrap/scss/close";
 @import "bootstrap/scss/modal";
+
 // scss-docs-end import-stack

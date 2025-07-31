@@ -346,7 +346,6 @@ class EFA_Widget_Post_Grid extends Widget_Base {
 
 	// widget output on the frontend
 	protected function render(): void {
-
 		$settings      = $this->get_settings_for_display();
 		$cat_post      = $settings['select_cat'];
 		$limit_post    = $settings['limit'];

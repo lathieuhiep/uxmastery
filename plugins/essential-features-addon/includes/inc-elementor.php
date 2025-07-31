@@ -20,6 +20,7 @@ function efa_register_widget_elementor_addon( $widgets_manager ): void {
 	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/book-curriculum.php';
 	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/contact-us.php';
     require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/carousel-images.php';
+    require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/tab-posts.php';
 
 //	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/contact-form-7.php';
 //	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/post-carousel.php';
@@ -44,6 +45,7 @@ function efa_register_widget_elementor_addon( $widgets_manager ): void {
 	$widgets_manager->register( new \EFA_Widget_Book_Curriculum() );
 	$widgets_manager->register( new \EFA_Widget_Contact_Us() );
     $widgets_manager->register( new \EFA_Widget_Carousel_Images() );
+    $widgets_manager->register( new \EFA_Widget_Tab_Posts() );
 
 //	$widgets_manager->register( new \EFA_Widget_Contact_Form_7() );
 //	$widgets_manager->register( new \EFA_Widget_Post_Carousel() );

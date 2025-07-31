@@ -10,6 +10,20 @@ body .wrapper {
   flex-direction: column;
 }
 
+.header .navbar .navbar-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body .wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+/**
+* Include any default variable overrides here
+ */
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -63,7 +77,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 1.6rem;
   font-weight: 400;
-  line-height: 1.8;
+  line-height: 1.4;
   color: #212529;
   text-align: left;
   background-color: #fff;
@@ -81,7 +95,7 @@ hr {
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
 }
 
 p {
@@ -357,33 +371,35 @@ template {
 
 h1, h2, h3, h4, h5, h6,
 .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.8rem;
+  font-family: inherit;
   font-weight: 500;
-  line-height: 1.2;
+  line-height: 1.4;
+  color: #000000;
 }
 
 h1, .h1 {
-  font-size: 4rem;
+  font-size: 3rem;
 }
 
 h2, .h2 {
-  font-size: 3.2rem;
-}
-
-h3, .h3 {
-  font-size: 2.8rem;
-}
-
-h4, .h4 {
   font-size: 2.4rem;
 }
 
-h5, .h5 {
+h3, .h3 {
   font-size: 2rem;
 }
 
-h6, .h6 {
+h4, .h4 {
   font-size: 1.6rem;
+}
+
+h5, .h5 {
+  font-size: 1.4rem;
+}
+
+h6, .h6 {
+  font-size: 1.2rem;
 }
 
 .lead {
@@ -394,25 +410,25 @@ h6, .h6 {
 .display-1 {
   font-size: 6rem;
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 .display-2 {
   font-size: 5.5rem;
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 .display-3 {
   font-size: 4.5rem;
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 .display-4 {
   font-size: 3.5rem;
   font-weight: 300;
-  line-height: 1.2;
+  line-height: 1.4;
 }
 
 hr {
@@ -500,10 +516,7 @@ mark,
 
 .container,
 .container-fluid,
-.container-xl,
-.container-lg,
-.container-md,
-.container-sm {
+.container-xl {
   width: 100%;
   padding-right: 1.2rem;
   padding-left: 1.2rem;
@@ -511,24 +524,9 @@ mark,
   margin-left: auto;
 }
 
-@media (min-width: 576px) {
-  .container-sm, .container {
-    max-width: 540px;
-  }
-}
-@media (min-width: 768px) {
-  .container-md, .container-sm, .container {
-    max-width: 720px;
-  }
-}
-@media (min-width: 992px) {
-  .container-lg, .container-md, .container-sm, .container {
-    max-width: 960px;
-  }
-}
 @media (min-width: 1200px) {
   .container-xl, .container-lg, .container-md, .container-sm, .container {
-    max-width: 1140px;
+    max-width: 1224px;
   }
 }
 .row {
@@ -1519,9 +1517,6 @@ mark,
 }
 .navbar .container,
 .navbar .container-fluid,
-.navbar .container-sm,
-.navbar .container-md,
-.navbar .container-lg,
 .navbar .container-xl {
   display: flex;
   flex-wrap: wrap;
@@ -1530,8 +1525,8 @@ mark,
 }
 .navbar-brand {
   display: inline-block;
-  padding-top: 0.14rem;
-  padding-bottom: 0.14rem;
+  padding-top: 0.22rem;
+  padding-bottom: 0.22rem;
   margin-right: 1rem;
   font-size: 2rem;
   line-height: inherit;
@@ -1598,9 +1593,6 @@ mark,
 @media (max-width: 575.98px) {
   .navbar-expand-sm > .container,
   .navbar-expand-sm > .container-fluid,
-  .navbar-expand-sm > .container-sm,
-  .navbar-expand-sm > .container-md,
-  .navbar-expand-sm > .container-lg,
   .navbar-expand-sm > .container-xl {
     padding-right: 0;
     padding-left: 0;
@@ -1623,9 +1615,6 @@ mark,
   }
   .navbar-expand-sm > .container,
   .navbar-expand-sm > .container-fluid,
-  .navbar-expand-sm > .container-sm,
-  .navbar-expand-sm > .container-md,
-  .navbar-expand-sm > .container-lg,
   .navbar-expand-sm > .container-xl {
     flex-wrap: nowrap;
   }
@@ -1643,9 +1632,6 @@ mark,
 @media (max-width: 767.98px) {
   .navbar-expand-md > .container,
   .navbar-expand-md > .container-fluid,
-  .navbar-expand-md > .container-sm,
-  .navbar-expand-md > .container-md,
-  .navbar-expand-md > .container-lg,
   .navbar-expand-md > .container-xl {
     padding-right: 0;
     padding-left: 0;
@@ -1668,9 +1654,6 @@ mark,
   }
   .navbar-expand-md > .container,
   .navbar-expand-md > .container-fluid,
-  .navbar-expand-md > .container-sm,
-  .navbar-expand-md > .container-md,
-  .navbar-expand-md > .container-lg,
   .navbar-expand-md > .container-xl {
     flex-wrap: nowrap;
   }
@@ -1688,9 +1671,6 @@ mark,
 @media (max-width: 991.98px) {
   .navbar-expand-lg > .container,
   .navbar-expand-lg > .container-fluid,
-  .navbar-expand-lg > .container-sm,
-  .navbar-expand-lg > .container-md,
-  .navbar-expand-lg > .container-lg,
   .navbar-expand-lg > .container-xl {
     padding-right: 0;
     padding-left: 0;
@@ -1713,9 +1693,6 @@ mark,
   }
   .navbar-expand-lg > .container,
   .navbar-expand-lg > .container-fluid,
-  .navbar-expand-lg > .container-sm,
-  .navbar-expand-lg > .container-md,
-  .navbar-expand-lg > .container-lg,
   .navbar-expand-lg > .container-xl {
     flex-wrap: nowrap;
   }
@@ -1733,9 +1710,6 @@ mark,
 @media (max-width: 1199.98px) {
   .navbar-expand-xl > .container,
   .navbar-expand-xl > .container-fluid,
-  .navbar-expand-xl > .container-sm,
-  .navbar-expand-xl > .container-md,
-  .navbar-expand-xl > .container-lg,
   .navbar-expand-xl > .container-xl {
     padding-right: 0;
     padding-left: 0;
@@ -1758,9 +1732,6 @@ mark,
   }
   .navbar-expand-xl > .container,
   .navbar-expand-xl > .container-fluid,
-  .navbar-expand-xl > .container-sm,
-  .navbar-expand-xl > .container-md,
-  .navbar-expand-xl > .container-lg,
   .navbar-expand-xl > .container-xl {
     flex-wrap: nowrap;
   }
@@ -1781,9 +1752,6 @@ mark,
 }
 .navbar-expand > .container,
 .navbar-expand > .container-fluid,
-.navbar-expand > .container-sm,
-.navbar-expand > .container-md,
-.navbar-expand > .container-lg,
 .navbar-expand > .container-xl {
   padding-right: 0;
   padding-left: 0;
@@ -1800,9 +1768,6 @@ mark,
 }
 .navbar-expand > .container,
 .navbar-expand > .container-fluid,
-.navbar-expand > .container-sm,
-.navbar-expand > .container-md,
-.navbar-expand > .container-lg,
 .navbar-expand > .container-xl {
   flex-wrap: nowrap;
 }
@@ -5226,7 +5191,7 @@ body {
   font-size: 1.6rem;
   font-weight: 400;
   color: #353535;
-  line-height: 1.8;
+  line-height: 1.4;
   margin: 0;
   overflow-x: hidden;
 }
@@ -5644,45 +5609,13 @@ body .wrapper {
     #TYPOGRAPHY
 \*------------------------------------*/
 /* Heading Text */
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  color: #000000;
-  font-family: inherit;
-  font-weight: 500;
-  margin: 0 0 0.8rem;
-  line-height: 1.6;
-}
-
-h6, .h6 {
-  font-size: 1.2rem;
-}
-
-h5, .h5 {
-  font-size: 1.3rem;
-}
-
-h4, .h4 {
-  font-size: 1.6rem;
-}
-
-h3, .h3 {
-  font-size: 2rem;
-}
-
-h2, .h2 {
-  font-size: 2.4rem;
-}
-
-h1, .h1 {
-  font-size: 3rem;
-}
-
 p:last-child {
   margin-bottom: 0;
 }
 
 .lead {
   font-size: 1.6rem;
-  line-height: 1.8;
+  line-height: 1.4;
 }
 
 /* Aligning Text */
@@ -6299,9 +6232,6 @@ a.back span {
 @media screen and (min-width:992px) {
   .header-2 .navbar-expand-lg > .container,
   .header-2 .navbar-expand-lg > .container-fluid,
-  .header-2 .navbar-expand-lg > .container-sm,
-  .header-2 .navbar-expand-lg > .container-md,
-  .header-2 .navbar-expand-lg > .container-lg,
   .header-2 .navbar-expand-lg > .container-xl {
     justify-content: space-between;
     padding: 0 7rem;

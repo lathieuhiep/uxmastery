@@ -491,7 +491,7 @@ function efa_preg_replace_ony_number( $string ): string|null {
 	return $number;
 }
 
-//
+// Render single post item
 function efa_render_single_post_item($image_size, $show_excerpt, $excerpt_length): void {
 ?>
 	<div class="item">
@@ -530,5 +530,47 @@ function efa_render_single_post_item($image_size, $show_excerpt, $excerpt_length
 			<?php endif; ?>
 		</div>
 	</div>
+<?php
+}
+
+// render tab post item
+function efa_render_tab_post_item($query, $cat_id, $image_size): void
+{
+    if (!$query instanceof WP_Query || !$query->have_posts()) {
+        esc_html_e('Không có bài viết nào.', 'essential-features-addon');
+
+        return;
+    }
+?>
+    <div class="post-list efa-grid-layout">
+        <?php while ( $query->have_posts() ): $query->the_post(); ?>
+            <div class="post-item">
+                <div class="box-thumbnail">
+                    <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                        <?php
+                        if ( has_post_thumbnail() ) :
+                            the_post_thumbnail( $image_size );
+                        else:
+                            ?>
+                            <img src="<?php echo esc_url( get_theme_file_uri( '/assets/images/no-image.png' ) ) ?>"
+                                 alt="<?php the_title(); ?>"/>
+                        <?php endif; ?>
+                    </a>
+                </div>
+
+                <div class="meta">
+                    <a href="<?php echo esc_url( get_category_link( $cat_id ) ) ?>">
+                        <?php echo esc_html( get_cat_name( $cat_id ) ); ?>
+                    </a>
+                </div>
+
+                <h2 class="title">
+                    <a class="typo-inherit" href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+                        <?php the_title(); ?>
+                    </a>
+                </h2>
+            </div>
+        <?php endwhile; wp_reset_postdata(); ?>
+    </div>
 <?php
 }

@@ -137,6 +137,82 @@
         }
     }
 
+    // tab posts
+    const ElementTabPosts = ($scope, $) => {
+        const tabPosts = $scope.find('.efa-addon-tab-posts');
+
+        if (tabPosts.length) {
+            const catLinkOpen = tabPosts.find('.cat-link-open');
+            const tabNav = tabPosts.find('.tab-nav');
+            const tabItems = tabPosts.find('.tab-item');
+
+            const limit = tabNav.data('limit') || 6;
+            const order_by = tabNav.data('order-by') || 'date';
+            const order = tabNav.data('order') || 'DESC';
+            const image_size = tabNav.data('image-size') || 'medium';
+
+            const contentWrapper = tabPosts.find('.tab-content');
+
+            tabItems.on('click', 'a', function (e) {
+                e.preventDefault();
+
+                const item = $(this).closest('.tab-item');
+                const catId = parseInt(item.data('cat'));
+                const contentPane = contentWrapper.find(`.pane-warp[data-cat="${catId}"]`);
+                const urlCat = item.data('url-cat');
+
+                // Nếu tab chưa từng load
+                if (contentPane.length && contentPane.data('loaded') !== true) {
+                    contentPane.html('<p class="loading">Đang tải...</p>');
+
+                    $.ajax({
+                        url: btnEfaLoadMore.ajaxurl,
+                        method: 'POST',
+                        data: {
+                            action: 'efa_load_tab_posts',
+                            cat_id: catId,
+                            limit: limit,
+                            order_by: order_by,
+                            order: order,
+                            image_size: image_size,
+                            nonce: btnEfaLoadMore.nonce
+                        },
+                        success: function (res) {
+                            if (res.success) {
+                                const $html = $(res.data.html);
+                                const $newItems = $html.filter('.post-item').add($html.find('.post-item'));
+
+                                $newItems.addClass('efa-zoom-in');
+                                contentPane.append($html);
+                                contentPane.data('loaded', true);
+                            } else {
+                                contentPane.html('<p class="error">Không thể tải nội dung.</p>');
+                            }
+                        },
+                        error: function () {
+                            contentPane.html('<p class="error">Lỗi kết nối server.</p>');
+                        },
+                        complete: function () {
+                            contentPane.find('.loading').remove();
+                        }
+                    });
+                }
+
+                // Đổi tab
+                tabItems.removeClass('active');
+                item.addClass('active');
+
+                contentWrapper.find('.pane-warp').removeClass('active');
+                contentPane.addClass('active').find('.post-item').removeClass('efa-zoom-in');
+
+                // update url category
+                if (urlCat) {
+                    catLinkOpen.attr('href', urlCat);
+                }
+            });
+        }
+    };
+
     $(window).on('elementor/frontend/init', function () {
         /* Element fly-up title */
         elementorFrontend.hooks.addAction('frontend/element_ready/efa-hero.default', ElementFlyUpTitle);
@@ -158,6 +234,9 @@
 
         /* Element load more */
         elementorFrontend.hooks.addAction('frontend/element_ready/efa-dual-post-block.default', ElementBtnLoadMore);
+
+        /* Element tab posts */
+        elementorFrontend.hooks.addAction('frontend/element_ready/efa-tab-posts.default', ElementTabPosts);
     });
 
 })(jQuery);

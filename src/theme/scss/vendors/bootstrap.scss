@@ -1,5 +1,36 @@
-// Include remainder of required Bootstrap stylesheets
+@import "../../../shared/scss/abstracts/abstracts.scss";
+
+// Import Bootstrap's core styles
 @import "bootstrap/scss/functions";
+
+/**
+* Include any default variable overrides here
+ */
+$enable-rfs: false;
+
+// scss-docs-start container-max-widths
+$container-max-widths: (
+        xl: 1224px
+);
+
+//
+// Headings
+//
+
+$headings-font-family: $font-heading;
+$headings-font-weight: 500;
+$headings-line-height: $line-height-heading;
+$headings-color: $color-black;
+$headings-margin-bottom: 0.8rem;
+
+$h1-font-size: $font-size-h1;
+$h2-font-size: $font-size-h2;
+$h3-font-size: $font-size-h3;
+$h4-font-size: $font-size-h4;
+$h5-font-size: $font-size-h5;
+$h6-font-size: $font-size-h6;
+
+// Include remainder of required Bootstrap stylesheets
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
 
