@@ -70,7 +70,7 @@ $contact_avatar = uxmastery_get_option( 'opt_contact_avatar' );
 
                         <a href="<?php echo esc_url( $contact_zalo ); ?>" class="action-button" target="_blank">
                             <span><?php esc_html_e('Hỏi chuyên gia ngay', 'uxmastery'); ?></span>
-                            <span class="arrow">↗</span>
+                            <i class="ic-mask ic-mask-external-link"></i>
                         </a>
                     </div>
                 </div>

@@ -2,6 +2,8 @@
     #Menu
 \*------------------------------------*/
 .header {
+  border-bottom: .1rem solid #E7E7E7;
+
   .container {
     gap: 2.4rem;
   }
@@ -175,6 +177,11 @@
 
     .action-button {
       font-weight: 500;
+
+      .ic-mask {
+        --#{$prefix-theme}ic-width: .8rem;
+        --#{$prefix-theme}ic-height: .8rem;
+      }
     }
   }
 }

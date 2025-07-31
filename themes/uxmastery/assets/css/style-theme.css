@@ -5751,6 +5751,37 @@ p:last-child {
   color: #FFDF00;
 }
 
+.header .navbar .navbar-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body .wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.ic-mask {
+  --theme-ic-width: 1.6rem;
+  --theme-ic-height: 1.6rem;
+  --theme-ic-color: currentColor;
+  display: inline-block;
+  width: var(--theme-ic-width);
+  height: var(--theme-ic-height);
+  background-color: var(--theme-ic-color);
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+}
+.ic-mask-external-link {
+  mask-image: url("../images/icons/external-link.svg");
+  -webkit-mask-image: url("../images/icons/external-link.svg");
+}
+
 /*------------------------------------*\
     #COLORS
 \*------------------------------------*/
@@ -6241,6 +6272,9 @@ a.back span {
 /*------------------------------------*\
     #Menu
 \*------------------------------------*/
+.header {
+  border-bottom: 0.1rem solid #E7E7E7;
+}
 .header .container {
   gap: 2.4rem;
 }
@@ -6372,6 +6406,10 @@ a.back span {
 }
 .header .chat-header .action-button {
   font-weight: 500;
+}
+.header .chat-header .action-button .ic-mask {
+  --theme-ic-width: .8rem;
+  --theme-ic-height: .8rem;
 }
 
 @media (min-width: 992px) {
@@ -6614,7 +6652,6 @@ body .wrapper {
   top: 0;
   z-index: 99;
   background-color: #ffffff;
-  box-shadow: 0 8px 12px -10px rgba(0, 0, 0, 0.03);
 }
 .header.header-default .module-cta .btn {
   background-color: #FF4F40;

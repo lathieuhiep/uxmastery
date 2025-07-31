@@ -1,0 +1,29 @@
+@import "../../../shared/scss/abstracts/abstracts";
+
+// list icon
+$ic-names: (
+        external-link
+);
+
+.ic-mask {
+  --#{$prefix-theme}ic-width: 1.6rem;
+  --#{$prefix-theme}ic-height: 1.6rem;
+  --#{$prefix-theme}ic-color: currentColor;
+
+  display: inline-block;
+  width: var(--#{$prefix-theme}ic-width);
+  height: var(--#{$prefix-theme}ic-height);
+  background-color: var(--#{$prefix-theme}ic-color);
+  mask-size: contain;
+  -webkit-mask-size: contain;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-position: center;
+
+  @each $name in $ic-names {
+    &-#{$name} {
+      @include mask-image("#{$ic-path-theme}/#{$name}.svg");
+    }
+  }
+}

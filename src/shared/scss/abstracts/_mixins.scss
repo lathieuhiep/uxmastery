@@ -35,3 +35,9 @@
     @content;
   }
 }
+
+// mask image
+@mixin mask-image($url) {
+  mask-image: url($url);
+  -webkit-mask-image: url($url);
+}
