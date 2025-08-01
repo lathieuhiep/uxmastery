@@ -155,3 +155,14 @@ if ( function_exists('wpcf7') ) {
 		return $result;
 	}
 }
+
+function my_custom_widget_title_filter( $title, $instance = [], $id_base = '' ) {
+    // Nếu widget là tag_cloud và tiêu đề trống, hãy trả về chuỗi rỗng
+    if ( 'tag_cloud' === $id_base && empty( $instance['title'] ) ) {
+        return '';
+    }
+
+    // Nếu không, trả về tiêu đề gốc
+    return $title;
+}
+add_filter( 'widget_title', 'my_custom_widget_title_filter', 10, 3 );

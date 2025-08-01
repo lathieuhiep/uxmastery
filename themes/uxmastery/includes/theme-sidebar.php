@@ -24,4 +24,7 @@ function uxmastery_multiple_widget_init(): void {
 			'sidebar-footer-column-' . $i,
 			esc_html__( 'Dùng ở chân trang', 'uxmastery' ) );
 	}
+
+    // sidebar footer full
+    uxmastery_register_sidebar( esc_html__( 'Sidebar footer full', 'uxmastery' ), 'sidebar-footer-full', 'Dùng ở chân trang' );
 }

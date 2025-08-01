@@ -2,3 +2,50 @@
 .csf-copyright {
     color: #ffffff;
 }
+
+/* widget */
+.custom-img-preview-wrapper {
+    margin: 10px 0;
+    padding: 4px;
+    border: 1px dashed #ddd;
+    background: #f8f8f8;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.custom-img-preview {
+    max-width: 100%;
+}
+
+.custom-img-url {
+    margin-bottom: 6px;
+}
+
+.custom-img-upload {
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.widget-content .button.custom-img-upload {
+    background: #f3f5f6;
+    border-color: #dcdcde;
+    color: #2271b1;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+}
+
+.widget-content .button.custom-img-upload:hover {
+    background: #f0f0f1;
+    color: #135e96;
+}
+
+.custom-img-remove {
+    margin-left: 6px;
+    color: #b32d2e !important;
+}
+.custom-img-remove:hover {
+    background-color: #f8d7da;
+    color: #86181d !important;
+}

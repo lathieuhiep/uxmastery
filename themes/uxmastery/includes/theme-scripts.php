@@ -1,11 +1,13 @@
 <?php
 // Register Back-End script
 add_action('admin_enqueue_scripts', 'uxmastery_register_back_end_scripts');
-function uxmastery_register_back_end_scripts(): void {
+function uxmastery_register_back_end_scripts($hook): void {
 	/* Start Get CSS Admin */
 	wp_enqueue_style( 'admin', get_theme_file_uri( '/backend/assets/css/admin.css' ) );
 
-	wp_enqueue_script( 'admin', get_theme_file_uri( '/backend/assets/js/admin.js' ), array('jquery'), uxmastery_get_version_theme(), true );
+    if ($hook !== 'widgets.php') return;
+    wp_enqueue_media();
+    wp_enqueue_script( 'admin-custom-widgets', get_theme_file_uri( '/backend/assets/js/admin-custom-widgets.js' ), ['jquery'], null, true );
 }
 
 // Remove jquery migrate

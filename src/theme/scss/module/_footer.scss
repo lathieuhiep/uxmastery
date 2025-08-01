@@ -2,7 +2,11 @@
     #Footer
 \*------------------------------------*/
 .footer {
-  background-color: #212529;
+  color: $color-white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("#{$path-images}/bk-footer.webp");
 
   p {
     &:last-child {
@@ -10,91 +14,101 @@
     }
   }
 
+  .widget {
+    display: flex;
+    flex-direction: column;
+    row-gap: 4.8rem;
+    font-size: 1.4rem;
+    line-height: 1.8;
+
+    + .widget {
+      margin-top: 4.8rem;
+    }
+
+    .widget-title {
+      margin: 0;
+      color: $color-white;
+      font-size: 2.6rem;
+      font-weight: 600;
+    }
+  }
+
+  .list-unstyled {
+    margin-bottom: 0;
+  }
+
+  .navbar-brand {
+    margin-right: 0;
+    margin-bottom: 7px;
+  }
+
+  ul {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 2.4rem;
+
+    li {
+      padding: 0;
+
+      a {
+        color: $color-white;
+        font-weight: 500;
+        font-size: inherit;
+        line-height: inherit;
+        transition: 0.4s ease-in-out;
+
+        &:hover {
+          color: $color-secondary;
+        }
+      }
+    }
+  }
+
+  .contact-info-widget {
+    .contact-image {
+      a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        height: 3.6rem;
+
+        img {
+          max-width: 100%;
+        }
+      }
+    }
+  }
+
+  .social-widget {
+    .list-social {
+      display: grid;
+      gap: 2.4rem 1.2rem;
+      grid-template-columns: repeat(2, 1fr);
+
+      a {
+        color: #979797;
+        font-weight: 500;
+
+        &:hover {
+          color: $color-secondary;
+        }
+      }
+    }
+  }
+
   .footer-widgets-container {
     padding-top: 55px;
     padding-bottom: 50px;
 
-    .footer-widget {
-      display: flex;
-      text-align: center;
-      flex-direction: column;
-      justify-content: center;
-
-      .widget {
-        + .widget {
-          margin-top: 2.4rem;
-        }
-      }
-
-      .list-unstyled {
-        margin-bottom: 0;
-      }
-
-      .navbar-brand {
-        margin-right: 0;
-        margin-bottom: 7px;
-      }
-
-      ul {
-        margin-bottom: 0;
-
-        @media #{$maxTablet} {
-          text-align: center;
-        }
-
-        li {
-          a {
-            font-size: 16px;
-            line-height: 1.19;
-            color: $color-gray-600;
-            font-weight: 400;
-            font-family: $font-body;
-            transition: 0.4s ease-in-out;
-            text-transform: capitalize;
-
-            &:hover {
-              color: $color-secondary;
-            }
-          }
-        }
-
-        &.menu {
-          li {
-            display: inline-block;
-
-            a {
-              padding: .5rem 1rem;
-            }
-          }
-        }
-      }
-
-      .footer-contact {
-        li {
-          margin-bottom: 10px;
-
-          &:last-child {
-            margin-bottom: 0;
-          }
-
-          a {
-            font-size: 18px;
-            line-height: 1.22;
-            font-weight: 400;
-            color: $color-gray-600;
-
-            &:hover {
-              color: $color-secondary;
-            }
-          }
-        }
+    + .container {
+      .footer-copyright {
+        border-top: 1px solid #2F2F2F;
       }
     }
 
-    + .container {
-      .footer-copyright {
-        border-top: 1px solid #343A40;
-      }
+    .row {
+      row-gap: 4.8rem;
     }
   }
 
@@ -114,25 +128,14 @@
   }
 
   .footer-copyright {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 25px;
-    padding-bottom: 25px;
-    font-size: 16px;
-    font-weight: 400;
-    line-height: 1.5;
+    padding-top: 5rem;
+    padding-bottom: 8rem;
+    font-size: 1.2rem;
+    font-weight: 500;
     text-transform: capitalize;
-    color: $color-gray-600;
-
-    @media #{$maxTablet} {
-      flex-direction: column;
-      justify-content: center;
-
-      .footer-social {
-        margin-top: 25px;
-      }
-    }
+    color: #979797;
+    display: grid;
+    gap: 2.4rem;
 
     a {
       color: $color-secondary;

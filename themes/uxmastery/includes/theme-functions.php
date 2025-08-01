@@ -196,20 +196,21 @@ function uxmastery_get_social_url(): void {
 
 	if ( ! empty( $opt_social_networks ) ) :
     ?>
-    <ul class="list-unstyled">
+    <div class="list-social">
         <?php
             foreach ( $opt_social_networks as $item ) :
-                if ( empty( $item['item'] ) ) {
-                    continue;
-                }
+                if ( empty( $item['url'] ) ) continue;
+                $imageId = $item['icon_image']['id'];
+                $url = $item['url'];
             ?>
-                <li class="social-network-item">
-                    <a href="<?php echo esc_url( $item['url'] ); ?>" target="_blank">
-                        <i class="fab fa-<?php echo esc_attr( $item['item'] ); ?>"></i>
+                <div class="social-network-item">
+                    <a href="<?php echo esc_url( $url ); ?>" target="_blank">
+                        <?php echo wp_get_attachment_image($imageId); ?>
+                        <span class="title"><?php echo esc_html( $item['title'] ) ?></span>
                     </a>
-                </li>
+                </div>
         <?php endforeach; ?>
-    </ul>
+    </div>
     <?php
 	endif;
 }

@@ -64,6 +64,70 @@
       }
     }
   }
+
+  &.contact-info-widget {
+    .info-list {
+      .ic-mask {
+        --#{$prefix-theme}ic-width: 2.4rem;
+        --#{$prefix-theme}ic-height: 2.4rem;
+        --#{$prefix-theme}ic-color: #{$color-secondary}
+      }
+
+      li {
+        display: grid;
+        gap: 1.2rem;
+        grid-template-columns: 2.4rem 1fr;
+        align-items: center;
+        font-size: 1.4rem;
+
+        a {
+          color: inherit;
+          font-size: inherit;
+          line-height: inherit;
+        }
+      }
+    }
+  }
+
+  &.widget_tag_cloud {
+    .tagcloud {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+
+      a {
+        padding: .6rem 1.2rem;
+        display: inline-flex;
+        flex: 0 0 auto;
+        font-size: 1.2rem !important;
+        color: $color-white;
+        border-radius: .8rem;
+        background-color: #3B3B3B;
+
+        .tag-link-count {
+          display: inline-block;
+          margin-left: .4em;
+        }
+
+        &:hover {
+          color: $color-secondary;
+        }
+      }
+    }
+  }
+
+  &.social-widget {
+    .social-network-item {
+      display: flex;
+      align-items: center;
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        gap: 1.2rem;
+      }
+    }
+  }
 }
 
 .site-sidebar,

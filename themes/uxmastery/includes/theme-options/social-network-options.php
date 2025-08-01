@@ -10,36 +10,32 @@ CSF::createSection( $prefix_theme_options, array(
 	'fields' => array(
 		array(
 			'id'      => 'opt_social_networks',
-			'type'    => 'repeater',
+			'type'    => 'group',
 			'title'   => esc_html__( 'Mạng xã hội', 'uxmastery' ),
 			'max'     => $max_social_networks,
 			'fields'  => array(
-				array(
-					'id'          => 'item',
-					'type'        => 'select',
-					'title'       => 'Select',
-					'placeholder' => esc_html__( '--Chọn mạng xã hội--', 'uxmastery' ),
-					'options'     => uxmastery_list_social_network(),
-				),
+                array(
+                    'id'    => 'title',
+                    'type'  => 'text',
+                    'title' => esc_html__( 'Tên hiển thị', 'uxmastery' ),
+                ),
 
 				array(
 					'id'      => 'url',
 					'type'    => 'text',
-					'title'   => esc_html__( 'URL', 'uxmastery' ),
+					'title'   => esc_html__( 'URL liên kết', 'uxmastery' ),
 					'default' => '#'
 				),
-			),
-			'default' => array(
-				array(
-					'item' => 'facebook-f',
-					'url'  => '#',
-				),
 
-				array(
-					'item' => 'youtube',
-					'url'  => '#',
-				),
-			)
+                array(
+                    'id'    => 'icon_image',
+                    'type'  => 'media',
+                    'title' => esc_html__( 'Icon tùy chỉnh (ảnh)', 'uxmastery' ),
+                    'library' => 'image',
+                    'url'   => false,
+                    'preview' => true,
+                ),
+			),
 		),
 	)
 ) );

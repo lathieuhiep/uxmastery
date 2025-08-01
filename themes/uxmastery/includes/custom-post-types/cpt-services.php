@@ -29,7 +29,7 @@ function uxmastery_register_services_cpt(): void {
 
 	// register taxonomy service_category
 	$tax_labels = array(
-		'name'          => esc_html__( 'Danh mục', 'uxmastery' ),
+		'name'          => esc_html__( 'Danh mục dịch vụ', 'uxmastery' ),
 		'singular_name' => esc_html__( 'Danh mục', 'uxmastery' ),
 		'search_items'  => esc_html__( 'Tìm Danh mục', 'uxmastery' ),
 		'all_items'     => esc_html__( 'Tất cả Danh mục', 'uxmastery' ),

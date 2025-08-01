@@ -30,11 +30,8 @@ class BasicTheme_Social_Widget extends WP_Widget {
 		if ( ! empty( $instance['title'] ) ) {
 			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ) . $args['after_title'];
 		}
-		?>
-        <div class="warp d-flex gap-3">
-			<?php uxmastery_get_social_url(); ?>
-        </div>
-		<?php
+
+        uxmastery_get_social_url();
 
 		echo $args['after_widget'];
 	}
