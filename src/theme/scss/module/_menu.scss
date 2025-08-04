@@ -5,7 +5,9 @@
   border-bottom: .1rem solid #E7E7E7;
 
   .container {
-    gap: 2.4rem;
+    @media #{$minLarge} {
+      gap: 2.4rem;
+    }
   }
 
   .navbar {
@@ -36,33 +38,135 @@
     }
 
     .navbar-nav {
+      @media #{$minLarge} {
+        gap: 3.2rem;
+      }
+
+      @media #{$maxTablet} {
+        border-top: .1rem solid #e7e7e7;
+      }
+
+      li {
+        a {
+          font-size: $font-size-secondary;
+          font-weight: 600;
+          color: $color-body;
+          padding: 0;
+          position: relative;
+          display: block;
+          @include transition();
+
+          &:hover {
+            color: $color-secondary;
+          }
+        }
+
+        .sub-menu {
+          list-style: none;
+
+          @media #{$minLarge} {
+            position: absolute;
+            left: 0;
+            top: 110%;
+            z-index: 999;
+            margin: .7rem 0 0 0;
+            padding: 1.6rem;
+
+            width: 26rem;
+            border-radius: 1.6rem;
+            box-shadow: 0 .3rem 1rem 0 #E1E1E1;
+            background-color: #FFFFFF;
+            opacity: 0;
+            visibility: hidden;
+            @include transition();
+          }
+
+          @media #{$maxTablet} {
+            padding: 0 3.4rem;
+          }
+
+          li {
+            a {
+              font-size: 1.4rem;
+              word-break: break-word;
+            }
+
+            ~ li {
+              margin-top: 1.2rem;
+
+              @media #{$minLarge} {
+                padding-top: 1.2rem;
+                border-top: 1px solid #EAEAEA;
+              }
+            }
+
+            &:last-child {
+              @media #{$maxTablet} {
+                margin-bottom: .4rem;
+              }
+            }
+
+            &.current-menu-item {
+              > a {
+                color: $color-secondary;
+              }
+            }
+          }
+        }
+      }
+
       > li {
-        margin-right: 3rem;
         position: relative;
+
+        &::after {
+          position: absolute;
+          content: "";
+          left: 0;
+          right: 0;
+          bottom: 0;
+          height: .2rem;
+          background-color: transparent;
+          @include transition();
+        }
 
         &:last-child {
           margin-right: 0;
         }
 
         > a {
-          font-size: $font-size-base;
-          text-transform: capitalize;
-          font-weight: 500;
-          color: $color-heading;
           line-height: var(--line-height-menu-item);
-          padding: 0;
-          position: relative;
-          display: block;
-          @include transition();
+        }
+
+        &.current-menu-item,
+        &.current-menu-parent {
+          &::after {
+            @media #{$minLarge} {
+              background-color: $color-secondary;
+            }
+          }
+
+          > a {
+            color: $color-secondary;
+          }
+        }
+
+        &:hover {
+          .sub-menu {
+            @media #{$minLarge} {
+              top: 100%;
+              opacity: 1;
+              visibility: visible;
+            }
+          }
         }
 
         @media #{$maxTablet} {
           margin-right: 0;
 
-          a {
+          > a {
             margin-right: 0;
             padding: 1.5rem 2.5rem;
-            color: $color-heading;
+            color: $color-body;
             line-height: 1;
           }
 
@@ -75,12 +179,12 @@
           }
         }
       }
+    }
 
-      li {
-        a {
-          &:hover {
-            color: $color-secondary;
-          }
+    .logo {
+      ~ .navbar-collapse {
+        @media #{$minLarge} {
+          padding-left: 4.8rem;
         }
       }
     }
@@ -155,6 +259,14 @@
 
   .chat-header {
     gap: 1.2rem;
+
+    @media #{$maxTablet} {
+      margin-bottom: 1.5rem;
+      padding-top: 1.5rem;
+      padding-left: 2.5rem;
+      padding-right: 2.5rem;
+      border-top: .1rem solid #e7e7e7;
+    }
 
     .avatar {
       width: 4rem;

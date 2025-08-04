@@ -111,3 +111,25 @@
     background-color: $color-black;
   }
 }
+
+.efa-addon-btn-link {
+  --btn-link-padding: .8rem 1.6rem;
+  --btn-link-fw: 600;
+  --btn-link-color: #{$color-white};
+  --btn-link-radius: 1.2rem;
+  --btn-link-background-color: #{$color-secondary};
+
+  padding: var(--btn-link-padding);
+  color: var(--btn-link-color);
+  font-weight: var(--btn-link-fw);
+  border-radius: var(--btn-link-radius);
+  background-color: var(--btn-link-background-color);
+  @extend %inline-flex-align-center-vertical;
+  gap: 1rem;
+
+  &:hover {
+    --btn-link-background-color: #{$color-dark-gray};
+
+    color: var(--btn-link-color);
+  }
+}

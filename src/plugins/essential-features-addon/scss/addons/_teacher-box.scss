@@ -1,0 +1,54 @@
+@import "../../../../shared/scss/abstracts/abstracts";
+@import "../abstracts/abstracts";
+
+.efa-addon-teacher-box {
+  display: grid;
+  gap: 2rem;
+
+  @media (min-width: 992px) {
+    grid-template-columns: 20rem 1fr;
+  }
+
+  .avatar {
+    @extend %flex-column;
+    gap: .8rem;
+
+    &-img {
+      border-radius: 2rem;
+    }
+
+    .name {
+      --font-weight-name-teacher-box: 500;
+      --font-size-name-teacher-box: 1.4rem;
+
+      margin: 0;
+      text-align: center;
+      font-weight: var(--font-weight-name-teacher-box);
+      font-size: var(--font-size-name-teacher-box);
+    }
+  }
+
+  .content {
+    @extend %flex-column;
+    gap: 1.8rem;
+  }
+
+  .contact-box {
+    @extend %flex-align-center-vertical;
+    gap: .8rem;
+  }
+
+  .price-note-box {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-style: italic;
+
+    .text {
+      color: $color-gray-medium;
+    }
+
+    .price {
+      color: $color-theme;
+    }
+  }
+}

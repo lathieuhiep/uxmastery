@@ -259,7 +259,7 @@ function watchTask() {
         `${paths.theme.scss}/*/**.scss`
     ], buildStyleTheme)
 
-    watch([`${paths.theme.js}custom.js`], buildJSTheme)
+    watch([`${paths.theme.js}*.js`], buildJSTheme)
 
     watch([
         `${paths.theme.scss}layout/_sidebar.scss`,

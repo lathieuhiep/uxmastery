@@ -15,6 +15,14 @@ CSF::createSection( $prefix_theme_options, array(
             'desc' => esc_html__('Link quét lấy mã:', 'uxmastery') . ' https://pageloot.com/vi/quet-ma-qr/',
         ),
 
+        // phone
+        array(
+            'id'    => 'opt_contact_phone',
+            'type'  => 'text',
+            'title' => esc_html__( 'Số điện thoại', 'uxmastery' ),
+            'default' => '0911.321.300',
+        ),
+
         // avatar
         array(
             'id'      => 'opt_contact_avatar',

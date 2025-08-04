@@ -79,4 +79,28 @@ import 'bootstrap/js/dist/collapse';
         });
     }
 
+    /* ------------------  Back top ------------------ */
+    const btnBackTop = $('#back-top');
+    const headerWarp = $('header');
+    let showAfter = 200;
+
+    if (headerWarp.length) {
+        showAfter = headerWarp.outerHeight();
+    }
+
+    $(window).on('scroll', function () {
+        if ($(window).scrollTop() > showAfter) {
+            btnBackTop.addClass('show');
+        } else {
+            btnBackTop.removeClass('show');
+        }
+    });
+
+    if ( btnBackTop.length ) {
+        btnBackTop.on('click', function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
 }(jQuery));
