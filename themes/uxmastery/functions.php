@@ -26,3 +26,10 @@ require get_parent_theme_file_path( '/includes/widgets/social-widget.php' );
 
 // Required: Custom Post Types
 require get_parent_theme_file_path( '/includes/custom-post-types/cpt-services.php' );
+require get_parent_theme_file_path( '/includes/custom-post-types/cpt-course.php' );
+require get_parent_theme_file_path( '/includes/custom-post-types/cpt-lesson.php' );
+
+// Required: cmb2 post type
+if ( ! class_exists( 'CMB2' ) ) {
+    require get_parent_theme_file_path( '/includes/cpt-options/cmb-course.php' );
+}
