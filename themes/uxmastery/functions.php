@@ -28,6 +28,7 @@ require get_parent_theme_file_path( '/includes/widgets/social-widget.php' );
 require get_parent_theme_file_path( '/includes/custom-post-types/cpt-services.php' );
 require get_parent_theme_file_path( '/includes/custom-post-types/cpt-course.php' );
 require get_parent_theme_file_path( '/includes/custom-post-types/cpt-lesson.php' );
+require get_parent_theme_file_path( '/includes/custom-post-types/cpt-teacher.php' );
 
 // Required: cmb2 post type
 if ( ! class_exists( 'CMB2' ) ) {

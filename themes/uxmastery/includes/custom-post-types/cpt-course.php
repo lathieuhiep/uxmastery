@@ -18,7 +18,7 @@ function uxmastery_register_cpt_course(): void
     register_post_type('ux_course', [
         'labels' => $labels,
         'public' => true,
-        'has_archive' => true,
+        'has_archive' => false,
         'rewrite' => ['slug' => 'khoa-hoc'],
         'menu_position' => 6,
         'menu_icon' => 'dashicons-welcome-learn-more',

@@ -23,7 +23,7 @@ function uxmastery_register_cpt_lesson(): void
         'rewrite' => ['slug' => 'bai-hoc'],
         'menu_position' => 7,
         'menu_icon' => 'dashicons-media-text',
-        'supports' => ['title', 'editor', 'thumbnail'],
+        'supports' => ['title', 'editor', 'excerpt'],
         'show_in_rest' => true,
         'show_in_menu' => true,
     ]);

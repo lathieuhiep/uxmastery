@@ -57,6 +57,15 @@ function uxmastery_front_end_scripts (): void {
 		wp_enqueue_style( 'single-post', get_theme_file_uri( '/assets/css/post-type/post/single.min.css' ), array(), uxmastery_get_version_theme() );
 	}
 
+    // load style for custom post type course
+    if ( is_tax('ux_course_category') ) {
+        wp_enqueue_style( 'category-course', get_theme_file_uri( '/assets/css/post-type/course/category.min.css' ), array(), uxmastery_get_version_theme() );
+    }
+
+    if ( is_singular('ux_course') ) {
+        wp_enqueue_style( 'single-course', get_theme_file_uri( '/assets/css/post-type/course/single.min.css' ), array(), uxmastery_get_version_theme() );
+    }
+
 	// style page 404
 	if ( is_404() ) {
 		wp_enqueue_style( 'page-404', get_theme_file_uri( '/assets/css/page-templates/page-404.min.css' ), array(), uxmastery_get_version_theme() );

@@ -6,7 +6,10 @@ function uxmastery_get_version_theme(): string {
 
 // check is blog
 function uxmastery_is_blog(): bool {
-	return ( is_archive() || is_category() || is_tag() || is_author() || is_home() || ( is_search() && get_post_type() === 'post' ) );
+	return ( is_category()
+        || is_tag()
+        || is_home()
+        || ( is_search() && get_post_type() === 'post' ) );
 }
 
 // Callback Comment List
@@ -300,7 +303,6 @@ function uxmastery_get_custom_archive_title() {
 	}
 }
 
-
 // social sharing
 function uxmastery_social_sharing(): void {
 ?>
@@ -324,4 +326,28 @@ function uxmastery_social_sharing(): void {
         </div>
     </div>
 <?php
+}
+
+//
+function uxmastery_get_cpt_options($placeholder, $post_type = 'post'): array
+{
+    $options = [ '' => $placeholder ];
+
+    $args = [
+        'post_type'      => $post_type,
+        'posts_per_page' => -1,
+        'post_status'    => 'publish',
+        'orderby'        => 'title',
+        'order'          => 'ASC',
+    ];
+
+    $posts = get_posts($args);
+
+    if ($posts) {
+        foreach ($posts as $post) {
+            $options[$post->ID] = $post->post_title;
+        }
+    }
+
+    return $options;
 }

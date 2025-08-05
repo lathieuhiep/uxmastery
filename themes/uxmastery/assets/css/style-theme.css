@@ -24,7 +24,7 @@
   transform: scale(1.1);
 }
 
-.header .navbar .navbar-brand, .sticky-contact-panel .panel-item {
+.header .navbar .navbar-brand, .btn-link, .sticky-contact-panel .panel-item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -60,7 +60,7 @@ body .wrapper {
   transform: scale(1.1);
 }
 
-.header .navbar .navbar-brand, .sticky-contact-panel .panel-item {
+.header .navbar .navbar-brand, .btn-link, .sticky-contact-panel .panel-item {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -5404,6 +5404,30 @@ blockquote {
   background-color: #FF4F40;
 }
 
+.btn-link {
+  padding: 1rem 2rem;
+  border-radius: 1.2rem;
+  font-size: 1.4rem;
+  font-weight: 600;
+  gap: 1rem;
+}
+.btn-link.btn-contact-zalo {
+  color: #ffffff;
+  background-color: #007BFF;
+}
+.btn-link.btn-contact-zalo .ic-mask {
+  --theme-ic-width: 2rem;
+  --theme-ic-height:2rem;
+}
+.btn-link.btn-read-more {
+  color: #007BFF;
+  background-color: #CCEEFF;
+}
+.btn-link.btn-contact-zalo:hover, .btn-link.btn-read-more:hover {
+  color: #ffffff;
+  background-color: #444444;
+}
+
 .alignnone, a img.alignnone {
   margin: 0.5rem 2rem 2rem 0;
 }
@@ -5463,7 +5487,7 @@ a img.aligncenter {
   transform: scale(1.1);
 }
 
-.header .navbar .navbar-brand, .sticky-contact-panel .panel-item {
+.header .navbar .navbar-brand, .sticky-contact-panel .panel-item, .btn-link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -5889,7 +5913,7 @@ p:last-child {
   transform: scale(1.1);
 }
 
-.header .navbar .navbar-brand, .sticky-contact-panel .panel-item {
+.header .navbar .navbar-brand, .sticky-contact-panel .panel-item, .btn-link {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -5914,6 +5938,14 @@ body .wrapper {
   -webkit-mask-repeat: no-repeat;
   mask-position: center;
   -webkit-mask-position: center;
+}
+.ic-mask-arrow-right {
+  mask-image: url("../images/icons/arrow-right.svg");
+  -webkit-mask-image: url("../images/icons/arrow-right.svg");
+}
+.ic-mask-bag {
+  mask-image: url("../images/icons/bag.svg");
+  -webkit-mask-image: url("../images/icons/bag.svg");
 }
 .ic-mask-external-link {
   mask-image: url("../images/icons/external-link.svg");
@@ -6956,7 +6988,7 @@ a.back span {
   transform: scale(1.1);
 }
 
-.sticky-contact-panel .panel-item, .header .navbar .navbar-brand {
+.sticky-contact-panel .panel-item, .btn-link, .header .navbar .navbar-brand {
   display: flex;
   justify-content: center;
   align-items: center;
