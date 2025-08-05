@@ -49,3 +49,8 @@
     background-color: #f8d7da;
     color: #86181d !important;
 }
+
+/* cmb2 style */
+.cmb2-wrap .custom-wide-input input {
+    width: 90%;
+}

@@ -2,16 +2,17 @@
 add_action('cmb2_admin_init', 'uxmastery_ctp_course_meta_boxes');
 function uxmastery_ctp_course_meta_boxes(): void
 {
-    $cmb = new_cmb2_box(array(
-        'id' => 'cmb_cpt_course',
-        'title' => esc_html__('Thiết lập', 'uxmastery'),
+    // info base
+    $cmb_cpt_course_base = new_cmb2_box(array(
+        'id' => 'cmb_cpt_course_base',
+        'title' => esc_html__('Thông tin cơ bản', 'uxmastery'),
         'object_types' => array('ux_course'),
         'context' => 'normal',
         'priority' => 'low',
         'show_names' => true,
     ));
 
-    $cmb->add_field(array(
+    $cmb_cpt_course_base->add_field(array(
         'name' => esc_html__('Cấp độ', 'uxmastery'),
         'desc' => esc_html__('Chọn cấp độ của khóa học', 'uxmastery'),
         'id' => 'cmb_cpt_course_level',
@@ -23,7 +24,7 @@ function uxmastery_ctp_course_meta_boxes(): void
         ],
     ));
 
-    $cmb->add_field(array(
+    $cmb_cpt_course_base->add_field(array(
         'id' => 'cmb_cpt_course_price',
         'name' => esc_html__('Chi phí', 'uxmastery'),
         'type' => 'text',
@@ -35,14 +36,24 @@ function uxmastery_ctp_course_meta_boxes(): void
         'after_field' => ' <span class="cmb2-unit">VNĐ</span>',
     ));
 
-    $cmb->add_field([
+    $cmb_cpt_course_base->add_field([
         'name' => esc_html__('Giảng viên', 'uxmastery'),
         'id' => 'cmb_cpt_course_select_teacher',
         'type' => 'select',
         'options' => uxmastery_get_cpt_options(esc_html__('— Chọn giáo viên —', 'uxmastery'), 'ux_teacher'),
     ]);
 
-    $group_lessons = $cmb->add_field(array(
+    // lessons
+    $cmb_cpt_course_lessons = new_cmb2_box(array(
+        'id' => 'cmb_cpt_course_lessons',
+        'title' => esc_html__('Nội dung giáo trình', 'uxmastery'),
+        'object_types' => array('ux_course'),
+        'context' => 'normal',
+        'priority' => 'low',
+        'show_names' => true,
+    ));
+
+    $cmb_cpt_course_group_lessons = $cmb_cpt_course_lessons->add_field(array(
         'id' => 'cmb_cpt_course_lessons',
         'type' => 'group',
         'name' => esc_html__('Danh sách bài học', 'uxmastery'),
@@ -56,7 +67,7 @@ function uxmastery_ctp_course_meta_boxes(): void
         ),
     ));
 
-    $cmb->add_group_field($group_lessons, array(
+    $cmb_cpt_course_lessons->add_group_field($cmb_cpt_course_group_lessons, array(
         'name' => esc_html__('Tiêu đề hiển thị', 'uxmastery'),
         'id' => 'title',
         'type' => 'text',
@@ -66,12 +77,54 @@ function uxmastery_ctp_course_meta_boxes(): void
         ],
     ));
 
-    $cmb->add_group_field($group_lessons, array(
+    $cmb_cpt_course_lessons->add_group_field($cmb_cpt_course_group_lessons, array(
         'name' => 'Bài học',
         'id' => 'lesson',
         'type' => 'select',
         'options' => uxmastery_get_cpt_options(esc_html__('— Chọn bài học —', 'uxmastery'), 'ux_lesson'),
     ));
+    
+    // services
+    $cmb_cpt_course_services = new_cmb2_box( array(
+        'id'            => 'cmb_cpt_course_services',
+        'title'         => esc_html__( 'Giá trị bạn nhận được', 'uxmastery' ),
+        'object_types'  => array( 'ux_course', ),
+        'context'       => 'normal',
+        'priority'      => 'low',
+        'show_names'    => true,
+    ) );
+    
+    $cmb_cpt_course_services->add_field( array(
+        'name'       => esc_html__( 'Giá trị', 'uxmastery' ),
+        'id'         => 'cmb_cpt_course_benefits_list',
+        'type'       => 'text',
+        'repeatable' => true,
+        'classes'    => 'custom-wide-input',
+        'text' => array(
+            'add_row_text' => esc_html__( 'Thêm giá trị khác', 'uxmastery' ),
+        ),
+    ) );
+    
+    // audience
+    $cmb_cpt_course_audience = new_cmb2_box( array(
+        'id'            => 'cmb_cpt_course_audience_box',
+        'title'         => esc_html__( 'Giáo trình phù hợp với ai', 'uxmastery' ),
+        'object_types'  => array( 'ux_course', ),
+        'context'       => 'normal',
+        'priority'      => 'low',
+        'show_names'    => true,
+    ) );
+
+    $cmb_cpt_course_audience->add_field( array(
+        'name'       => esc_html__( 'Đối tượng', 'uxmastery' ),
+        'id'         => 'cmb_cpt_course_audience_list',
+        'type'       => 'text',
+        'repeatable' => true,
+        'classes'    => 'custom-wide-input',
+        'text' => array(
+            'add_row_text' => esc_html__( 'Thêm đối tượng', 'uxmastery' ),
+        ),
+    ) );
 }
 
 // Cấp độ khóa học
