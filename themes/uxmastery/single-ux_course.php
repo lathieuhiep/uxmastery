@@ -27,7 +27,7 @@ get_template_part( 'template-parts/parts/breadcrumbs' );
                         <div class="info__box">
                             <div class="item level">
                                 <span class="label"><?php esc_html_e('Cấp độ:', 'uxmastery'); ?></span>
-                                <span class="value"><?php echo esc_html($course_level); ?></span>
+                                <span class="value"><?php echo esc_html( uxmastery_get_course_level_name($course_level) ); ?></span>
                             </div>
 
                             <div class="item price">
@@ -38,9 +38,7 @@ get_template_part( 'template-parts/parts/breadcrumbs' );
                             <?php
                             if ( $course_teacher ) :
                                 $teacher = get_post($course_teacher);
-
-                                $zalo = uxmastery_get_option( 'opt_contact_zalo' );
-                                ?>
+                            ?>
                                 <div class="item teacher">
                                     <span class="label"><?php esc_html_e('Giảng viên:', 'uxmastery'); ?></span>
 
@@ -57,16 +55,20 @@ get_template_part( 'template-parts/parts/breadcrumbs' );
                                             </div>
                                         </div>
                                     </div>
-
-                                    <?php if ( $zalo ) : ?>
-                                        <div class="action-box">
-                                            <a href="<?php echo esc_url( $zalo ); ?>" class="btn-link btn-contact-zalo" target="_blank">
-                                                <i class="ic-mask ic-mask-bag"></i>
-                                                <span class="txt"><?php esc_html_e('Liên hệ mua ngay', 'uxmastery'); ?></span>
-                                            </a>
-                                        </div>
-                                    <?php endif; ?>
                                 </div>
+                            <?php endif; ?>
+
+                            <?php
+                            $zalo = uxmastery_get_option( 'opt_contact_zalo' );
+
+                            if ( $zalo ) :
+                            ?>
+                            <div class="action-box">
+                                <a href="<?php echo esc_url( $zalo ); ?>" class="btn-link btn-contact-zalo" target="_blank">
+                                    <i class="ic-mask ic-mask-bag"></i>
+                                    <span class="txt"><?php esc_html_e('Liên hệ mua ngay', 'uxmastery'); ?></span>
+                                </a>
+                            </div>
                             <?php endif; ?>
                         </div>
                     </div>

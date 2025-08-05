@@ -16,10 +16,7 @@ function uxmastery_ctp_course_meta_boxes(): void
         'desc' => esc_html__('Chọn cấp độ của khóa học', 'uxmastery'),
         'id' => 'cmb_cpt_course_level',
         'type' => 'select',
-        'options' => array(
-            '1' => esc_html__('Cơ bản', 'uxmastery'),
-            '2' => esc_html__('Nâng cao', 'uxmastery'),
-        ),
+        'options' => uxmastery_ctp_course_level(),
         'default' => '1',
         'attributes' => [
             'required' => 'required',
@@ -40,7 +37,7 @@ function uxmastery_ctp_course_meta_boxes(): void
 
     $cmb->add_field([
         'name' => esc_html__('Giảng viên', 'uxmastery'),
-        'id' => 'cmb_cpt_select_teacher',
+        'id' => 'cmb_cpt_course_select_teacher',
         'type' => 'select',
         'options' => uxmastery_get_cpt_options(esc_html__('— Chọn giáo viên —', 'uxmastery'), 'ux_teacher'),
     ]);
@@ -75,4 +72,21 @@ function uxmastery_ctp_course_meta_boxes(): void
         'type' => 'select',
         'options' => uxmastery_get_cpt_options(esc_html__('— Chọn bài học —', 'uxmastery'), 'ux_lesson'),
     ));
+}
+
+// Cấp độ khóa học
+function uxmastery_ctp_course_level(): array
+{
+    return [
+        '1' => esc_html__('Cơ bản', 'uxmastery'),
+        '2' => esc_html__('Nâng cao', 'uxmastery'),
+    ];
+}
+
+// get level name
+function uxmastery_get_course_level_name($value): string
+{
+    $levels = uxmastery_ctp_course_level();
+
+    return $levels[$value] ?? esc_html__('Không xác định', 'uxmastery');
 }

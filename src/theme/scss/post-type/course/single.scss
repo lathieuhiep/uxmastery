@@ -18,7 +18,10 @@
     &__box {
       padding: 2.8rem 2rem;
       border: 1px solid #EDEDED;
+      border-radius: .8rem;
       box-shadow: 0 .3rem 1rem 0 #E1E1E1;
+      display: grid;
+      gap: 1.6rem;
 
       .item {
         &:not(.teacher) {
@@ -26,10 +29,35 @@
           align-items: center;
           gap: 1.6rem;
           justify-content: space-between;
+
+          .label {
+            color: #666666;
+            font-weight: 500;
+          }
+
+          .value {
+            font-weight: 600;
+            color: #353535;
+            font-size: 1.8rem;
+          }
+        }
+
+        &.price {
+          .value {
+            font-size: 2rem;
+            color: $color-secondary;
+          }
+        }
+
+        &.teacher {
+          .label {
+            font-weight: 600;
+            font-size: 1.8rem;
+            color: #353535;
+          }
         }
 
         ~ .item {
-          margin-top: 1.6rem;
           padding-top: 1.6rem;
           border-top: 1px solid #D9D9D9;
         }
