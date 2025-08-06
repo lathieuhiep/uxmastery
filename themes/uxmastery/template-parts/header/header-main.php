@@ -10,7 +10,7 @@ $contact_avatar = uxmastery_get_option( 'opt_contact_avatar' );
 
 <header class="header header-sticky <?php echo esc_attr( $is_template_fixed_menu ? 'header-transparent': 'header-default' ) ?>">
     <nav class="navbar navbar-expand-lg<?php echo esc_attr( $is_template_fixed_menu ? ' navbar-sticky': '' ) ?>" id="primary-menu">
-        <div class="container">
+        <div class="container align-items-center align-items-lg-stretch">
             <a class="logo navbar-brand" href="<?php echo esc_url( get_home_url( '/' ) ); ?>">
 				<?php
 				if ( $is_template_fixed_menu && ( ! empty( $logo_light['id'] ) || ! empty( $logo_dark['id'] ) ) ) :
@@ -35,7 +35,7 @@ $contact_avatar = uxmastery_get_option( 'opt_contact_avatar' );
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            <div class="collapse navbar-collapse" id="navbarContent">
+            <div class="collapse navbar-collapse align-items-stretch" id="navbarContent">
                 <div class="d-flex flex-grow-1 justify-content-lg-between flex-column flex-lg-row">
                     <?php
                     if ( has_nav_menu( 'primary' ) ) :
