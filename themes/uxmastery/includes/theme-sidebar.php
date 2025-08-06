@@ -18,12 +18,14 @@ function uxmastery_multiple_widget_init(): void {
 	uxmastery_register_sidebar( esc_html__( 'Sidebar dịch vụ', 'uxmastery' ), 'sidebar-service', 'Dùng ở chi tiết dịch vụ' );
 
 	// sidebar footer
-	$opt_number_columns = uxmastery_get_option( 'opt_footer_columns', '4' );
-	for ( $i = 1; $i <= $opt_number_columns; $i ++ ) {
-		uxmastery_register_sidebar( sprintf( esc_html__( 'Sidebar chân trang cột %d', 'uxmastery' ), $i ),
-			'sidebar-footer-column-' . $i,
-			esc_html__( 'Dùng ở chân trang', 'uxmastery' ) );
-	}
+    if ( function_exists( 'uxmastery_get_option' ) ) {
+        $opt_number_columns = uxmastery_get_option( 'opt_footer_columns', '4' );
+        for ( $i = 1; $i <= $opt_number_columns; $i ++ ) {
+            uxmastery_register_sidebar( sprintf( esc_html__( 'Sidebar chân trang cột %d', 'uxmastery' ), $i ),
+                'sidebar-footer-column-' . $i,
+                esc_html__( 'Dùng ở chân trang', 'uxmastery' ) );
+        }
+    }
 
     // sidebar footer full
     uxmastery_register_sidebar( esc_html__( 'Sidebar footer full', 'uxmastery' ), 'sidebar-footer-full', 'Dùng ở chân trang' );

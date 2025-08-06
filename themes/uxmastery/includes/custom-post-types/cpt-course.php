@@ -53,3 +53,8 @@ function uxmastery_register_cpt_course(): void
 }
 
 add_action('init', 'uxmastery_register_cpt_course');
+
+// add custom taxonomy filter to CPT
+add_action('init', function() {
+    uxmastery_add_custom_taxonomy_filter_to_cpt('ux_course', 'ux_course_category');
+});

@@ -53,36 +53,18 @@ function uxmastery_ctp_course_meta_boxes(): void
         'show_names' => true,
     ));
 
-    $cmb_cpt_course_group_lessons = $cmb_cpt_course_lessons->add_field(array(
+    $cmb_cpt_course_lessons->add_field([
+        'name' => esc_html__('Chọn bài học', 'uxmastery'),
         'id' => 'cmb_cpt_course_lessons',
-        'type' => 'group',
-        'name' => esc_html__('Danh sách bài học', 'uxmastery'),
-        'description' => esc_html__('Thêm các bài học cho khóa học này', 'uxmastery'),
-        'options' => array(
-            'group_title' => 'Bài học {#}', // Số thứ tự auto
-            'add_button' => 'Thêm bài học',
-            'remove_button' => 'Xóa',
-            'sortable' => true,
-            'closed' => true,
-        ),
-    ));
-
-    $cmb_cpt_course_lessons->add_group_field($cmb_cpt_course_group_lessons, array(
-        'name' => esc_html__('Tiêu đề hiển thị', 'uxmastery'),
-        'id' => 'title',
-        'type' => 'text',
-        'desc' => 'Nhập tiêu đề riêng nếu muốn khác với tiêu đề gốc của bài học.',
-        'attributes' => [
-            'placeholder' => 'Mặc định lấy tiêu đề bài học',
-        ],
-    ));
-
-    $cmb_cpt_course_lessons->add_group_field($cmb_cpt_course_group_lessons, array(
-        'name' => 'Bài học',
-        'id' => 'lesson',
-        'type' => 'select',
-        'options' => uxmastery_get_cpt_options(esc_html__('— Chọn bài học —', 'uxmastery'), 'ux_lesson'),
-    ));
+        'type' => 'post_ajax_search',
+        'multiple-item' => true,
+        'sortable' => true,
+        'desc' => esc_html__('Sử dụng thì số lượng và sắp xếp sẽ nhận theo trường này. Nhập tên để tìm kiếm.', 'uxmastery'),
+        'query_args' => array(
+            'post_type' => 'ux_lesson',
+            'post_status' => array('publish'),
+        )
+    ]);
     
     // services
     $cmb_cpt_course_services = new_cmb2_box( array(

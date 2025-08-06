@@ -56,3 +56,8 @@ function uxmastery_register_cpt_lesson(): void
 }
 
 add_action('init', 'uxmastery_register_cpt_lesson');
+
+// add custom taxonomy filter to CPT
+add_action('init', function() {
+    uxmastery_add_custom_taxonomy_filter_to_cpt('ux_lesson', 'ux_lesson_category');
+});
