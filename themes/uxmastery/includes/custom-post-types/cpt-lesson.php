@@ -27,6 +27,32 @@ function uxmastery_register_cpt_lesson(): void
         'show_in_rest' => true,
         'show_in_menu' => true,
     ]);
+
+    // register taxonomy
+    $tax_labels = array(
+        'name' => esc_html__('Danh mục bài học', 'uxmastery'),
+        'singular_name' => esc_html__('Danh mục', 'uxmastery'),
+        'search_items' => esc_html__('Tìm danh mục', 'uxmastery'),
+        'all_items' => esc_html__('Tất cả danh mục', 'uxmastery'),
+        'edit_item' => esc_html__('Chỉnh sửa danh mục', 'uxmastery'),
+        'update_item' => esc_html__('Cập nhật danh mục', 'uxmastery'),
+        'add_new_item' => esc_html__('Thêm danh mục mới', 'uxmastery'),
+        'new_item_name' => esc_html__('Tên danh mục mới', 'uxmastery'),
+        'menu_name' => esc_html__('Danh mục', 'uxmastery'),
+    );
+
+    register_taxonomy('ux_lesson_category', 'ux_lesson', [
+        'labels' => $tax_labels,
+        'hierarchical' => true,
+        'public' => true,
+        'show_ui' => true,
+        'show_admin_column' => true,
+        'show_in_menu' => true,
+        'show_in_nav_menus' => true,
+        'show_in_rest' => true,
+        'rewrite' => array('slug' => 'danh-sach-bai-hoc'),
+        'publicly_queryable' => false,
+    ]);
 }
 
 add_action('init', 'uxmastery_register_cpt_lesson');
