@@ -10,7 +10,7 @@ if ( ! $back_url ) {
 <div id="post-<?php the_ID() ?>" <?php post_class('single-post-content'); ?>>
     <div class="back-url-warp">
         <a href="<?php echo esc_url( $back_url ); ?>" class="btn-back d-inline-flex align-items-center">
-            <i class="fas fa-arrow-left-long"></i>
+            <i class="ic-mask ic-mask-arrow-left"></i>
             <span><?php esc_html_e('Quay lại', 'uxmastery'); ?></span>
         </a>
     </div>

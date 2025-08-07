@@ -23,7 +23,7 @@ $per_row_classes = uxmastery_get_responsive_row_class('opt_post_cat_per_row');
                                     <h2 class="post-title">
                                         <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
 			                                <?php if (is_sticky() && is_home()) : ?>
-                                                <i class="fas fa-thumbtack"></i>
+                                                <i class="ic-mask ic-mask-thumbtack"></i>
 			                                <?php
 			                                endif;
 

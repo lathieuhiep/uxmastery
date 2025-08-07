@@ -314,14 +314,14 @@ function uxmastery_social_sharing(): void {
                target="_blank"
                rel="noopener noreferrer"
                class="btn-share btn-share-facebook">
-                <i class="fa-brands fa-facebook-f"></i>
+                <i class="ic-mask ic-mask-facebook"></i>
             </a>
 
             <a href="https://www.linkedin.com/sharing/share-offsite/?url=<?php echo urlencode( get_permalink() ); ?>"
                target="_blank"
                rel="noopener noreferrer"
                class="btn-share btn-share-linkedin">
-                <i class="fa-brands fa-linkedin-in"></i>
+                <i class="ic-mask ic-mask-linkedin"></i>
             </a>
         </div>
     </div>
