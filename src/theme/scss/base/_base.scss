@@ -248,3 +248,23 @@ button[aria-expanded="true"] {
     display: none;
   }
 }
+
+.blinking-text {
+  &.menu-item {
+    a {
+      animation: blink-color 0.5s infinite;
+    }
+  }
+}
+
+@keyframes blink-color {
+  0% {
+    color: #000000;
+  }
+  50% {
+    color: #007bff;
+  }
+  100% {
+    color: #000000;
+  }
+}

@@ -14,7 +14,7 @@ if ( !empty($lessons) && is_array( $lessons ) ) :
     <div class="card">
         <div class="card-header">
             <h2 class="mb-0">
-                <button class="btn btn-link collapsed d-flex justify-content-between align-items-center"
+                <button class="btn btn-link d-flex justify-content-between align-items-center"
                         type="button"
                         data-toggle="collapse"
                         data-target="#collapseLesson"

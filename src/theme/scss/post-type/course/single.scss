@@ -50,6 +50,7 @@
         }
 
         &:not(.collapsed) {
+          color: $color-secondary;
           border-color: $color-secondary;
         }
 
