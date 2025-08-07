@@ -1,9 +1,7 @@
 <?php
-global $prefix_theme_options;
-
 $link = esc_url( 'https://loading.io/' );
 // Create a section general
-CSF::createSection( $prefix_theme_options, array(
+CSF::createSection( PREFIX_THEME_OPTIONS, array(
 	'title'  => esc_html__( 'Cài đặt chung', 'uxmastery' ),
 	'icon'   => 'fas fa-cog',
 	'fields' => array(

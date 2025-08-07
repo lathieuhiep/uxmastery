@@ -1,8 +1,7 @@
 <?php
 $sidebar = uxmastery_get_option('opt_post_cat_sidebar_position', 'right');
-$per_row = uxmastery_get_option('opt_post_cat_per_row', '2');
-
 $class_col_content = uxmastery_col_use_sidebar($sidebar, 'sidebar-main');
+$per_row_classes = uxmastery_get_responsive_row_class('opt_post_cat_per_row');
 ?>
 
 <div class="site-container archive-post-warp has-breadcrumbs">
@@ -10,7 +9,7 @@ $class_col_content = uxmastery_col_use_sidebar($sidebar, 'sidebar-main');
         <div class="row">
             <div class="<?php echo esc_attr( $class_col_content ); ?>">
                 <?php if ( have_posts() ) : ?>
-                    <div class="content-archive-post theme-row-cols-sm-1 theme-row-cols-md-2 theme-row-cols-lg-<?php echo esc_attr( $per_row ); ?>">
+                    <div class="content-archive-post <?php echo esc_attr( $per_row_classes ); ?>">
 		                <?php
 		                while ( have_posts() ) :
 			                the_post();

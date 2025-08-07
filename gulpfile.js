@@ -35,8 +35,7 @@ const paths = {
         }
     },
     shared: {
-        scss: 'src/shared/scss/',
-        vendors: 'src/shared/scss/vendors/',
+        scss: 'src/shared/scss/'
     },
     output: {
         theme: {
@@ -68,6 +67,26 @@ function server() {
     })
 }
 
+// task build custom bootstrap
+const buildStyleCustomBootstrap = () => {
+    return src(`${paths.theme.scss}vendors/bootstrap.scss`)
+        .pipe(plumber({
+            errorHandler: function (err) {
+                console.error('SCSS Style Custom Bootstrap Error:', err.message);
+                this.emit('end');
+            }
+        }))
+        .pipe(sass({
+            outputStyle: 'expanded',
+            includePaths: ['node_modules', 'src']
+        }, '').on('error', sass.logError))
+        .pipe(cleanCSS({level: 2}))
+        .pipe(rename({suffix: '.min'}))
+        .pipe(dest(`${paths.output.theme.root}vendors/bootstrap/`))
+        .pipe(browserSync.stream())
+}
+exports.buildStyleCustomBootstrap = buildStyleCustomBootstrap
+
 // Task build style theme
 function buildStyleTheme() {
     return src(`${paths.theme.scss}style-theme.scss`)
@@ -91,6 +110,7 @@ function buildStyleTheme() {
         .pipe(dest(`${paths.output.theme.css}`))
         .pipe(browserSync.stream())
 }
+exports.buildStyleTheme = buildStyleTheme
 
 function buildJSTheme() {
     return src(`${paths.theme.js}*.js`, {allowEmpty: true})
@@ -232,6 +252,7 @@ async function buildProject() {
     await buildStyleElementor()
     await buildJPluginEFA()
 
+    await buildStyleCustomBootstrap()
     await buildStyleTheme()
     await buildJSTheme()
 
@@ -247,6 +268,7 @@ function watchTask() {
     watch([
         `${paths.shared.scss}abstracts/*.scss`
     ], gulp.series(
+        buildStyleCustomBootstrap,
         buildStyleTheme,
         buildStyleElementor,
         buildStyleCustomLogin,

@@ -1,10 +1,8 @@
 <?php
-global $prefix_theme_options;
-
 // Create a section social network
 $max_social_networks = count( uxmastery_list_social_network() );
 
-CSF::createSection( $prefix_theme_options, array(
+CSF::createSection( PREFIX_THEME_OPTIONS, array(
 	'title'  => esc_html__( 'Mạng xã hội', 'uxmastery' ),
 	'icon'   => 'fab fa-hive',
 	'fields' => array(

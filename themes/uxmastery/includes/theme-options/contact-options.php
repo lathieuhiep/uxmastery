@@ -1,8 +1,6 @@
 <?php
-global $prefix_theme_options;
-
 // Create a section menu
-CSF::createSection( $prefix_theme_options, array(
+CSF::createSection( PREFIX_THEME_OPTIONS, array(
     'title'  => esc_html__( 'Liên hệ', 'uxmastery' ),
     'icon'   => 'fas fa-address-card',
     'fields' => array(

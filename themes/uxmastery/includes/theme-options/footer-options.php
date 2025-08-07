@@ -1,54 +1,14 @@
 <?php
-global $prefix_theme_options;
-
-$column_width_fields = [
-	[
-		'id'      => 'sm',
-		'type'    => 'slider',
-		'title'   => esc_html__( 'sm: ≥576px', 'uxmastery' ),
-		'default' => 12,
-		'min'     => 1,
-		'max'     => 12,
-	],
-
-	[
-		'id'      => 'md',
-		'type'    => 'slider',
-		'title'   => esc_html__( 'md: ≥768px', 'uxmastery' ),
-		'default' => 6,
-		'min'     => 1,
-		'max'     => 12,
-	],
-
-	[
-		'id'      => 'lg',
-		'type'    => 'slider',
-		'title'   => esc_html__( 'lg: ≥992px', 'uxmastery' ),
-		'default' => 3,
-		'min'     => 1,
-		'max'     => 12,
-	],
-
-	[
-		'id'      => 'xl',
-		'type'    => 'slider',
-		'title'   => esc_html__( 'lg: ≥1200px', 'uxmastery' ),
-		'default' => 3,
-		'min'     => 1,
-		'max'     => 12,
-	],
-];
-
 //
 // -> Create a section footer
-CSF::createSection( $prefix_theme_options, array(
+CSF::createSection( PREFIX_THEME_OPTIONS, array(
 	'id'    => 'opt_footer_section',
 	'icon'  => 'fas fa-stream',
 	'title' => esc_html__( 'Chân trang', 'uxmastery' ),
 ) );
 
 // footer columns
-CSF::createSection( $prefix_theme_options, array(
+CSF::createSection( PREFIX_THEME_OPTIONS, array(
 	'parent' => 'opt_footer_section',
 	'title'  => esc_html__( 'Cài đặt cột sidebar', 'uxmastery' ),
 	'fields' => array(
@@ -72,7 +32,7 @@ CSF::createSection( $prefix_theme_options, array(
 			'id'         => 'opt_footer_column_width_1',
 			'type'       => 'fieldset',
 			'title'      => esc_html__( 'Độ rộng cột 1', 'uxmastery' ),
-			'fields'     => $column_width_fields,
+			'fields'     => uxmastery_column_width_fields(),
 			'dependency' => array( 'opt_footer_columns', '!=', '0' )
 		),
 
@@ -81,7 +41,7 @@ CSF::createSection( $prefix_theme_options, array(
 			'id'         => 'opt_footer_column_width_2',
 			'type'       => 'fieldset',
 			'title'      => esc_html__( 'Độ rộng cột 2', 'uxmastery' ),
-			'fields'     => $column_width_fields,
+			'fields'     => uxmastery_column_width_fields(),
 			'dependency' => array( 'opt_footer_columns', 'not-any', '0,1' )
 		),
 
@@ -90,7 +50,7 @@ CSF::createSection( $prefix_theme_options, array(
 			'id'         => 'opt_footer_column_width_3',
 			'type'       => 'fieldset',
 			'title'      => esc_html__( 'Độ rộng cột 3', 'uxmastery' ),
-			'fields'     => $column_width_fields,
+			'fields'     => uxmastery_column_width_fields(),
 			'dependency' => array( 'opt_footer_columns', 'not-any', '0,1,2' )
 		),
 
@@ -99,7 +59,7 @@ CSF::createSection( $prefix_theme_options, array(
 			'id'         => 'opt_footer_column_width_4',
 			'type'       => 'fieldset',
 			'title'      => esc_html__( 'Độ rộng cột 4', 'uxmastery' ),
-			'fields'     => $column_width_fields,
+			'fields'     => uxmastery_column_width_fields(),
 			'dependency' => array( 'opt_footer_columns', 'not-any', '0,1,2,3' )
 		),
 	)
