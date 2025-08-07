@@ -66,7 +66,7 @@ CSF::createSection( PREFIX_THEME_OPTIONS, array(
 ) );
 
 // Copyright
-CSF::createSection( $prefix_theme_options, array(
+CSF::createSection( PREFIX_THEME_OPTIONS, array(
 	'parent' => 'opt_footer_section',
 	'title'  => esc_html__( 'Copyright', 'uxmastery' ),
 	'fields' => array(
