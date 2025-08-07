@@ -161,22 +161,46 @@ blockquote {
 .sticky-contact-panel {
   position: fixed;
   z-index: 99;
-  right: 6rem;
-  bottom: 6rem;
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+  
+  @media (min-width: 768px) {
+    right: 6rem;
+    bottom: 6rem;
+    gap: 2.4rem;
+  }
+
+  @media (max-width: 767px) {
+    right: 2rem;
+    bottom: 2rem;
+    gap: 1.2rem;
+  }
 
   .panel-item {
     @extend %flex-align-center;
-    width: 5.2rem;
-    height: 5.2rem;
     color: $color-white;
     border-radius: 50%;
 
+    @media (min-width: 768px) {
+      width: 5.2rem;
+      height: 5.2rem;
+    }
+
+    @media (max-width: 767px) {
+      width: 4rem;
+      height: 4rem;
+    }
+
     .ic-mask {
-      --#{$prefix-theme}ic-width: 3rem;
-      --#{$prefix-theme}ic-height: 3rem;
+      @media (min-width: 768px) {
+        --#{$prefix-theme}ic-width: 3rem;
+        --#{$prefix-theme}ic-height: 3rem;
+      }
+
+      @media (max-width: 767px) {
+        --#{$prefix-theme}ic-width: 2rem;
+        --#{$prefix-theme}ic-height: 2rem;
+      }
     }
   }
 

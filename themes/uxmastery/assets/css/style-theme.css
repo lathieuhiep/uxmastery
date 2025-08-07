@@ -179,21 +179,50 @@ blockquote {
 .sticky-contact-panel {
   position: fixed;
   z-index: 99;
-  right: 6rem;
-  bottom: 6rem;
   display: flex;
   flex-direction: column;
-  gap: 2.4rem;
+}
+@media (min-width: 768px) {
+  .sticky-contact-panel {
+    right: 6rem;
+    bottom: 6rem;
+    gap: 2.4rem;
+  }
+}
+@media (max-width: 767px) {
+  .sticky-contact-panel {
+    right: 2rem;
+    bottom: 2rem;
+    gap: 1.2rem;
+  }
 }
 .sticky-contact-panel .panel-item {
-  width: 5.2rem;
-  height: 5.2rem;
   color: #ffffff;
   border-radius: 50%;
 }
-.sticky-contact-panel .panel-item .ic-mask {
-  --theme-ic-width: 3rem;
-  --theme-ic-height: 3rem;
+@media (min-width: 768px) {
+  .sticky-contact-panel .panel-item {
+    width: 5.2rem;
+    height: 5.2rem;
+  }
+}
+@media (max-width: 767px) {
+  .sticky-contact-panel .panel-item {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+@media (min-width: 768px) {
+  .sticky-contact-panel .panel-item .ic-mask {
+    --theme-ic-width: 3rem;
+    --theme-ic-height: 3rem;
+  }
+}
+@media (max-width: 767px) {
+  .sticky-contact-panel .panel-item .ic-mask {
+    --theme-ic-width: 2rem;
+    --theme-ic-height: 2rem;
+  }
 }
 .sticky-contact-panel .back-top {
   opacity: 0;
