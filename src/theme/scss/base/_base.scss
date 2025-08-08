@@ -286,12 +286,12 @@ button[aria-expanded="true"] {
 
 @keyframes blink-color {
   0% {
-    color: #000000;
+    color: $color-black;
   }
   50% {
-    color: #007bff;
+    color: $color-secondary;
   }
   100% {
-    color: #000000;
+    color: $color-black;
   }
 }
