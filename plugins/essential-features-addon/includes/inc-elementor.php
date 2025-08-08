@@ -23,11 +23,6 @@ function efa_register_widget_elementor_addon( $widgets_manager ): void {
     require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/tab-posts.php';
     require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/teacher-info.php';
 
-//	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/contact-form-7.php';
-//	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/post-carousel.php';
-//	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/slides.php';
-
-
 	// register add on
 	$widgets_manager->register( new \EFA_Widget_Connect_Link() );
 	$widgets_manager->register( new \EFA_Widget_Contact_Banner() );
@@ -48,9 +43,4 @@ function efa_register_widget_elementor_addon( $widgets_manager ): void {
     $widgets_manager->register( new \EFA_Widget_Carousel_Images() );
     $widgets_manager->register( new \EFA_Widget_Tab_Posts() );
     $widgets_manager->register( new \EFA_Widget_Teacher_Info() );
-
-//	$widgets_manager->register( new \EFA_Widget_Contact_Form_7() );
-//	$widgets_manager->register( new \EFA_Widget_Post_Carousel() );
-//	$widgets_manager->register( new \EFA_Widget_Slides() );
-
 }

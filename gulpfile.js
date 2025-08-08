@@ -277,6 +277,10 @@ function watchTask() {
 
     // theme watch
     watch([
+        `${paths.theme.scss}vendors/bootstrap.scss`
+    ], buildStyleCustomBootstrap)
+
+    watch([
         `${paths.theme.scss}/*.scss`,
         `${paths.theme.scss}/*/**.scss`
     ], buildStyleTheme)

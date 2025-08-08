@@ -2,6 +2,14 @@
 @import "../../layout/sidebar";
 
 .single-post-warp {
+  p {
+    margin-bottom: 2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   .back-url-warp {
     margin-bottom: 1.6rem;
 
@@ -31,7 +39,6 @@
   }
 
   &__detail {
-    font-size: 1.8rem;
     color: $color-black;
 
     + .social-sharing {
@@ -73,7 +80,10 @@
       justify-content: center;
       transform: rotate(-40deg);
 
-      i {
+      .ic-mask {
+        --#{$prefix-theme}ic-width: 1.2rem;
+        --#{$prefix-theme}ic-height: 1.2rem;
+
         transform: rotate(40deg);
       }
 
