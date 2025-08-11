@@ -13,6 +13,26 @@ $container-max-widths: (
         xl: 1224px
 );
 
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+$grid-gutter-width: 2.4rem;
+
+// Body
+//
+// Settings for the `<body>` element.
+
+$body-bg: $color-white;
+$body-color: $color-body;
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+$font-family-base: $font-body;
+$font-size-base: $font-size-base;
+$font-weight-base: 500;
+$line-height-base: $line-height-base;
+
 //
 // Headings
 //
@@ -29,6 +49,13 @@ $h3-font-size: $font-size-h3;
 $h4-font-size: $font-size-h4;
 $h5-font-size: $font-size-h5;
 $h6-font-size: $font-size-h6;
+
+//
+// Links
+//
+$link-decoration: none;
+$link-hover-decoration: none;
+$link-hover-color: $color-secondary;
 
 // Include remainder of required Bootstrap stylesheets
 @import "bootstrap/scss/variables";

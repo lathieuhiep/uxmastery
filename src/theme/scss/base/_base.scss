@@ -1,3 +1,5 @@
+@import "../../../shared/scss/abstracts/abstracts.scss";
+
 :root {
   --line-height-menu-item: 10rem;
 }
@@ -7,14 +9,8 @@ html {
 }
 
 body {
-  min-height: 100vh;
-  background-color: $color-white;
-  font-family: $font-body;
-  font-size: $font-size-base;
-  font-weight: 400;
-  color: $color-body;
-  line-height: $line-height-base;
   margin: 0;
+  min-height: 100vh;
   overflow-x: hidden;
 
   .wrapper {
@@ -56,21 +52,9 @@ a {
   line-height: inherit;
   font-size: inherit;
 
-  &:hover {
-    color: darken($color-secondary, 10%);
-    text-decoration: none;
-  }
-
+  &:hover,
   &:focus {
-    color: darken($color-secondary, 10%);
-    outline: none;
-    text-decoration: none;
-  }
-
-  &:active {
-    color: darken($color-secondary, 10%);
-    outline: none;
-    text-decoration: none;
+    color: color-mix(in srgb, $color-secondary 90%, black);
   }
 }
 
@@ -164,7 +148,7 @@ blockquote {
   z-index: 99;
   display: flex;
   flex-direction: column;
-  
+
   @media (min-width: 768px) {
     right: 6rem;
     bottom: 6rem;
