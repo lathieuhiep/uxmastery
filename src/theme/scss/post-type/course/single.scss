@@ -42,7 +42,7 @@
         @include transition();
 
         @media #{$minTablet} {
-          font-size: 2.6rem;
+          font-size: 2.2rem;
         }
 
         @media #{$maxSmall} {
