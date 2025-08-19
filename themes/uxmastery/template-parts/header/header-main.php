@@ -67,9 +67,9 @@ $contact_avatar = uxmastery_get_option( 'opt_contact_avatar' );
                                     <?php esc_html_e('Bạn cần trợ giúp ?', 'uxmastery'); ?>
                                 </h4>
 
-                                <a href="<?php echo esc_url( $contact_zalo ); ?>" class="action-button" target="_blank">
-                                    <span><?php esc_html_e('Hỏi chuyên gia ngay', 'uxmastery'); ?></span>
-                                    <i class="ic-mask ic-mask-external-link"></i>
+                                <a href="<?php echo esc_url( $contact_zalo ); ?>" class="action-button d-flex align-items-center" target="_blank">
+                                    <span class="mr-2"><?php esc_html_e('Hỏi chuyên gia ngay', 'uxmastery'); ?></span>
+                                    <i class="ic-mask ic-mask-arrow-right"></i>
                                 </a>
                             </div>
                         </div>

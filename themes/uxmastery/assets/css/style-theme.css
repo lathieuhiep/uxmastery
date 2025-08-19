@@ -1745,8 +1745,8 @@ a.back span {
   font-weight: 500;
 }
 .header .chat-header .action-button .ic-mask {
-  --theme-ic-width: .8rem;
-  --theme-ic-height: .8rem;
+  --theme-ic-width: 1.4rem;
+  --theme-ic-height: 1.4rem;
 }
 
 @media (min-width: 992px) {

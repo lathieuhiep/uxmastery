@@ -48,15 +48,15 @@ if ( !empty($lessons) && is_array( $lessons ) ) :
                                 ?>
                             </h3>
 
-                            <p class="desc">
+                            <div class="desc">
                                 <?php
                                 if ( !empty($excerpt) ) {
-                                    echo esc_html( $excerpt );
+                                    echo wpautop( $excerpt );
                                 } else {
                                     echo wp_kses_post( wp_trim_words( $content, 20, '...' ) );
                                 }
                                 ?>
-                            </p>
+                            </div>
                         </div>
                     <?php endforeach; ?>
                 </div>
