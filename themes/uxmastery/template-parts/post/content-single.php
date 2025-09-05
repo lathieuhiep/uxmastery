@@ -19,7 +19,7 @@ if ( ! $back_url ) {
 		<?php the_title(); ?>
     </h1>
 
-    <?php uxmastery_social_sharing(); ?>
+    <?php get_template_part( 'template-parts/parts/inc','social-sharing' ); ?>
 
     <?php if ( has_post_thumbnail() ) :?>
         <div class="single-post-content__image">
@@ -35,7 +35,7 @@ if ( ! $back_url ) {
 		?>
     </div>
 
-	<?php uxmastery_social_sharing(); ?>
+	<?php get_template_part( 'template-parts/parts/inc','social-sharing' ); ?>
 </div>
 
 <?php
