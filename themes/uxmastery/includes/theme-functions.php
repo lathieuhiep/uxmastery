@@ -270,36 +270,33 @@ function uxmastery_get_post_description_fallback( $post ): string {
 function uxmastery_get_custom_archive_title() {
 	if ( is_singular('post') ) {
 		$categories = get_the_category();
-		return ! empty($categories) ? $categories[0]->name : '';
 
+		return ! empty($categories) ? $categories[0]->name : '';
 	} elseif ( is_singular('ux_service') ) {
 		$terms = get_the_terms( get_the_ID(), 'ux_service_category' );
+
 		return ! empty($terms) && ! is_wp_error($terms) ? $terms[0]->name : '';
-    } elseif ( is_page() ) {
-		return get_the_title();
+    } elseif ( is_singular('ux_course') ) {
+        $terms = get_the_terms( get_the_ID(), 'ux_course_category' );
 
-	} elseif ( is_category() ) {
+        return ! empty($terms) && ! is_wp_error($terms) ? $terms[0]->name : '';
+    } elseif ( is_category() ) {
 		return single_cat_title('', false);
-
 	} elseif ( is_tag() ) {
 		return single_tag_title('', false);
-
 	} elseif ( is_author() ) {
 		$author = get_queried_object();
 		return $author->display_name;
-
 	} elseif ( is_tax() ) {
 		$term = get_queried_object();
-		return $term->name;
 
+		return $term->name;
 	} elseif ( is_post_type_archive() ) {
 		return post_type_archive_title('', false);
-
 	} elseif ( is_day() || is_month() || is_year() ) {
 		return get_the_date();
-
 	} else {
-		return get_the_archive_title();
+		return get_the_title();
 	}
 }
 

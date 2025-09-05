@@ -42,7 +42,7 @@ function uxmastery_register_cpt_course(): void
 
     register_taxonomy('ux_course_category', 'ux_course', [
         'labels' => $tax_labels,
-        'hierarchical' => true,
+        'hierarchical' => false,
         'show_ui' => true,
         'show_admin_column' => true,
         'show_in_menu' => true,

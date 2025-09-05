@@ -21,7 +21,7 @@ $course_teacher = get_post_meta(get_the_ID(), 'cmb_cpt_course_select_teacher', t
             $teacher = get_post($course_teacher);
             ?>
             <div class="item teacher">
-                <span class="label"><?php esc_html_e('Giảng viên:', 'uxmastery'); ?></span>
+                <span class="label"><?php esc_html_e('Người hướng dẫn:', 'uxmastery'); ?></span>
 
                 <div class="info-teacher">
                     <div class="avatar">
@@ -32,7 +32,7 @@ $course_teacher = get_post_meta(get_the_ID(), 'cmb_cpt_course_select_teacher', t
                         <h3 class="name"><?php echo esc_html($teacher->post_title); ?></h3>
 
                         <div class="description">
-                            <?php the_content(); ?>
+                            <?php echo wpautop($teacher->post_content); ?>
                         </div>
                     </div>
                 </div>

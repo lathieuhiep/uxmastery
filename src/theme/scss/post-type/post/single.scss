@@ -107,6 +107,16 @@
 }
 
 .related-post-item {
+  .title-post {
+    a {
+      color: $color-body;
+
+      &:hover {
+        color: $color-secondary;
+      }
+    }
+  }
+
   .post-image {
     height: 16rem;
     overflow: hidden;
@@ -119,5 +129,9 @@
     }
 
     @extend %image-hover;
+  }
+
+  .excerpt-post {
+    font-size: $font-size-secondary;
   }
 }

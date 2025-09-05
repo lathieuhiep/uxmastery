@@ -4,5 +4,13 @@
 .archive-post-warp {
   .post-title {
     font-size: 2rem;
+
+    a {
+      color: $color-body;
+
+      &:hover {
+        color: $color-secondary;
+      }
+    }
   }
 }
