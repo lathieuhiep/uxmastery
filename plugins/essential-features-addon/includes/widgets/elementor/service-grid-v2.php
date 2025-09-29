@@ -312,6 +312,15 @@ class EFA_Widget_Service_Grid_V2 extends Widget_Base
             ]
         );
 
+        $this->add_group_control(
+            Group_Control_Border::get_type(),
+            [
+                'name' => 'thumbnail_border',
+                'label' => esc_html__('Border', 'essential-features-addon'),
+                'selector' => '{{WRAPPER}} .item .box-thumbnail',
+            ]
+        );
+
         $this->add_responsive_control(
             'thumbnail_border_radius',
             [
@@ -328,6 +337,14 @@ class EFA_Widget_Service_Grid_V2 extends Widget_Base
                 'selectors' => [
                     '{{WRAPPER}} .item .box-thumbnail' => 'border-radius: {{TOP}}{{UNIT}} {{RIGHT}}{{UNIT}} {{BOTTOM}}{{UNIT}} {{LEFT}}{{UNIT}};',
                 ],
+            ]
+        );
+
+        $this->add_group_control(
+            Group_Control_Box_Shadow::get_type(),
+            [
+                'name' => 'thumbnail_border_shadow',
+                'selector' => '{{WRAPPER}} .item .box-thumbnail',
             ]
         );
 

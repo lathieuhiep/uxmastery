@@ -169,7 +169,7 @@ class EFA_Widget_Contact_Us extends Widget_Base {
 		<div class="efa-addon-contact-us">
 			<div class="phone-box">
 				<h4 class="title">
-					<i class="fas fa-phone-volume"></i>
+					<i class="efa-icon-mask efa-icon-mask-phone-calling"></i>
 					<span><?php echo esc_html( $settings['phone_title'] ); ?></span>
 				</h4>
 

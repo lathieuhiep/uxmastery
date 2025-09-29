@@ -45,6 +45,11 @@
     -webkit-mask-image: url("#{$icon-path}/down-chevron.svg");
   }
 
+  &-phone-calling {
+    mask-image: url("#{$icon-path}/phone-calling.svg");
+    -webkit-mask-image: url("#{$icon-path}/phone-calling.svg");
+  }
+
   &-play {
     mask-image: url("#{$icon-path}/play.svg");
     -webkit-mask-image: url("#{$icon-path}/play.svg");

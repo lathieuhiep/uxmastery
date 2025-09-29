@@ -16,7 +16,9 @@
       color: #353535;
 
       i {
-        font-size: 2rem;
+        --#{$prefix-plugin-essentials}icon-width: 2rem;
+        --#{$prefix-plugin-essentials}icon-height: 2rem;
+        --#{$prefix-plugin-essentials}icon-color: #5C5C5C;
       }
     }
 
