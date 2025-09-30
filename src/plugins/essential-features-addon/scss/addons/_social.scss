@@ -1,0 +1,55 @@
+.efa-addon-social {
+  display: grid;
+  gap: 2.4rem;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+
+  .title {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+
+  .list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+    flex-wrap: wrap;
+
+    .item {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+      height: 2.5rem;
+
+      &::before {
+        position: absolute;
+        content: "";
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-radius: .8rem;
+        background-color: $color-black;
+        transform: rotate(45deg);
+      }
+
+      a {
+        color: $color-white;
+      }
+
+      svg {
+        position: relative;
+        width: 1.5rem;
+        height: 1.5rem;
+
+        path {
+          fill: #fff;
+        }
+      }
+    }
+  }
+}

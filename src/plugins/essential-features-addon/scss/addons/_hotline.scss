@@ -1,0 +1,25 @@
+.efa-addon-hotline {
+  gap: 1.2rem;
+
+  .title {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    line-height: 26px;
+    font-weight: 500;
+
+    .efa-icon-mask {
+      --#{$prefix-plugin-essentials}icon-width: 2.4rem;
+      --#{$prefix-plugin-essentials}icon-height: 2.4rem;
+      --#{$prefix-plugin-essentials}icon-color: #5C5C5C;
+    }
+  }
+
+  a {
+    display: inline-block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 20px;
+  }
+}

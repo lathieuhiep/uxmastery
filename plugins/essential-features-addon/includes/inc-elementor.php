@@ -23,6 +23,8 @@ function efa_register_widget_elementor_addon( $widgets_manager ): void {
     require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/tab-posts.php';
     require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/teacher-info.php';
     require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/gallery-grid.php';
+    require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/hotline.php';
+    require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/social.php';
 
 	// register add on
 	$widgets_manager->register( new \EFA_Widget_Connect_Link() );
@@ -45,4 +47,6 @@ function efa_register_widget_elementor_addon( $widgets_manager ): void {
     $widgets_manager->register( new \EFA_Widget_Tab_Posts() );
     $widgets_manager->register( new \EFA_Widget_Teacher_Info() );
     $widgets_manager->register( new \EFA_Widget_Gallery_Grid() );
+    $widgets_manager->register( new \EFA_Widget_Hotline() );
+    $widgets_manager->register( new \EFA_Widget_Social() );
 }
