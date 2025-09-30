@@ -1567,7 +1567,7 @@ a.back span {
 }
 @media screen and (min-width:1200px) {
   .header .navbar .navbar-nav {
-    gap: 3.2rem;
+    gap: 2.4rem;
   }
 }
 @media (min-width: 992px) and (max-width: 1199px) {
@@ -1703,7 +1703,7 @@ a.back span {
 }
 @media screen and (min-width:1200px) {
   .header .navbar .logo ~ .navbar-collapse {
-    padding-left: 4.8rem;
+    padding-left: 4rem;
   }
 }
 @media (min-width: 992px) {
@@ -1751,6 +1751,7 @@ a.back span {
   }
 }
 .header .chat-header {
+  margin-left: 1.2rem;
   gap: 1.2rem;
 }
 @media screen and (max-width:991px) {
@@ -1788,7 +1789,7 @@ a.back span {
 
 @media (min-width: 992px) {
   .admin-bar .header .navbar.navbar-fixed {
-    top: 3.2rem;
+    top: 2.4rem;
   }
 }
 

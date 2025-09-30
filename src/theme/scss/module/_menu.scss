@@ -43,7 +43,7 @@
 
     .navbar-nav {
       @media #{$minXlarge} {
-        gap: 3.2rem;
+        gap: 2.4rem;
       }
 
       @media (min-width: 992px) and (max-width: 1199px) {
@@ -193,7 +193,7 @@
     .logo {
       ~ .navbar-collapse {
         @media #{$minXlarge} {
-          padding-left: 4.8rem;
+          padding-left: 4rem;
         }
       }
     }
@@ -267,6 +267,7 @@
   }
 
   .chat-header {
+    margin-left: 1.2rem;
     gap: 1.2rem;
 
     @media #{$maxTablet} {
@@ -312,7 +313,7 @@
     .navbar {
       &.navbar-fixed {
         @media (min-width: 992px) {
-          top: 3.2rem;
+          top: 2.4rem;
         }
       }
     }

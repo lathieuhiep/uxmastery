@@ -56,7 +56,7 @@ $contact_avatar = uxmastery_get_option( 'opt_contact_avatar' );
                         </ul>
                     <?php endif; ?>
 
-                    <?php if ( $contact_avatar && $contact_avatar['id'] && $contact_zalo ) : ?>
+                    <?php if ( $menu_contact == 1 && $contact_avatar && $contact_avatar['id'] && $contact_zalo ) : ?>
                         <div class="chat-header d-flex align-items-center">
                             <div class="avatar">
                                 <?php echo wp_get_attachment_image( $contact_avatar['id'] ); ?>
