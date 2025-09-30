@@ -41,6 +41,9 @@ function uxmastery_register_theme_options()
         // blog options
         require get_theme_file_path( '/includes/theme-options/blog-options.php' );
 
+        // course options
+        require get_theme_file_path( '/includes/theme-options/course-options.php' );
+
         // social network options
         require get_theme_file_path( '/includes/theme-options/social-network-options.php' );
 

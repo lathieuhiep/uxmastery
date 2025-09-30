@@ -4,19 +4,18 @@ get_header();
 get_template_part( 'template-parts/parts/breadcrumbs' );
 
 $zalo = uxmastery_get_option( 'opt_contact_zalo' );
+$per_row_classes = uxmastery_get_responsive_row_class('opt_course_cat_per_row');
 ?>
 
 <div class="site-container course-tax-warp has-breadcrumbs">
     <div class="container">
         <?php if ( have_posts() ) : ?>
 
-        <div class="row row-cols-1 row-cols-sm-2">
+        <div class="<?php echo esc_attr( $per_row_classes ); ?>">
             <?php
             while ( have_posts() ) : the_post();
                 $price = get_post_meta( get_the_ID(), 'cmb_cpt_course_price', true );
             ?>
-
-            <div class="col">
                 <div class="course-item">
                     <div class="course-item__thumbnail">
                         <?php the_post_thumbnail('large'); ?>
@@ -69,8 +68,6 @@ $zalo = uxmastery_get_option( 'opt_contact_zalo' );
                         </div>
                     </div>
                 </div>
-            </div>
-
             <?php endwhile; ?>
         </div>
 
