@@ -7,9 +7,7 @@ use Elementor\Icons_Manager;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-}
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 class EFA_Widget_Contact_Banner extends Widget_Base {
 

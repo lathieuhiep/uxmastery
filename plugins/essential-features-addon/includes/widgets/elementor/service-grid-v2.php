@@ -6,9 +6,7 @@ use Elementor\Group_Control_Typography;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
-if (!defined('ABSPATH')) {
-    exit;
-}
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 class EFA_Widget_Service_Grid_V2 extends Widget_Base
 {

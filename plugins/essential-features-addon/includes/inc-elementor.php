@@ -1,52 +1,51 @@
 <?php
-// register widget elementor
-add_action( 'elementor/widgets/register', 'efa_register_widget_elementor_addon' );
-function efa_register_widget_elementor_addon( $widgets_manager ): void {
-	// include add on
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/connect-link.php';
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/contact-banner.php';
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/button-contact-link.php';
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/hero.php';
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/heading-with-editor.php';
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/image-and-text-block.php';
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/service-card.php';
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/testimonial.php';
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/video-popup.php';
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/special-title.php';
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/post-grid.php';
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/dual-post-block.php';
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/service-grid.php';
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/service-grid-v2.php';
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/book-curriculum.php';
-	require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/contact-us.php';
-    require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/carousel-images.php';
-    require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/tab-posts.php';
-    require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/teacher-info.php';
-    require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/gallery-grid.php';
-    require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/hotline.php';
-    require_once EFA_PLUGIN_PATH . 'includes/widgets/elementor/social.php';
+if ( ! defined( 'ABSPATH' ) ) exit;
 
-	// register add on
-	$widgets_manager->register( new \EFA_Widget_Connect_Link() );
-	$widgets_manager->register( new \EFA_Widget_Contact_Banner() );
-	$widgets_manager->register( new \EFA_Widget_Button_Contact_Link() );
-	$widgets_manager->register( new \EFA_Widget_Hero() );
-	$widgets_manager->register( new \EFA_Widget_Heading_With_Editor() );
-	$widgets_manager->register( new \EFA_Widget_Image_And_Text_Block() );
-	$widgets_manager->register( new \EFA_Widget_Service_Card() );
-	$widgets_manager->register( new \EFA_Widget_Testimonial() );
-	$widgets_manager->register( new \EFA_Widget_Video_Popup() );
-	$widgets_manager->register( new \EFA_Widget_Special_Title() );
-	$widgets_manager->register( new \EFA_Widget_Post_Grid() );
-	$widgets_manager->register( new \EFA_Widget_Dual_Post_Block() );
-	$widgets_manager->register( new \EFA_Widget_Service_Grid() );
-	$widgets_manager->register( new \EFA_Widget_Service_Grid_V2() );
-	$widgets_manager->register( new \EFA_Widget_Book_Curriculum() );
-	$widgets_manager->register( new \EFA_Widget_Contact_Us() );
-    $widgets_manager->register( new \EFA_Widget_Carousel_Images() );
-    $widgets_manager->register( new \EFA_Widget_Tab_Posts() );
-    $widgets_manager->register( new \EFA_Widget_Teacher_Info() );
-    $widgets_manager->register( new \EFA_Widget_Gallery_Grid() );
-    $widgets_manager->register( new \EFA_Widget_Hotline() );
-    $widgets_manager->register( new \EFA_Widget_Social() );
+// register widget elementor
+function efa_register_widget_elementor_addon( $widgets_manager ): void
+{
+    $classes = [
+        '\EFA_Widget_Book_Curriculum',
+        '\EFA_Widget_Button_Contact_Link',
+        '\EFA_Widget_Carousel_Images',
+        '\EFA_Widget_Connect_Link',
+        '\EFA_Widget_Contact_Banner',
+        '\EFA_Widget_Dual_Post_Block',
+        '\EFA_Widget_Gallery_Grid',
+        '\EFA_Widget_Heading_With_Editor',
+        '\EFA_Widget_Hero',
+        '\EFA_Widget_Hotline',
+        '\EFA_Widget_Image_And_Text_Block',
+        '\EFA_Widget_Post_Grid',
+        '\EFA_Widget_Service_Card',
+        '\EFA_Widget_Service_Grid',
+        '\EFA_Widget_Service_Grid_V2',
+        '\EFA_Widget_Social',
+        '\EFA_Widget_Special_Title',
+        '\EFA_Widget_Tab_Posts',
+        '\EFA_Widget_Teacher_Info',
+        '\EFA_Widget_Testimonial',
+        '\EFA_Widget_Video_Popup',
+    ];
+
+    $base_dir = EFA_PLUGIN_PATH . 'includes/widgets/elementor/';
+
+    foreach ( $classes as $class ) {
+        if ( ! class_exists( $class ) ) {
+            // Lấy phần tên sau "EFA_Widget_"
+            $short = strtolower( str_replace( 'EFA_Widget_', '', $class ) );
+            // Chuyển underscore thành dấu gạch ngang cho đúng chuẩn file
+            $file  = $base_dir . str_replace( '_', '-', $short ) . '.php';
+
+            if ( file_exists( $file ) ) {
+                require_once $file;
+            }
+        }
+
+        if ( class_exists( $class ) ) {
+            $widgets_manager->register( new $class() );
+        }
+    }
 }
+
+add_action( 'elementor/widgets/register', 'efa_register_widget_elementor_addon' );

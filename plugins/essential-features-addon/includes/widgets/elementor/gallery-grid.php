@@ -2,9 +2,7 @@
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
-if ( ! defined( 'ABSPATH' ) ) {
-    exit;
-}
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 class EFA_Widget_Gallery_Grid extends Widget_Base {
 

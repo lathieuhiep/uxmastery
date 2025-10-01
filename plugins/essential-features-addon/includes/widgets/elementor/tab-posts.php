@@ -4,7 +4,7 @@ use Elementor\Controls_Manager;
 use Elementor\Repeater;
 use Elementor\Widget_Base;
 
-if (!defined('ABSPATH')) exit;
+if ( ! defined( 'ABSPATH' ) ) exit;
 
 class EFA_Widget_Tab_Posts extends Widget_Base
 {

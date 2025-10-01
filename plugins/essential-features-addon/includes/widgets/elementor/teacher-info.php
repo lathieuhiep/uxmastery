@@ -4,6 +4,8 @@ use Elementor\Group_Control_Typography;
 use Elementor\Widget_Base;
 use Elementor\Controls_Manager;
 
+if ( ! defined( 'ABSPATH' ) ) exit;
+
 class EFA_Widget_Teacher_Info extends Widget_Base {
 
     public function get_name(): string
