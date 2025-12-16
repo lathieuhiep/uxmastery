@@ -1,952 +1,868 @@
+#, fuzzy
 msgid ""
 msgstr ""
-"Content-Type: text/plain; charset=utf-8\n"
+"Project-Id-Version: UXMastery\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-16 07:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.0; wp-6.9; php-8.3.16\n"
+"X-Domain: uxmastery"
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid " Previous"
+#: includes/theme-options/contact-options.php:28
+msgid "Avatar"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "&nbsp;"
+#: includes/custom-post-types/cpt-lesson.php:6
+#: includes/custom-post-types/cpt-lesson.php:7
+msgid "Bài học"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "1 Column"
+#: includes/custom-post-types/cpt-lesson.php:11
+msgid "Bài học mới"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "2 Column"
+#: includes/theme-options/blog-options.php:7
+msgid "Bài viết"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "3 Column"
+#: includes/theme-options/blog-options.php:42
+msgid "Bài viết chi tiết"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "4 Column"
+#: template-parts/post/inc-related-post.php:20
+msgid "Bài viết liên quan"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/widgets/recent-post.php:1
-msgid "A widget show post"
+#: includes/widgets/recent-post.php:102
+msgid "Bài viết mới nhất"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/template-parts/footer/inc-copyright.php:35
-#: uxmastery/template-parts/navigation/inc-nav-top.php:47
-msgid "ADD TO MENU"
+#: comments.php:71
+msgid "Bình luận"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/extension/widgets/recent-post.php:187
-msgid "ASC"
+#: includes/theme-functions.php:86
+msgid "Bình luận cũ hơn"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-msgid "About Text"
+#: includes/theme-functions.php:49
+msgid "Bình luận của bạn đang chờ kiểm duyệt."
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-msgid "Alignment Title"
+#: includes/theme-functions.php:90
+msgid "Bình luận mới hơn"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/extension/widgets/recent-post.php:159
-msgid "All Category"
+#: comments.php:52
+msgid "Bình luận đã đóng."
 msgstr ""
 
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "All plugins installed and activated successfully. %1$s"
+#: template-parts/header/header-main.php:67
+msgid "Bạn cần trợ giúp ?"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Arrows"
+#: includes/cpt-options/cmb-course.php:29
+msgid "Chi phí"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Arrows Color"
+#: taxonomy-ux_course_category.php:34
+#: template-parts/single-course/inc-info.php:15
+msgid "Chi phí:"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Arrows Color Hover"
+#: template-parts/parts/inc-social-sharing.php:2
+msgid "Chia sẻ trên"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Arrows Size"
+#: includes/theme-options/footer-options.php:7
+msgid "Chân trang"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Ascending"
+#: includes/theme-options/custom-code-options.php:3
+msgid "Chèn Code"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:638
-msgid "Author:"
+#: includes/theme-options/custom-code-options.php:17
+msgid "Chèn sau body"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Autoplay?"
+#: includes/theme-options/custom-code-options.php:25
+msgid "Chèn vào footer"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/404.php:39
-msgid "Awww...Do Not Cry"
+#: includes/theme-options/custom-code-options.php:9
+msgid "Chèn vào head"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Background"
+#: includes/widgets/social-widget.php:61
+msgid ""
+"Chú ý: Thiệt lập liên kết mạng xã hội trong mục \"Cài đặt theme -> Mạng xã "
+"hội\""
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Background Color"
+#: includes/custom-post-types/cpt-course.php:10
+#: includes/custom-post-types/cpt-lesson.php:10
+#: includes/custom-post-types/cpt-teacher.php:10
+msgid "Chỉnh sửa"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Background Overlay"
+#: includes/custom-post-types/cpt-course.php:36
+#: includes/custom-post-types/cpt-lesson.php:37
+msgid "Chỉnh sửa danh mục"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Border Color"
+#: includes/cpt-options/cmb-course.php:57
+msgid "Chọn bài học"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Border Radius"
+#: includes/cpt-options/cmb-course.php:17
+msgid "Chọn cấp độ của khóa học"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Border Width"
+#: includes/widgets/recent-post.php:133 includes/widgets/recent-service.php:144
+msgid "Chọn danh mục:"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Bottom"
+#: includes/widgets/contact-info-widget.php:109
+msgid "Chọn ảnh"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Button"
+#: includes/theme-options/general-options.php:39
+msgid "Chọn ảnh tải trang"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Button Text"
+#. 1: number of comments, 2: post title
+#: comments.php:19
+#, php-format
+msgctxt "comments title"
+msgid "%1$s trả lời cho &ldquo;%2$s&rdquo;"
+msgid_plural "%1$s trả lời cho &ldquo;%2$s&rdquo;"
+msgstr[0] ""
+msgstr[1] ""
+
+#. %s: post title
+#: comments.php:15
+#, php-format
+msgctxt "comments title"
+msgid "Một câu trả lời cho &ldquo;%s&rdquo;"
+msgstr ""
+
+#: includes/theme-options/footer-options.php:71
+msgid "Copyright"
+msgstr ""
+
+#: includes/theme-options/footer-options.php:90
+msgid "Copyright &copy; DiepLK"
+msgstr ""
+
+#: includes/theme-options/general-options.php:5
+msgid "Cài đặt chung"
+msgstr ""
+
+#: includes/theme-options/footer-options.php:13
+msgid "Cài đặt cột sidebar"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/template-parts/post/content-single.php:47
-msgid "Category: "
+#: includes/theme-options.php:16
+msgid "Cài đặt theme"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Center"
+#: includes/theme-options/blog-options.php:61
+#: includes/theme-options/footer-options.php:78
+#: includes/theme-options/general-options.php:30
+#: includes/theme-options/general-options.php:53
+#: includes/theme-options/menu-options.php:12
+#: includes/theme-options/menu-options.php:24
+msgid "Có"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Click Here"
+#: includes/cpt-options/cmb-course.php:116
+msgid "Cơ bản"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Click edit button to change this text. Lorem ipsum dolor sit amet consectetur adipiscing elit dolor"
+#: includes/theme-options.php:25
+msgid "Cảm ơn bạn đã sử dụng theme của tôi"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Color"
+#: includes/cpt-options/cmb-course.php:16
+msgid "Cấp độ"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Color & Typography"
+#: template-parts/single-course/inc-info.php:10
+msgid "Cấp độ:"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Color Hover"
+#: includes/custom-post-types/cpt-services.php:37
+msgid "Cập nhật Danh mục"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Column"
+#: includes/custom-post-types/cpt-course.php:37
+#: includes/custom-post-types/cpt-lesson.php:38
+msgid "Cập nhật danh mục"
 msgstr ""
 
-#. Text in function
-#: uxmastery/comments.php:94
-#: uxmastery/functions.php:649
-msgid "Comment"
+#: includes/custom-post-types/cpt-course.php:33
+#: includes/custom-post-types/cpt-course.php:40
+#: includes/custom-post-types/cpt-lesson.php:34
+#: includes/custom-post-types/cpt-lesson.php:41
+#: includes/custom-post-types/cpt-services.php:33
+#: includes/custom-post-types/cpt-services.php:40
+#: includes/theme-options/blog-options.php:13
+#: includes/theme-options/course-options.php:13
+msgid "Danh mục"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/functions.php:406
-msgid "Comment navigation"
+#: includes/custom-post-types/cpt-lesson.php:33
+msgid "Danh mục bài học"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:649
-msgid "Comments"
+#: includes/custom-post-types/cpt-services.php:32
+msgid "Danh mục dịch vụ"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/comments.php:89
-msgid "Comments are closed."
+#: includes/custom-post-types/cpt-course.php:32
+msgid "Danh mục khoá học"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Content"
+#. Author of the theme
+msgid "DiepLK"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Content Width"
+#: includes/theme-sidebar.php:26
+msgid "Dùng ở chân trang"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Custom"
+#: includes/custom-post-types/cpt-services.php:5
+#: includes/custom-post-types/cpt-services.php:6
+#: includes/custom-post-types/cpt-services.php:13
+#: includes/custom-post-types/cpt-services.php:17
+msgid "Dịch vụ"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/extension/widgets/recent-post.php:191
-msgid "DESC"
+#: includes/widgets/recent-service.php:113
+msgid "Dịch vụ khác"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-#: uxmastery/extension/widgets/recent-post.php:208
-msgid "Date"
+#: includes/custom-post-types/cpt-services.php:10
+msgid "Dịch vụ mới"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-msgid "Default description"
+#: comments.php:67
+msgid "Email"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Descending"
+#: includes/widgets/contact-info-widget.php:87
+msgid "Email:"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Description"
+#. Name of the template
+#: templates/page-fixed-menu.php:2
+msgid "Fixed Menu Page"
 msgstr ""
 
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "Dismiss this notice"
+#: includes/cpt-options/cmb-course.php:80
+msgid "Giá trị"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "Display footer column 1 on all page."
+#: includes/cpt-options/cmb-course.php:72
+#: template-parts/single-course/collapse/benefits.php:17
+msgid "Giá trị bạn nhận được"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "Display footer column 2 on all page."
+#: includes/cpt-options/cmb-course.php:93
+#: template-parts/single-course/collapse/audience.php:17
+msgid "Giáo trình phù hợp với ai"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "Display footer column 3 on all page."
+#: includes/widgets/recent-post.php:174 includes/widgets/recent-service.php:185
+msgid "Giảm dần"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "Display footer column 4 on all page."
+#: includes/cpt-options/cmb-course.php:40
+#: includes/custom-post-types/cpt-teacher.php:6
+#: includes/custom-post-types/cpt-teacher.php:7
+#: includes/custom-post-types/cpt-teacher.php:16
+msgid "Giảng viên"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "Display sidebar on page shop."
+#: includes/custom-post-types/cpt-teacher.php:11
+msgid "Giảng viên mới"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "Display sidebar right or left on all page."
+#: includes/widgets/contact-info-widget.php:113
+msgid "Gỡ ảnh"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Dots"
+#: includes/theme-options/footer-options.php:21
+msgid "Hide"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Dots Color"
+#: includes/widgets/recent-post.php:15
+msgid "Hiển thị bài viết mới nhất"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Dots Color Hover"
+#: includes/widgets/recent-service.php:11
+msgid "Hiển thị dịch vụ mới nhất"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Dots Size"
+#: includes/widgets/social-widget.php:15
+msgid "Hiển thị mạng xã hội"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Dots Slider"
+#: includes/widgets/contact-info-widget.php:9
+msgid "Hiển thị thông tin liên hệ"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:343
-msgid "Edit "
+#: includes/theme-options/general-options.php:52
+msgid "Hiện nút quay về đầu trang"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Excerpt Alignment"
+#: includes/theme-options/blog-options.php:60
+msgid "Hiện thị bài viết liên quan"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Excerpt Post"
+#: includes/theme-options/footer-options.php:77
+msgid "Hiện thị copyright"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Excerpt Words"
+#: includes/theme-options/menu-options.php:22
+msgid "Hiện thị liên hệ"
 msgstr ""
 
-#. Text in function
-#: uxmastery/comments.php:94
-msgid "Full Name"
+#: includes/theme-options/general-options.php:29
+msgid "Hiện tải trang"
 msgstr ""
 
-#. Text in function
-#: uxmastery/404.php:55
-#: uxmastery/404.php:56
-msgid "Go to the Home Page"
+#. URI of the theme
+msgid "https://uxui.vn/"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Height"
+#. Author URI of the theme
+msgid "https://www.facebook.com/lathieuhiep"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-msgid "Hide Line"
+#: comments.php:66
+msgid "Họ và tên"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Horizontal Position"
+#: template-parts/header/header-main.php:71
+msgid "Hỏi chuyên gia ngay"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Hover"
+#: includes/theme-options/social-network-options.php:31
+msgid "Icon tùy chỉnh (ảnh)"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/extension/widgets/recent-post.php:204
+#: includes/widgets/recent-post.php:188 includes/widgets/recent-service.php:199
 msgid "ID"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-msgid "Icon"
+#: template-parts/post/content-no-data.php:24
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Image"
+#: includes/custom-post-types/cpt-course.php:6
+#: includes/custom-post-types/cpt-course.php:7
+msgid "Khoá học"
 msgstr ""
 
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "Install Plugins"
+#: includes/custom-post-types/cpt-course.php:11
+msgid "Khoá học mới"
 msgstr ""
 
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "Install Required Plugins"
+#: includes/theme-options/course-options.php:7
+msgid "Khóa học"
 msgstr ""
 
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "Installing Plugin: %s"
+#: includes/theme-options/blog-options.php:62
+#: includes/theme-options/footer-options.php:79
+#: includes/theme-options/general-options.php:31
+#: includes/theme-options/general-options.php:54
+#: includes/theme-options/menu-options.php:13
+#: includes/theme-options/menu-options.php:25
+msgid "Không"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/404.php:45
-msgid "It is just a 404 Error!"
+#: includes/custom-post-types/cpt-lesson.php:15
+msgid "Không có bài học nào trong thùng rác."
 msgstr ""
 
-#. Text in echo
-#: uxmastery/template-parts/search/content-search-no-data.php:25
-msgid "It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help."
+#: includes/custom-post-types/cpt-teacher.php:15
+msgid "Không có giảng viên nào trong thùng rác."
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Justified"
+#: includes/custom-post-types/cpt-course.php:15
+msgid "Không có khoá học nào trong thùng rác."
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Layout Settings"
+#: taxonomy-ux_course_category.php:78
+msgid "Không có khóa học nào trong chuyên mục này."
 msgstr ""
 
-#. Text in function
-#: uxmastery/comments.php:94
-msgid "Leave a comment"
+#: includes/custom-post-types/cpt-lesson.php:14
+msgid "Không tìm thấy bài học nào."
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Left"
+#: includes/custom-post-types/cpt-teacher.php:14
+msgid "Không tìm thấy giảng viên nào."
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Link"
+#: includes/custom-post-types/cpt-course.php:14
+msgid "Không tìm thấy khoá học nào."
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Loop Slider ?"
+#: includes/cpt-options/cmb-course.php:126
+msgid "Không xác định"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-msgid "Margin Bottom Line"
+#: includes/widgets/contact-info-widget.php:118
+msgid "Kích thước ảnh:"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-msgid "Margin Item Desktop"
+#: searchform.php:5
+msgctxt "label"
+msgid "Tìm kiếm:"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-msgid "Margin Item Mobile"
+#: includes/theme-options/helper-options.php:43
+msgid "lg: ≥992px"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Middle"
+#: includes/theme-options/contact-options.php:13
+msgid "Link quét lấy mã:"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-msgid "Nav Slider"
+#: includes/theme-options/contact-options.php:4
+msgid "Liên hệ"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Navigation"
+#: taxonomy-ux_course_category.php:59
+msgid "Liên hệ mua"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:410
-msgid "Newer Comments"
+#: template-parts/single-course/inc-info.php:50
+msgid "Liên hệ mua ngay"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "Next"
+#: includes/theme-options/general-options.php:12
+msgid "Logo sáng"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "No"
+#: includes/theme-options/general-options.php:20
+msgid "Logo tối"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/template-parts/search/content-search-no-data.php:3
+#: includes/theme-options/helper-options.php:34
+msgid "md: ≥768px"
+msgstr ""
+
+#: includes/theme-options/menu-options.php:4
+msgid "Menu"
+msgstr ""
+
+#: includes/theme-options/menu-options.php:11
+msgid "Menu cố định"
+msgstr ""
+
+#: includes/theme-options/social-network-options.php:6
+#: includes/theme-options/social-network-options.php:12
+#: includes/widgets/social-widget.php:46
+msgid "Mạng xã hội"
+msgstr ""
+
+#: includes/widgets/recent-post.php:192 includes/widgets/recent-service.php:203
+msgid "Ngày"
+msgstr ""
+
+#: template-parts/single-course/inc-info.php:24
+msgid "Người hướng dẫn:"
+msgstr ""
+
+#: includes/widgets/recent-post.php:200 includes/widgets/recent-service.php:211
+msgid "Ngẫu nhiên"
+msgstr ""
+
+#: template-parts/post/content-no-data.php:3
 msgid "No Data"
 msgstr ""
 
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "No action taken. Plugin %1$s was already active."
+#: includes/theme-options/footer-options.php:19
+msgid "Number of footer columns"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Normal"
+#: includes/cpt-options/cmb-course.php:117
+msgid "Nâng cao"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/extension/widgets/social-widget.php:75
-msgid "Note: Set your social links in the uxmastery Options"
+#: includes/theme-options/footer-options.php:88
+#: template-parts/single-course/collapse/lessons.php:46
+msgid "Nội dung"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-msgid "Number of Item Desktop"
+#: includes/cpt-options/cmb-course.php:49
+#: template-parts/single-course/collapse/lessons.php:24
+msgid "Nội dung giáo trình"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-msgid "Number of Item Mobile"
+#. Name of the template
+#: templates/page-clean.php:2
+msgid "Page Clean"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-msgid "Number of Item Tablet"
+#: includes/theme-options/blog-options.php:24
+#: includes/theme-options/blog-options.php:51
+msgid "Phải"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Number of Posts"
+#: searchform.php:8
+msgctxt "placeholder"
+msgid "Tìm kiếm &hellip;"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/extension/widgets/recent-post.php:224
-msgid "Number of posts to show:"
+#: includes/theme-setup.php:39
+msgid "Primary Menu"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:410
-msgid "Older Comments"
+#: template-parts/post/content-single.php:14
+msgid "Quay lại"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Order"
+#: template-parts/post/content-no-data.php:10
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Order By"
+#: includes/theme-sidebar.php:24
+msgid "Sidebar chân trang cột %d"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/extension/widgets/recent-post.php:199
-msgid "Order:"
+#: includes/theme-sidebar.php:17
+msgid "Sidebar chính"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Padding"
+#: includes/theme-sidebar.php:18
+msgid "Sidebar dịch vụ"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "Pages:"
+#: includes/theme-sidebar.php:31
+msgid "Sidebar footer full"
 msgstr ""
 
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "Please contact the administrator of this site for help."
+#: includes/theme-options/helper-options.php:25
+msgid "sm: ≥576px"
 msgstr ""
 
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "Plugin activated successfully."
+#: template-parts/post/content-no-data.php:16
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
 msgstr ""
 
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin."
+#: searchform.php:12
+msgctxt "submit button"
+msgid "Tìm kiếm"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Post Author"
+#: includes/widgets/recent-post.php:182 includes/widgets/recent-service.php:193
+msgid "Sắp xếp theo:"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Post ID"
+#: includes/widgets/recent-post.php:164 includes/widgets/recent-service.php:175
+msgid "Sắp xếp:"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/functions.php:645
-msgid "Post date: "
+#: includes/theme-options/blog-options.php:33
+#: includes/theme-options/course-options.php:20
+msgid "Số bài viết trên mỗi hàng"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-msgid "Posts Carousel"
+#: includes/widgets/recent-post.php:208 includes/widgets/recent-service.php:219
+msgid "Số lượng bài viết hiển thị:"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Posts Grid"
+#: includes/theme-options/blog-options.php:71
+msgid "Số lượng bài viết liên quan"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "Previous"
+#: includes/theme-options/contact-options.php:20
+msgid "Số điện thoại"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Query"
+#: includes/widgets/contact-info-widget.php:88
+msgid "Số điện thoại:"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/extension/widgets/recent-post.php:216
-msgid "Rand"
+#: includes/theme-options/blog-options.php:14
+msgid "Sử dụng cho các trang archive, index, tìm kiếm"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Random"
+#: includes/theme-options/course-options.php:14
+msgid "Sử dụng cho trang danh mục khóa học"
 msgstr ""
 
-#. Text in function
-#: uxmastery/template-parts/archive/content-archive-info.php:32
-msgid "Read more"
+#: includes/theme-options/menu-options.php:23
+msgid "Sử dụng contact form 7"
 msgstr ""
 
-#. Text in function
-#: uxmastery/template-parts/search/content-search-no-data.php:11
-msgid "Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+#: includes/cpt-options/cmb-course.php:62
+msgid ""
+"Sử dụng thì số lượng và sắp xếp sẽ nhận theo trường này. Nhập tên để tìm "
+"kiếm."
 msgstr ""
 
-#. Text in echo
-#: uxmastery/template-parts/post/inc-related-post.php:27
-msgid "Related Post"
+#: includes/theme-options/general-options.php:41
+#, php-format
+msgid "Sử dụng ảnh .git %s"
 msgstr ""
 
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "Return to Required Plugins Installer"
+#: includes/theme-functions.php:58
+msgid "Sửa "
 msgstr ""
 
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "Return to the Dashboard"
+#: includes/custom-post-types/cpt-services.php:36
+msgid "Sửa Danh mục"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Right"
+#: includes/custom-post-types/cpt-services.php:9
+msgid "Sửa dịch vụ"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/extension/widgets/recent-post.php:153
-msgid "Select Categories:"
+#: includes/custom-post-types/cpt-services.php:7
+msgid "Thêm"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Select Category"
+#: includes/custom-post-types/cpt-lesson.php:8
+msgid "Thêm bài học"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/extension/elementor/controls/box-icon.php:49
-#: uxmastery/extension/elementor/controls/box-icon.php:50
-msgid "Select Icon"
+#: includes/custom-post-types/cpt-services.php:38
+msgid "Thêm Danh mục mới"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Set custom style that will only affect this specific slide."
+#: includes/custom-post-types/cpt-course.php:38
+#: includes/custom-post-types/cpt-lesson.php:39
+msgid "Thêm danh mục mới"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/functions.php:668
-msgid "Share this post:"
+#: includes/custom-post-types/cpt-services.php:8
+msgid "Thêm dịch vụ"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Show excerpt"
+#: includes/cpt-options/cmb-course.php:86
+msgid "Thêm giá trị khác"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "Sidebar Footer Multi Column 1"
+#: includes/custom-post-types/cpt-teacher.php:8
+msgid "Thêm giảng viên"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "Sidebar Footer Multi Column 2"
+#: includes/custom-post-types/cpt-course.php:9
+msgid "Thêm khóa học"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "Sidebar Footer Multi Column 3"
+#: template-parts/header/header-main.php:53
+msgid "Thêm Menu"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "Sidebar Footer Multi Column 4"
+#: includes/custom-post-types/cpt-course.php:8
+#: includes/custom-post-types/cpt-lesson.php:9
+#: includes/custom-post-types/cpt-teacher.php:9
+msgid "Thêm mới"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "Sidebar Main"
+#: includes/cpt-options/cmb-course.php:107
+msgid "Thêm đối tượng"
 msgstr ""
 
-#. Text in function
-#: uxmastery/functions.php:716
-msgid "Sidebar Woocommerce"
+#: includes/cpt-options/cmb-course.php:8
+msgid "Thông tin cơ bản"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Slide Heading"
+#: includes/widgets/contact-info-widget.php:70
+msgid "Thông tin liên hệ"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Slider 1 Heading"
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Slider 2 Heading"
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Slider Options"
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Slides"
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Slides Theme"
-msgstr ""
-
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "Something went wrong with the plugin API."
-msgstr ""
-
-#. Text in echo
-#: uxmastery/template-parts/search/content-search-no-data.php:17
-msgid "Sorry, but nothing matched your search terms. Please try again with some different keywords."
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Spacing"
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Style"
-msgstr ""
-
-#. Text in echo
-#: uxmastery/template-parts/post/content-single.php:47
-msgid "Tag: "
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-msgid "Text"
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Text Align"
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Text Color"
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-msgid "Text Editor"
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-msgid "Text Editor Color"
-msgstr ""
-
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "The following plugin was activated successfully:"
-msgstr ""
-
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "There are one or more required or recommended plugins to install, update or activate."
-msgstr ""
-
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "This plugin needs to be updated to be compatible with your theme."
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-#: uxmastery/extension/elementor/widgets/slides.php:1
-#: uxmastery/extension/widgets/recent-post.php:212
-msgid "Title"
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Title & Description"
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-msgid "Title About Text"
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Title Alignment"
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-msgid "Title Color"
-msgstr ""
-
-#. Text in function
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-msgid "Title Post"
-msgstr ""
-
-#. Text in echo
-#: uxmastery/extension/widgets/recent-post.php:144
-#: uxmastery/extension/widgets/social-widget.php:68
+#: includes/widgets/contact-info-widget.php:85
 msgid "Title:"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Top"
+#: includes/widgets/recent-post.php:196 includes/widgets/recent-service.php:207
+msgid "Tiêu đề"
 msgstr ""
 
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "Update Required"
+#: includes/widgets/recent-post.php:123 includes/widgets/recent-service.php:134
+#: includes/widgets/social-widget.php:54
+msgid "Tiêu đề:"
 msgstr ""
 
-#. Text in function
-#: uxmastery/plugins/class-tgm-plugin-activation.php:1
-msgid "Updating Plugin: %s"
+#: 404.php:9
+msgid ""
+"Trang bạn đang tìm kiếm có thể đã bị xóa do đã thay đổi tên hoặc tạm thời "
+"không khả dụng."
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Vertical Position"
+#: 404.php:13
+msgid "Trang chủ"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/extension/woocommerce/woo-template-functions.php:57
-msgid "View your shopping cart"
+#: includes/theme-functions.php:157
+msgid "Trang:"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/404.php:47
-msgid "What you are looking for may have been misplaced"
+#: includes/theme-options/blog-options.php:23
+#: includes/theme-options/blog-options.php:50
+msgid "Trái"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/about-text.php:1
-#: uxmastery/extension/elementor/widgets/post-carousel.php:1
-#: uxmastery/extension/elementor/widgets/post-grid.php:1
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "Yes"
+#: includes/custom-post-types/cpt-services.php:39
+msgid "Tên Danh mục mới"
 msgstr ""
 
-#. Text in function
-#: uxmastery/comments.php:94
-msgid "Your Email"
+#: includes/custom-post-types/cpt-course.php:39
+#: includes/custom-post-types/cpt-lesson.php:40
+msgid "Tên danh mục mới"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/functions.php:330
-msgid "Your comment is awaiting moderation."
+#: includes/theme-options/social-network-options.php:18
+msgid "Tên hiển thị"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "https://your-link.com"
+#: includes/custom-post-types/cpt-services.php:34
+msgid "Tìm Danh mục"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/404.php:49
-msgid "in Long Term Memory."
+#: includes/custom-post-types/cpt-course.php:34
+#: includes/custom-post-types/cpt-lesson.php:35
+msgid "Tìm danh mục"
 msgstr ""
 
-#. Text in echo
-#: uxmastery/template-parts/inc-loading.php:16
-#: uxmastery/template-parts/inc-loading.php:20
-msgid "loading..."
+#: includes/custom-post-types/cpt-course.php:13
+#: includes/custom-post-types/cpt-lesson.php:13
+#: includes/custom-post-types/cpt-teacher.php:13
+msgid "Tìm kiếm"
 msgstr ""
 
-#. Text in function
-#: uxmastery/extension/elementor/widgets/slides.php:1
-msgid "nav Slider"
+#: includes/custom-post-types/cpt-services.php:12
+msgid "Tìm kiếm dịch vụ"
+msgstr ""
+
+#: includes/widgets/recent-post.php:170 includes/widgets/recent-service.php:181
+msgid "Tăng dần"
+msgstr ""
+
+#: includes/widgets/recent-post.php:141 includes/widgets/recent-service.php:152
+msgid "Tất cả"
+msgstr ""
+
+#: includes/custom-post-types/cpt-services.php:35
+msgid "Tất cả Danh mục"
+msgstr ""
+
+#: includes/custom-post-types/cpt-course.php:35
+#: includes/custom-post-types/cpt-lesson.php:36
+#: includes/custom-post-types/helpers.php:21
+msgid "Tất cả danh mục"
+msgstr ""
+
+#: includes/theme-options/social-network-options.php:24
+msgid "URL liên kết"
+msgstr ""
+
+#. Name of the theme
+msgid "UXMastery"
+msgstr ""
+
+#. Description of the theme
+msgid "UXMastery Theme"
+msgstr ""
+
+#: includes/theme-options/blog-options.php:20
+#: includes/theme-options/blog-options.php:47
+msgid "Vị trí sidebar"
+msgstr ""
+
+#: includes/custom-post-types/cpt-course.php:12
+#: includes/custom-post-types/cpt-lesson.php:12
+#: includes/custom-post-types/cpt-teacher.php:12
+msgid "Xem"
+msgstr ""
+
+#: taxonomy-ux_course_category.php:65
+msgid "Xem chi tiết"
+msgstr ""
+
+#: includes/custom-post-types/cpt-services.php:11
+msgid "Xem dịch vụ"
+msgstr ""
+
+#: includes/theme-options/helper-options.php:52
+msgid "xl: ≥1200px"
+msgstr ""
+
+#: includes/theme-options/contact-options.php:11
+msgid "ZaLo"
+msgstr ""
+
+#: template-parts/parts/loading.php:9 template-parts/parts/loading.php:11
+msgid "Đang tải..."
+msgstr ""
+
+#: includes/theme-functions.php:81
+msgid "Điều hướng bình luận"
+msgstr ""
+
+#: comments.php:62
+msgid "Để lại bình luận"
+msgstr ""
+
+#: includes/widgets/contact-info-widget.php:86
+msgid "Địa chỉ:"
+msgstr ""
+
+#: template-parts/post/content-archive.php:47
+msgid "Đọc thêm"
+msgstr ""
+
+#: includes/cpt-options/cmb-course.php:101
+msgid "Đối tượng"
+msgstr ""
+
+#: includes/theme-options/footer-options.php:34
+msgid "Độ rộng cột 1"
+msgstr ""
+
+#: includes/theme-options/footer-options.php:43
+msgid "Độ rộng cột 2"
+msgstr ""
+
+#: includes/theme-options/footer-options.php:52
+msgid "Độ rộng cột 3"
+msgstr ""
+
+#: includes/theme-options/footer-options.php:61
+msgid "Độ rộng cột 4"
+msgstr ""
+
+#: includes/widgets/contact-info-widget.php:99
+msgid "Ảnh đại diện:"
+msgstr ""
+
+#: includes/theme-options/blog-options.php:22
+#: includes/theme-options/blog-options.php:49
+msgid "Ẩn"
+msgstr ""
+
+#: includes/cpt-options/cmb-course.php:43
+msgid "— Chọn giáo viên —"
 msgstr ""
